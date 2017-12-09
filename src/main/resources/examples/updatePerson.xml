@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<docUpdatePersonIn xmlns="http://www.gamma.kz/webra/xsd">
+    <personId>445</personId>
+     <person>
+        <lastName>Карабутова</lastName>
+        <firstName>Антонина</firstName>
+        <middleName>Петровна</middleName>
+        <roleId>4</roleId>
+        <birthDate>30.04.1990</birthDate>
+        <idNumber>3658558</idNumber>
+        <idIssuer>1</idIssuer>
+        <idIssueDate>12.12.2012</idIssueDate>
+        <iin>870430300986</iin>
+        <st>Алматинская область</st>
+        <l>Алматы</l>
+        <phone>111</phone>
+        <mobile>111</mobile>
+        <email>name@host.com</email>
+        <address>Адрес</address>
+        <legalData>
+            <orgName>Щербатый желуд</orgName>
+            <certificate>345</certificate>
+            <certificateIssuer>МЮ РК</certificateIssuer>
+            <certificateIssueDate>10.11.2000</certificateIssueDate>
+            <directorSirname>Колган Зимский</directorSirname>
+            <directorPosition>Директор</directorPosition>
+            <noResident>false</noResident>
+            <country>KZ</country>
+            <bin>100460000102</bin>
+            <vatin>141234</vatin>
+            <iin>111111111110</iin>
+            <phone></phone>
+            <address>Юридический адрес</address>
+        </legalData>
+        <noResident>false</noResident>
+        <citizenship>KZ</citizenship>
+        <ip>false</ip>
+        <bik></bik>
+        <account></account>
+        <isCUser>false</isCUser>
+        <generatePass>false</generatePass>
+        <requestCertEmail>false</requestCertEmail>
+    </person>
+</docUpdatePersonIn>

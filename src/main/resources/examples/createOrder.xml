@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<docCreateOrderIn xmlns="http://www.gamma.kz/webra/xsd">
+	<clientId>335</clientId>
+	<fxOrderDetails>
+		<dn>C=KZ, O=GAMMA, CN=One WS, UID=111111111110</dn>
+		<tariffId>38</tariffId>
+		<claimCount>1</claimCount>
+	</fxOrderDetails>
+</docCreateOrderIn>
