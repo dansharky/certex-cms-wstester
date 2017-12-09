@@ -22,11 +22,11 @@ public class Args {
     @Parameter(names = "-xsd", description = "path to xsd")
     private String xsdFilePath;
 
-    @Parameter(names = "-pfx", description = "path to pfxFile")
-    private String pfxFilePath;
+    @Parameter(names = "-profile", description = "profile name")
+    private String profile;
 
     @Parameter(names = "-pass", description = "pass to pfx")
-    private String pfxPass;
+    private String pass;
 
     public String getMethod() {
         return method;
@@ -44,11 +44,11 @@ public class Args {
         return xsdFilePath;
     }
 
-    public String getPfxFilePath() {
-        return pfxFilePath;
+    public String getProfile() {
+        return profile;
     }
 
-    public String getPfxPass() {
-        return pfxPass;
+    public String getPass() {
+        return pass;
     }
 }

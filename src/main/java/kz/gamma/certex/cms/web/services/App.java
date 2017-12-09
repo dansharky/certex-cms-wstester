@@ -78,12 +78,12 @@ public class App {
             System.out.println("       path to xsd file");
         }
 
-        if (arguments.getPfxFilePath() == null) {
-            System.out.println("-pfx");
-            System.out.println("       path to pfx file");
+        if (arguments.getProfile() == null) {
+            System.out.println("-profile");
+            System.out.println("       profile name");
         }
 
-        if (arguments.getPfxPass() == null) {
+        if (arguments.getPass() == null) {
             System.out.println("-pass");
             System.out.println("       pass");
         }
@@ -92,8 +92,8 @@ public class App {
                 && arguments.getInputFilePath() != null && !arguments.getInputFilePath().isEmpty()
                 && arguments.getWsdlUrl() != null && !arguments.getWsdlUrl().isEmpty()
                 && arguments.getXsdFilePath() != null && !arguments.getXsdFilePath().isEmpty()
-                && arguments.getPfxFilePath() != null && !arguments.getPfxFilePath().isEmpty()
-                && arguments.getPfxPass() != null && !arguments.getPfxPass().isEmpty()) {
+                && arguments.getProfile() != null && !arguments.getProfile().isEmpty()
+                && arguments.getPass() != null && !arguments.getPass().isEmpty()) {
 
             PkiDocument docIn = null;
             try {
@@ -103,7 +103,7 @@ public class App {
                 docIn = (PkiDocument) XMLProcessor.unmarshal(bytes, true, encoding, new File(arguments.getXsdFilePath()));
                 docIn = MessageResolver.getDoc(docIn, arguments.getMethod());
                 RequestPkiService request = createPkiRequest(arguments.getMethod(), encoding);
-                request.setPkcs7(objectToPkcs7(docIn, new ClientKeyStoreProvider(arguments.getPfxFilePath(), arguments.getPfxPass()), encoding));
+                request.setPkcs7(objectToPkcs7(docIn, new ClientKeyStoreProvider(arguments.getProfile(), arguments.getPass()), encoding));
                 ResponsePkiService response = ws.webraWS.pkiService(request);
                 Object out = null;
                 if (response.getPkcs7() != null) {

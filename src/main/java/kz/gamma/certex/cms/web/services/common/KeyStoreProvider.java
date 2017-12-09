@@ -16,7 +16,7 @@ public abstract class KeyStoreProvider {
     private KeyStore store;
     private String password;
 
-    public KeyStoreProvider(String fileName, String password) throws Exception {
+    public KeyStoreProvider(String profileName, String password) throws Exception {
 
         Security.addProvider(new GammaTechProvider());
 
@@ -26,13 +26,14 @@ public abstract class KeyStoreProvider {
 
 /*        ClassLoader classLoader = getClass().getClassLoader();
         File file = new File(classLoader.getResource(fileName).getFile());*/
-        File file = new File(fileName);
+/*        File file = new File(fileName);
 
         String fileKeyName = file.getName();
-        fileKeyName = fileKeyName.substring(0, fileKeyName.length() - 4);
-        if (file.exists()) {
-            store.load(new ByteArrayInputStream(fileKeyName.getBytes()), passwd);
-        }
+        fileKeyName = fileKeyName.substring(0, fileKeyName.length() - 4);*/
+/*        if (file.exists()) {
+
+        }*/
+        store.load(new ByteArrayInputStream(profileName.getBytes()), passwd);
     }
 
     public KeyStore getStore() {
