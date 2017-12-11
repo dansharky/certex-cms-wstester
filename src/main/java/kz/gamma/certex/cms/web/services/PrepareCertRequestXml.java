@@ -1,9 +1,12 @@
+package kz.gamma.certex.cms.web.services;
+
+import com.beust.jcommander.JCommander;
+import com.beust.jcommander.Parameter;
 import kz.gamma.asn1.*;
 import kz.gamma.asn1.pkcs.PKCSObjectIdentifiers;
 import kz.gamma.asn1.x509.Attribute;
 import kz.gamma.asn1.x509.X509Extensions;
 import kz.gamma.asn1.x509.X509Name;
-import kz.gamma.certex.cms.web.services.App;
 import kz.gamma.certex.cms.web.services.client.ClientKeyStoreProvider;
 import kz.gamma.certex.cms.web.services.common.CryptoProcessor;
 import kz.gamma.core.utils.EndiannessUtils;
@@ -13,7 +16,6 @@ import kz.gamma.jce.provider.JDKKeyPairGenerator;
 import kz.gamma.util.encoders.Base64;
 import org.junit.Assert;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.ByteOrder;
 import java.security.*;
@@ -43,40 +45,55 @@ public class PrepareCertRequestXml {
             "\t\t</bodySigned>\n" +
             "\t</fxRequestDetails>\n" +
             "</request>\n" +
-            "</docRequestCertIn>"
+            "</docRequestCertIn>";
+
+    private static class Args {
+        @Parameter(names = "-method", description = "web service method name")
+        private String method;
+
+
+    }
 
     public static void main(String[] args) throws Exception {
         Security.addProvider(new GammaTechProvider());
+
+
+        JCommander.newBuilder()
+                .addObject(arguments)
+                .build()
+                .parse(args);
+
+
+
         String genProfile = "profile://eToken";
         String genPass = "123456";
         String signProfile = "officer_gost";
         String signPass = "1";
         String dn = "C=KZ, O=Ausie Corp., CN=Nicol Kidman, UID=111111111110";
         String temlate = "C=KZ, O=Template, CN=GOST_USER_SIGN_14D";
+        long tarrifId = 4;
+        long detailId = 0;
 
-        makeNewGOSTCert(genProfile, genPass, dn, temlate, signProfile, signPass);
+        generateXml(genProfile, genPass, dn, temlate, signProfile,
+                signPass, tarrifId, detailId);
     }
 
-    private static void makeNewGOSTCert(String genProfile, String genPass,
-                                        String dn, String template,
-                                        String signProfile, String signPass) throws Exception {
+    private static void generateXml(String genProfile, String genPass,
+                                    String dn, String template,
+                                    String signProfile, String signPass,
+                                    long tariffId, long detailId) throws Exception {
 
         KeyPair keyPair = generateGOSTKeyPair(genProfile, genPass);
         PKCS10CertificationRequest req = makeGOSTpkcs10Request(dn, keyPair, template);
 
-//        System.out.println("PKCS10:");
-//        String body = new String(Base64.encode(req.getDEREncoded()));
-//        System.out.println(body);
         Assert.assertTrue(req.verify());
 
-        System.out.println();
-//        System.out.println("PKCS10 signed:");
         byte[] pkcs7Signed = signPKCS10WithDefProfile(req, signProfile, signPass);
         String sign = new String(Base64.encode(pkcs7Signed));
         System.out.println(XML
                 .replace("%dn%", dn)
-                .replace("%tariffId%", "4")
-                .replace("%detailId%", "0")
+                .replace("%tariffId%", Long.toString(tariffId))
+                .replace("%detailId%", Long.toString(detailId))
                 .replace("%body%", sign)
         );
     }
