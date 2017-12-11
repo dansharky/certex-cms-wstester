@@ -58,8 +58,8 @@ public class App {
 
         if (arguments.getMethod() == null) {
             System.out.println("-method");
-            for (int i = 0; i < methods.length; i++) {
-                System.out.println("       " + methods[i]);
+            for (String method : methods) {
+                System.out.println("       " + method);
             }
         }
 
@@ -95,7 +95,7 @@ public class App {
                 && arguments.getProfile() != null && !arguments.getProfile().isEmpty()
                 && arguments.getPass() != null && !arguments.getPass().isEmpty()) {
 
-            PkiDocument docIn = null;
+            PkiDocument docIn;
             try {
                 WebServiceClient ws = new WebServiceClient(arguments.getWsdlUrl());
                 String encoding = "UTF-8";
@@ -103,9 +103,11 @@ public class App {
                 docIn = (PkiDocument) XMLProcessor.unmarshal(bytes, true, encoding, new File(arguments.getXsdFilePath()));
                 docIn = MessageResolver.getDoc(docIn, arguments.getMethod());
                 RequestPkiService request = createPkiRequest(arguments.getMethod(), encoding);
-                request.setPkcs7(objectToPkcs7(docIn, new ClientKeyStoreProvider(arguments.getProfile(), arguments.getPass()), encoding));
+                ClientKeyStoreProvider ksp = new ClientKeyStoreProvider(arguments.getProfile(), arguments.getPass());
+                byte[] pkcs7Bytes = objectToPkcs7(docIn, ksp, encoding);
+                request.setPkcs7(pkcs7Bytes);
                 ResponsePkiService response = ws.webraWS.pkiService(request);
-                Object out = null;
+                Object out;
                 if (response.getPkcs7() != null) {
                     out = pkcs7ToObject(response.getPkcs7(), true, encoding, new File(arguments.getXsdFilePath()));
                 } else {
@@ -227,4 +229,6 @@ public class App {
 
         return document;
     }
+
+
 }
