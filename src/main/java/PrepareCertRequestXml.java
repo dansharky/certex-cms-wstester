@@ -20,7 +20,7 @@ import java.security.*;
 import java.util.Hashtable;
 import java.util.Vector;
 
-public class TestHelper {
+public class PrepareCertRequestXml {
 
     private static final String ECGOST34310 = "ECGOST34310";
     private static final String GAMMA = "GAMMA";
@@ -29,16 +29,29 @@ public class TestHelper {
     private static final String UNICODE = "Unicode";
     private static final EndiannessUtils endiannessUtils = new EndiannessUtils();
 
+    private static final String XML = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n" +
+            "<docRequestCertIn xmlns=\"http://www.gamma.kz/webra/xsd\"><request>\n" +
+            "\t<DN>%dn%</DN>\n" +
+            "\t<tariffId>%tariffId%</tariffId>\n" +
+            "\t<status>novel</status>\n" +
+            "\t<orderDetailId>%detailId%</orderDetailId>\n" +
+            "\t<type>initialization</type>\n" +
+            "\t<cause>cert request test</cause>\n" +
+            "\t<comment>cert request test</comment>\n" +
+            "\t<fxRequestDetails>\n" +
+            "\t\t<bodySigned>%body%\n" +
+            "\t\t</bodySigned>\n" +
+            "\t</fxRequestDetails>\n" +
+            "</request>\n" +
+            "</docRequestCertIn>"
+
     public static void main(String[] args) throws Exception {
         Security.addProvider(new GammaTechProvider());
         String genProfile = "profile://eToken";
         String genPass = "123456";
         String signProfile = "officer_gost";
         String signPass = "1";
-
-//        String dn = "C=KZ, O=Real Madrid, CN=Butragenho Emilio, UID=RNN203748927348, E=wreg_trunk@gt.kz";
         String dn = "C=KZ, O=Ausie Corp., CN=Nicol Kidman, UID=111111111110";
-
         String temlate = "C=KZ, O=Template, CN=GOST_USER_SIGN_14D";
 
         makeNewGOSTCert(genProfile, genPass, dn, temlate, signProfile, signPass);
@@ -60,7 +73,12 @@ public class TestHelper {
 //        System.out.println("PKCS10 signed:");
         byte[] pkcs7Signed = signPKCS10WithDefProfile(req, signProfile, signPass);
         String sign = new String(Base64.encode(pkcs7Signed));
-        System.out.println(sign);
+        System.out.println(XML
+                .replace("%dn%", dn)
+                .replace("%tariffId%", "4")
+                .replace("%detailId%", "0")
+                .replace("%body%", sign)
+        );
     }
 
     private static KeyPair generateGOSTKeyPair(String profile, String pass) throws Exception {
