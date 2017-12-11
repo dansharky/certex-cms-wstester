@@ -119,7 +119,7 @@ public class App {
                 byte[] bom = new byte[]{(byte) 0xEF, (byte) 0xBB, (byte) 0xBF};
                 fw.write(new String(bom));
 
-                Document xmlDoc = null;
+                Document xmlDoc;
                 String formattedXML = "";
                 try {
                     xmlDoc = toXmlDocument(result);
