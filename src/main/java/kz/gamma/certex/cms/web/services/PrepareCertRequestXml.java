@@ -27,8 +27,7 @@ public class PrepareCertRequestXml {
     private static final String ECGOST34310 = "ECGOST34310";
     private static final String GAMMA = "GAMMA";
     private static final String GOST_ALG = "1.3.6.1.4.1.6801.1.5.8";
-    private static final String CP_1251 = "Cp1251";
-    private static final String UNICODE = "Unicode";
+
     private static final EndiannessUtils endiannessUtils = new EndiannessUtils();
 
     private static final String XML = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n" +
@@ -48,40 +47,60 @@ public class PrepareCertRequestXml {
             "</docRequestCertIn>";
 
     private static class Args {
-        @Parameter(names = "-method", description = "web service method name")
-        private String method;
+        @Parameter(names = "-dn", description = "DN name")
+        String dn;
 
+        @Parameter(names = "-template", description = "Template")
+        String template;
+
+        @Parameter(names = "-gen-profile", description = "Profile")
+        String genProfile;
+
+        @Parameter(names = "-gen-pass", description = "Pass")
+        String genPass;
+
+        @Parameter(names = "-sign-profile", description = "Profile")
+        String signProfile;
+
+        @Parameter(names = "-sign-pass", description = "Pass")
+        String signPass;
+
+        @Parameter(names = "-tariff-id", description = "Tariff Id")
+        Long tariffId;
+
+        @Parameter(names = "-detail-id", description = "Detail Id")
+        Long detailId;
 
     }
+
 
     public static void main(String[] args) throws Exception {
         Security.addProvider(new GammaTechProvider());
 
-
+        Args as = new Args();
         JCommander.newBuilder()
-                .addObject(arguments)
+                .addObject(as)
                 .build()
                 .parse(args);
 
+        if (as.dn != null &&
+                as.genProfile != null &&
+                as.genPass != null &&
+                as.signProfile != null &&
+                as.signPass != null &&
+                as.tariffId != null &&
+                as.detailId != null) {
 
-
-        String genProfile = "profile://eToken";
-        String genPass = "123456";
-        String signProfile = "officer_gost";
-        String signPass = "1";
-        String dn = "C=KZ, O=Ausie Corp., CN=Nicol Kidman, UID=111111111110";
-        String temlate = "C=KZ, O=Template, CN=GOST_USER_SIGN_14D";
-        long tarrifId = 4;
-        long detailId = 0;
-
-        generateXml(genProfile, genPass, dn, temlate, signProfile,
-                signPass, tarrifId, detailId);
+            generateXml(as.genProfile, as.genPass, as.dn, as.template, as.signProfile,
+                as.signPass, as.tariffId, as.detailId);
+        }
     }
+
 
     private static void generateXml(String genProfile, String genPass,
                                     String dn, String template,
                                     String signProfile, String signPass,
-                                    long tariffId, long detailId) throws Exception {
+                                    Long tariffId, Long detailId) throws Exception {
 
         KeyPair keyPair = generateGOSTKeyPair(genProfile, genPass);
         PKCS10CertificationRequest req = makeGOSTpkcs10Request(dn, keyPair, template);
@@ -126,8 +145,8 @@ public class PrepareCertRequestXml {
 
 
     private static ASN1Set getASN1Template(String name, Attribute attribute) throws IOException {
-        String stringCp1251 = new String(name.getBytes(), CP_1251);
-        byte[] unicode = stringCp1251.getBytes(UNICODE);
+        String stringCp1251 = new String(name.getBytes(), "Cp1251");
+        byte[] unicode = stringCp1251.getBytes("Unicode");
         byte[] unicodeWithoutBOM = null;
 
         try {
