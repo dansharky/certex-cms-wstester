@@ -1,6 +1,8 @@
 package kz.gamma.certex.cms.web.services;
 
 import com.beust.jcommander.JCommander;
+import com.beust.jcommander.Parameter;
+import com.beust.jcommander.ParameterException;
 import kz.gamma.certex.cms.web.services.client.ClientKeyStoreProvider;
 import kz.gamma.certex.cms.web.services.client.WebServiceClient;
 import kz.gamma.certex.cms.web.services.common.CryptoProcessor;
@@ -32,116 +34,77 @@ import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 import java.math.BigInteger;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
 public class App {
 
-/*    private static final String profilePath = "officer_gost.pfx";
-    private static final String profilePass = "1";*/
+    private static final String ENCODING = "UTF-8";
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
-        String[] methods = {"createPerson", "getCertList", "revokeCert", "requestCert",
-                "changePassword", "findPerson", "getCityList", "getBankList", "getCountryList",
-                "loadPerson", "getIssuerList", "removePerson", "getRoleList", "createOrder",
-                "getPositionList", "getRegionList", "getPersonList", "getTariffList",
-                "updatePerson", "getTumar", "setDN", "getOrganization", "updateCUser",
-                "generateSnList", "confirmOrder", "getOrderList", "getRequestList",
-                "getDelayedRequestList"};
+        final String userDir = System.getProperty("user.dir");
+        final String xsdFilePath = userDir + "/pki_document.xsd";
 
-        Args arguments = new Args();
-        JCommander.newBuilder()
-                .addObject(arguments)
-                .build()
-                .parse(args);
-
-        if (arguments.getMethod() == null) {
-            System.out.println("-method");
-            for (String method : methods) {
-                System.out.println("       " + method);
-            }
+        final Args as = new Args();
+        try {
+            JCommander.newBuilder()
+                    .addObject(as)
+                    .build()
+                    .parse(args);
+        } catch (ParameterException e) {
+            System.err.println(e.getMessage());
+            return;
         }
 
-        if (arguments.getInputFilePath() == null) {
-            System.out.println("-input");
-            System.out.println("       path to xml file containing the request");
+        PkiDocument docIn;
+        final WebServiceClient ws = new WebServiceClient(as.wsdlUrl);
+
+        byte[] bytes = IOUtils.toByteArray(new FileInputStream(as.inputFilePath));
+        docIn = (PkiDocument) XMLProcessor.unmarshal(bytes, true, ENCODING, new File(xsdFilePath));
+        docIn = MessageResolver.getDoc(docIn, as.method);
+
+        RequestPkiService request = createPkiRequest(as.method, ENCODING);
+
+        ClientKeyStoreProvider ksp = new ClientKeyStoreProvider(as.profile, as.pass);
+        byte[] pkcs7Bytes = objectToPkcs7(docIn, ksp, ENCODING);
+        request.setPkcs7(pkcs7Bytes);
+
+        ResponsePkiService response = ws.webraWS.pkiService(request);
+        Object out;
+        if (response.getPkcs7() != null) {
+            out = pkcs7ToObject(response.getPkcs7(), ENCODING, new File(xsdFilePath));
+        } else {
+            System.out.println("Error: " + response.getError().getCode() + " " + response.getError().getMessage());
+            return;
         }
 
-        if (arguments.getWsdlUrl() == null) {
-            System.out.println("-wsdl");
-            System.out.println("       wsdl url");
+        String result = XMLProcessor.marshal(out);
+        FileWriter fw = new FileWriter("result.xml", true);
+        byte[] bom = new byte[]{(byte) 0xEF, (byte) 0xBB, (byte) 0xBF};
+        fw.write(new String(bom));
+
+        Document xmlDoc;
+        String formattedXML = "";
+        try {
+            xmlDoc = toXmlDocument(result);
+            formattedXML = prettyPrint(xmlDoc);
+        } catch (ParserConfigurationException | SAXException | IOException
+                | TransformerException e) {
+            e.printStackTrace();
         }
 
-        if (arguments.getXsdFilePath() == null) {
-            System.out.println("-xsd");
-            System.out.println("       path to xsd file");
-        }
+        fw.write(formattedXML);
+        fw.close();
 
-        if (arguments.getProfile() == null) {
-            System.out.println("-profile");
-            System.out.println("       profile name");
-        }
+        System.out.println("THE RESULT:");
+        System.out.println(formattedXML);
+//                System.out.println(result);
 
-        if (arguments.getPass() == null) {
-            System.out.println("-pass");
-            System.out.println("       pass");
-        }
-
-        if (arguments.getMethod() != null && !arguments.getMethod().isEmpty()
-                && arguments.getInputFilePath() != null && !arguments.getInputFilePath().isEmpty()
-                && arguments.getWsdlUrl() != null && !arguments.getWsdlUrl().isEmpty()
-                && arguments.getXsdFilePath() != null && !arguments.getXsdFilePath().isEmpty()
-                && arguments.getProfile() != null && !arguments.getProfile().isEmpty()
-                && arguments.getPass() != null && !arguments.getPass().isEmpty()) {
-
-            PkiDocument docIn;
-            try {
-                WebServiceClient ws = new WebServiceClient(arguments.getWsdlUrl());
-                String encoding = "UTF-8";
-                byte[] bytes = IOUtils.toByteArray(new FileInputStream(arguments.getInputFilePath()));
-                docIn = (PkiDocument) XMLProcessor.unmarshal(bytes, true, encoding, new File(arguments.getXsdFilePath()));
-                docIn = MessageResolver.getDoc(docIn, arguments.getMethod());
-                RequestPkiService request = createPkiRequest(arguments.getMethod(), encoding);
-                ClientKeyStoreProvider ksp = new ClientKeyStoreProvider(arguments.getProfile(), arguments.getPass());
-                byte[] pkcs7Bytes = objectToPkcs7(docIn, ksp, encoding);
-                request.setPkcs7(pkcs7Bytes);
-                ResponsePkiService response = ws.webraWS.pkiService(request);
-                Object out;
-                if (response.getPkcs7() != null) {
-                    out = pkcs7ToObject(response.getPkcs7(), true, encoding, new File(arguments.getXsdFilePath()));
-                } else {
-                    System.out.println("Error: " + response.getError().getCode() + " " + response.getError().getMessage());
-                    return;
-                }
-                String result = XMLProcessor.marshal(out);
-                FileWriter fw = new FileWriter("result.xml", true);
-                byte[] bom = new byte[]{(byte) 0xEF, (byte) 0xBB, (byte) 0xBF};
-                fw.write(new String(bom));
-
-                Document xmlDoc;
-                String formattedXML = "";
-                try {
-                    xmlDoc = toXmlDocument(result);
-                    formattedXML = prettyPrint(xmlDoc);
-                } catch (ParserConfigurationException | SAXException | IOException
-                        | TransformerException e) {
-                    e.printStackTrace();
-                }
-
-                fw.write(formattedXML);
-                fw.close();
-
-                System.out.println("THE RESULT:");
-                System.out.println(result);
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
     }
 
-    public static RequestPkiService createPkiRequest(String type, String encoding) {
+    private static RequestPkiService createPkiRequest(String type, String encoding) {
         RequestPkiService pkiRequest = new RequestPkiService();
         pkiRequest.setRequestDate(dateTimeToGregorianCalendar(new Date()).normalize());
         pkiRequest.setSeance(BigInteger.valueOf(new Date().getTime()));
@@ -152,7 +115,7 @@ public class App {
         return pkiRequest;
     }
 
-    public static XMLGregorianCalendar dateTimeToGregorianCalendar(Date date) {
+    private static XMLGregorianCalendar dateTimeToGregorianCalendar(Date date) {
         if (date == null)
             return null;
 
@@ -167,7 +130,7 @@ public class App {
     }
 
 
-    public static byte[] objectToPkcs7(Object obj, KeyStoreProvider keyStoreProvider, String encoding) throws Exception {
+    private static byte[] objectToPkcs7(Object obj, KeyStoreProvider keyStoreProvider, String encoding) throws Exception {
 
         String objStr;
         objStr = XMLProcessor.marshal(obj);
@@ -182,7 +145,7 @@ public class App {
         return pkcs7;
     }
 
-    public static Object pkcs7ToObject(byte[] pkcs7, boolean validate, String encoding, File file) throws Exception {
+    private static Object pkcs7ToObject(byte[] pkcs7, String encoding, File file) throws Exception {
 
         Pkcs7Data signedCapicomData = CryptoProcessor.getPkcs7Object(pkcs7);
 
@@ -190,10 +153,10 @@ public class App {
             throw new Exception("Подпись контейнера не прошла проверку");
 
         try {
-            return XMLProcessor.unmarshal(signedCapicomData.getData(), validate, encoding, file);
+            return XMLProcessor.unmarshal(signedCapicomData.getData(), true, encoding, file);
         } catch (JAXBException e) {
             e.printStackTrace();
-            throw new Exception("Ошибка при демаршилизации объекта " + pkcs7, e);
+            throw new Exception("Ошибка при демаршилизации объекта " + Arrays.toString(pkcs7), e);
         }
 
     }
@@ -224,11 +187,35 @@ public class App {
         DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory
                 .newInstance();
         DocumentBuilder docBuilder = docBuilderFactory.newDocumentBuilder();
-        Document document = docBuilder.parse(new InputSource(new StringReader(
-                str)));
 
-        return document;
+        return docBuilder.parse(new InputSource(new StringReader(
+                str)));
     }
 
 
+    private static class Args {
+
+        public final static String[] METHODS = {"createPerson", "getCertList", "revokeCert", "requestCert",
+                "changePassword", "findPerson", "getCityList", "getBankList", "getCountryList",
+                "loadPerson", "getIssuerList", "removePerson", "getRoleList", "createOrder",
+                "getPositionList", "getRegionList", "getPersonList", "getTariffList",
+                "updatePerson", "getTumar", "setDN", "getOrganization", "updateCUser",
+                "generateSnList", "confirmOrder", "getOrderList", "getRequestList",
+                "getDelayedRequestList"};
+
+        @Parameter(names = "-method", description = "web service method name", required = true)
+        String method;
+
+        @Parameter(names = "-input", description = "path to xml file containing request", required = true)
+        String inputFilePath;
+
+        @Parameter(names = "-wsdl", description = "wsdl url", required = true)
+        String wsdlUrl;
+
+        @Parameter(names = "-profile", description = "profile name")
+        String profile;
+
+        @Parameter(names = "-pass", description = "pass to pfx")
+        String pass;
+    }
 }
