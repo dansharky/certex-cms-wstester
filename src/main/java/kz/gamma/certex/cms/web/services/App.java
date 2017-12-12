@@ -95,8 +95,10 @@ public class App {
         Object out = Utils.pkcs7ToObject(response.getPkcs7(), new File(xsdFilePath));
         String result = XMLProcessor.marshal(out);
 
-        FileWriter fw = new FileWriter(as.output, false);
-        fw.write(new String(BOM));
+//        FileWriter fw = new FileWriter(as.output, false);
+        Writer fw = new BufferedWriter(new OutputStreamWriter(
+                new FileOutputStream(as.output), "UTF-8"));
+//        fw.write(new String(BOM));
 
         Document xmlDoc;
         String formattedXML = "";

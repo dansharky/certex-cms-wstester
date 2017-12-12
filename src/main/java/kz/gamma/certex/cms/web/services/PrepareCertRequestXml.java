@@ -8,9 +8,11 @@ import kz.gamma.jce.provider.GammaTechProvider;
 import kz.gamma.util.encoders.Base64;
 import org.junit.Assert;
 
+import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.security.*;
+import java.util.List;
 
 public class PrepareCertRequestXml {
 
@@ -46,7 +48,7 @@ public class PrepareCertRequestXml {
         @Parameter(names = "-sign-profile", description = "Profile")
         String signProfile;
 
-        @Parameter(names = "-sign-alias", description = "Profile")
+        @Parameter(names = "-sign-alias", description = "Sign alias")
         String signAlias;
 
         @Parameter(names = "-sign-pass", description = "Pass")
@@ -82,6 +84,8 @@ public class PrepareCertRequestXml {
 
         String signProfile = as.signProfile != null ? as.signProfile : as.genProfile;
         String signPass = as.signPass != null ? as.signPass : as.genPass;
+        List<String> lines= Files.readAllLines(Paths.get("user-info.txt"), Charset.forName("UTF-8"));
+        as.dn = lines.get(0);
 
         KeyPair keyPair = Utils.generateGOSTKeyPair(as.genProfile, as.genPass);
         PKCS10CertificationRequest req = Utils.makeGOSTpkcs10Request(as.dn, keyPair, as.template);
@@ -99,7 +103,8 @@ public class PrepareCertRequestXml {
         System.out.println(xml);
         if (as.output != null) {
             System.out.println("Writing result to output: " + as.output);
-            Files.write(Paths.get(as.output), xml.getBytes());
+//            Files.write(Paths.get(as.output), xml.getBytes());
+            Files.write(Paths.get(as.output), xml.getBytes("UTF-8"));
         }
     }
 
