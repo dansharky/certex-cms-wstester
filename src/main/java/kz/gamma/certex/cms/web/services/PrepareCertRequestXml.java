@@ -46,6 +46,9 @@ public class PrepareCertRequestXml {
         @Parameter(names = "-sign-profile", description = "Profile")
         String signProfile;
 
+        @Parameter(names = "-sign-alias", description = "Profile")
+        String signAlias;
+
         @Parameter(names = "-sign-pass", description = "Pass")
         String signPass;
 
@@ -84,7 +87,7 @@ public class PrepareCertRequestXml {
         PKCS10CertificationRequest req = Utils.makeGOSTpkcs10Request(as.dn, keyPair, as.template);
         Assert.assertTrue(req.verify());
 
-        byte[] pkcs7Signed = Utils.signPKCS10WithDefProfile(req, signProfile, signPass);
+        byte[] pkcs7Signed = Utils.signPKCS10WithDefProfile(req, signProfile, signPass, as.signAlias);
         String sign = new String(Base64.encode(pkcs7Signed));
 
         String xml = XML

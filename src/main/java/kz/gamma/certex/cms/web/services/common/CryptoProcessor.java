@@ -39,11 +39,16 @@ public class CryptoProcessor {
     }
 
     public static byte[] sign(byte[] data, KeyStore store, String password) throws Exception {
+        return sign(data, store, password, null);
+    }
+
+    public static byte[] sign(byte[] data, KeyStore store, String password, String alias) throws Exception {
 
         Enumeration en = store.aliases();
-        String alias = null;
-        while (en.hasMoreElements()) {
-            alias = ((StoreObjectParam) en.nextElement()).sn;
+        if (alias == null) {
+            while (en.hasMoreElements()) {
+                alias = ((StoreObjectParam) en.nextElement()).sn;
+            }
         }
         PrivateKey privKey = (PrivateKey) store.getKey(alias, password.toCharArray());
         X509Certificate cert = (X509Certificate) store.getCertificate(alias);
