@@ -1,4 +1,4 @@
-package kz.gamma.certex.cms;
+package kz.gamma.certex.cms.web.services;
 
 import kz.gamma.asn1.*;
 import kz.gamma.asn1.cms.RevokeRequest;
@@ -6,15 +6,12 @@ import kz.gamma.asn1.pkcs.PKCSObjectIdentifiers;
 import kz.gamma.asn1.x509.Attribute;
 import kz.gamma.asn1.x509.X509Extensions;
 import kz.gamma.asn1.x509.X509Name;
-import kz.gamma.certex.cms.web.services.CertificateFieldsResolver;
-import kz.gamma.certex.cms.web.services.PostCertRequest;
 import kz.gamma.certex.cms.web.services.client.ClientKeyStoreProvider;
 import kz.gamma.certex.cms.web.services.common.CryptoProcessor;
-import kz.gamma.certex.cms.web.services.common.entities.DocRequestCertOut;
-import kz.gamma.cms.CMSException;
-import kz.gamma.cms.CMSProcessableByteArray;
-import kz.gamma.cms.CMSSignedData;
-import kz.gamma.cms.CMSSignedDataGenerator;
+import kz.gamma.certex.cms.web.services.common.KeyStoreProvider;
+import kz.gamma.certex.cms.web.services.common.XMLProcessor;
+import kz.gamma.certex.cms.web.services.common.entities.*;
+import kz.gamma.cms.*;
 import kz.gamma.core.utils.EndiannessUtils;
 import kz.gamma.jce.PKCS10CertificationRequest;
 import kz.gamma.jce.provider.GammaTechProvider;
@@ -23,18 +20,34 @@ import kz.gamma.tumarcsp.LibraryWrapper;
 import kz.gamma.tumarcsp.TumarCspFunctions;
 import kz.gamma.util.encoders.Base64;
 import org.apache.commons.io.IOUtils;
+import org.w3c.dom.Document;
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
 
+import javax.xml.bind.JAXBException;
+import javax.xml.datatype.DatatypeConfigurationException;
+import javax.xml.datatype.DatatypeFactory;
+import javax.xml.datatype.XMLGregorianCalendar;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 import java.io.*;
+import java.math.BigInteger;
 import java.nio.ByteOrder;
 import java.security.*;
 import java.security.cert.*;
-import java.util.ArrayList;
-import java.util.Hashtable;
-import java.util.Vector;
+import java.util.*;
 
 public class Utils {
     private static final String X_509 = "X.509";
     private static final String GKS = "GKS";
+    private static final String ENCODING = "UTF-8";
 
     private static final String SHA_256_WITH_RSA = "SHA256withRSA";
     private static final String GAMMA = "GAMMA";
@@ -220,5 +233,134 @@ public class Utils {
             signedData = gen.generate("1.3.6.1.5.5.7.12.2", content, true, GammaTechProvider.PROVIDER_NAME);
             return signedData.getEncoded();
         }
+    }
+
+    public static RequestPkiService createPkiRequest(String type, String system) {
+        RequestPkiService pkiRequest = new RequestPkiService();
+        pkiRequest.setRequestDate(dateTimeToGregorianCalendar(new Date()).normalize());
+        pkiRequest.setSeance(BigInteger.valueOf(new Date().getTime()));
+        pkiRequest.setSystem(system);
+        pkiRequest.setService(type);
+        pkiRequest.setEncoding(ENCODING);
+        return pkiRequest;
+    }
+
+    public static XMLGregorianCalendar dateTimeToGregorianCalendar(Date date) {
+        if (date == null)
+            return null;
+
+        GregorianCalendar calendar = new GregorianCalendar();
+        calendar.setTime(date);
+        try {
+            return DatatypeFactory.newInstance().newXMLGregorianCalendar(calendar);
+        } catch (DatatypeConfigurationException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public static byte[] objectToPkcs7(Object obj, String profile, String pass) throws Exception {
+        final ClientKeyStoreProvider ksp = new ClientKeyStoreProvider(profile, pass);
+
+        String objStr;
+        objStr = XMLProcessor.marshal(obj);
+        byte[] pkcs7;
+        try {
+            pkcs7 = CryptoProcessor.sign(objStr.getBytes(ENCODING), ksp.getStore(), ksp.getPassword());
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new Exception("Ошибка при подписывании объекта " + obj, e);
+        }
+
+        return pkcs7;
+    }
+
+    public static Object pkcs7ToObject(byte[] pkcs7, File xsd) throws Exception {
+
+        Pkcs7Data signedCapicomData = CryptoProcessor.getPkcs7Object(pkcs7);
+        if (!signedCapicomData.verify())
+            throw new Exception("Подпись контейнера не прошла проверку");
+
+        try {
+            return XMLProcessor.unmarshal(signedCapicomData.getData(), true, ENCODING, xsd);
+        } catch (JAXBException e) {
+            e.printStackTrace();
+            throw new Exception("Ошибка при демаршилизации объекта " + Arrays.toString(pkcs7), e);
+        }
+
+    }
+
+    public static String prettyPrint(Document document)
+            throws TransformerException {
+        TransformerFactory transformerFactory = TransformerFactory
+                .newInstance();
+        Transformer transformer = transformerFactory.newTransformer();
+        transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+        transformer.setOutputProperty(
+                "{http://xml.apache.org/xslt}indent-amount", "2");
+        transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "yes");
+        transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
+        DOMSource source = new DOMSource(document);
+        StringWriter strWriter = new StringWriter();
+        StreamResult result = new StreamResult(strWriter);
+
+        transformer.transform(source, result);
+
+        return strWriter.getBuffer().toString();
+
+    }
+
+    public static Document toXmlDocument(String str)
+            throws ParserConfigurationException, SAXException, IOException {
+
+        DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory
+                .newInstance();
+        DocumentBuilder docBuilder = docBuilderFactory.newDocumentBuilder();
+
+        return docBuilder.parse(new InputSource(new StringReader(
+                str)));
+    }
+
+    public static PkiDocument createPkiDocument(String method, String filePath, String xsdFilePath)
+            throws IOException, SAXException {
+        PkiDocument result;
+        switch (method) {
+            case "getCityList":
+                result = new DocCityListIn();
+                break;
+            case "getCountryList":
+                result = new DocCountryListIn();
+                break;
+            case "getIssuerList":
+                result = new DocIssuerListIn();
+                break;
+            case "getRoleList":
+                result = new DocGetRolesIn();
+                break;
+            case "getPositionList":
+                result = new DocPositionListIn();
+                break;
+            case "getRegionList":
+                result = new DocRegionListIn();
+                break;
+            case "getPersonList":
+                result = new DocGetPersonListIn();
+                break;
+            case "getTariffList":
+                result = new DocTariffListIn();
+                break;
+            case "getTumar":
+                result = new DocGetTumarIn();
+                break;
+            case "getOrganization":
+                result = new DocGetOrganizationIn();
+                break;
+            default:
+                byte[] bytes = IOUtils.toByteArray(new FileInputStream(filePath));
+                result =(PkiDocument) XMLProcessor.unmarshal(bytes, true, ENCODING, new File(xsdFilePath));
+                break;
+        }
+
+        return result;
     }
 }

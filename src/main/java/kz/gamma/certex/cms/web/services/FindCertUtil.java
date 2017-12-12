@@ -3,10 +3,8 @@ package kz.gamma.certex.cms.web.services;
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
 import com.beust.jcommander.ParameterException;
-import kz.gamma.certex.cms.Utils;
 import kz.gamma.jce.provider.GammaTechProvider;
 import kz.gamma.tumarcsp.params.StoreObjectParam;
-import kz.gamma.util.encoders.Base64;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;

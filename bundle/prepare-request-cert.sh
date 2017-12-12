@@ -1,5 +1,10 @@
 #!/bin/sh
 
+
+# registration
+# initialization
+# revocation
+
 java -cp wstester.jar kz.gamma.certex.cms.web.services.PrepareCertRequestXml \
     -gen-profile profile://eToken \
     -gen-pass 123456 \
@@ -9,4 +14,5 @@ java -cp wstester.jar kz.gamma.certex.cms.web.services.PrepareCertRequestXml \
     -template "C=KZ, O=Template, CN=GOST_USER_SIGN_14D" \
     -tariff-id 2 \
     -detail-id 0 \
-    -output requestCert.xml
+    -type initialization \
+    -output ./requests/requestCert.xml

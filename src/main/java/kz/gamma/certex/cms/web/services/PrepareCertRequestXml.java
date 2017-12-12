@@ -3,7 +3,6 @@ package kz.gamma.certex.cms.web.services;
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
 import com.beust.jcommander.ParameterException;
-import kz.gamma.certex.cms.Utils;
 import kz.gamma.jce.PKCS10CertificationRequest;
 import kz.gamma.jce.provider.GammaTechProvider;
 import kz.gamma.util.encoders.Base64;
@@ -21,7 +20,7 @@ public class PrepareCertRequestXml {
             "\t<tariffId>%tariffId%</tariffId>\n" +
             "\t<status>novel</status>\n" +
             "\t<orderDetailId>%detailId%</orderDetailId>\n" +
-            "\t<type>initialization</type>\n" +
+            "\t<type>%type%</type>\n" +
             "\t<cause>cert request test</cause>\n" +
             "\t<comment>cert request test</comment>\n" +
             "\t<fxRequestDetails>\n" +
@@ -44,10 +43,10 @@ public class PrepareCertRequestXml {
         @Parameter(names = "-gen-pass", description = "Pass", required = true)
         String genPass;
 
-        @Parameter(names = "-sign-profile", description = "Profile", required = true)
+        @Parameter(names = "-sign-profile", description = "Profile")
         String signProfile;
 
-        @Parameter(names = "-sign-pass", description = "Pass", required = true)
+        @Parameter(names = "-sign-pass", description = "Pass")
         String signPass;
 
         @Parameter(names = "-tariff-id", description = "Tariff Id", required = true)
@@ -55,6 +54,9 @@ public class PrepareCertRequestXml {
 
         @Parameter(names = "-detail-id", description = "Detail Id", required = true)
         Long detailId;
+
+        @Parameter(names = "-type", description = "Request type", required = true)
+        String type;
 
         @Parameter(names = "-output", description = "Output File")
         String output;
@@ -75,17 +77,21 @@ public class PrepareCertRequestXml {
             return;
         }
 
+        String signProfile = as.signProfile != null ? as.signProfile : as.genProfile;
+        String signPass = as.signPass != null ? as.signPass : as.genPass;
+
         KeyPair keyPair = Utils.generateGOSTKeyPair(as.genProfile, as.genPass);
         PKCS10CertificationRequest req = Utils.makeGOSTpkcs10Request(as.dn, keyPair, as.template);
         Assert.assertTrue(req.verify());
 
-        byte[] pkcs7Signed = Utils.signPKCS10WithDefProfile(req, as.signProfile, as.signPass);
+        byte[] pkcs7Signed = Utils.signPKCS10WithDefProfile(req, signProfile, signPass);
         String sign = new String(Base64.encode(pkcs7Signed));
 
         String xml = XML
                 .replace("%dn%", as.dn)
                 .replace("%tariffId%", Long.toString(as.tariffId))
                 .replace("%detailId%", Long.toString(as.detailId))
+                .replace("%type%", as.type)
                 .replace("%body%", sign);
         System.out.println(xml);
         if (as.output != null) {

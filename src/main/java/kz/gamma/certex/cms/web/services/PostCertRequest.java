@@ -3,7 +3,6 @@ package kz.gamma.certex.cms.web.services;
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
 import com.beust.jcommander.ParameterException;
-import kz.gamma.certex.cms.Utils;
 import kz.gamma.certex.cms.web.services.common.XMLProcessor;
 import kz.gamma.certex.cms.web.services.common.entities.DocRequestCertOut;
 import kz.gamma.jce.provider.GammaTechProvider;
@@ -28,7 +27,7 @@ public class PostCertRequest {
         @Parameter(names = "-pass", description = "Pass", required = true)
         String pass;
 
-        @Parameter(names = "-alias", description = "Algorithm")
+        @Parameter(names = "-algorithm", description = "Algorithm")
         String algorithm;
     }
 
@@ -57,13 +56,14 @@ public class PostCertRequest {
         String alg = as.algorithm != null ? as.algorithm : DEFAULT_ALGORITHM;
 
         byte[] bytes = IOUtils.toByteArray(new FileInputStream(as.request));
-        DocRequestCertOut docOut = (DocRequestCertOut) XMLProcessor.unmarshal(bytes, true,
-                ENCODING, new File(xsdFilePath));
+        DocRequestCertOut docOut = (DocRequestCertOut) XMLProcessor.unmarshal(bytes, true, ENCODING, new File(xsdFilePath));
         System.out.println(docOut);
 
         Utils.addCertInProfile(docOut,
                 as.profile, as.pass, alg,
                 caGostCertPath, headCaGostCertPath, caRSACertPath, headRSACertPath);
+
+        System.out.println("Certificate is installed!");
     }
 
 
