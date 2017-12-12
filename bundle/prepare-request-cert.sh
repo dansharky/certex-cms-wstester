@@ -6,6 +6,7 @@
 
 #"C=KZ, O=GAMMA, CN=Антипов Макс Тестов, UID=850104300418"
 #"C=KZ, O=Template, CN=GOST_USER_SIGN_14D"
+#    -sign-alias  \
 
 java -cp wstester.jar kz.gamma.certex.cms.web.services.PrepareCertRequestXml \
     -gen-profile profile://eToken \
