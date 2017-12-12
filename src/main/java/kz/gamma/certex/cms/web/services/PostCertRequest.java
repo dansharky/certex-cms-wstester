@@ -36,7 +36,7 @@ public class PostCertRequest {
         Security.addProvider(new GammaTechProvider());
 
         final String userDir = System.getProperty("user.dir");
-        final String xsdFilePath = userDir + "/pki_document.xsd";
+        final String xsdFilePath =  userDir + "/pki_document.xsd";
         String caGostCertPath = userDir + "/base_Gost.cer";
         String headCaGostCertPath = userDir + "/base_Gost_Head.cer";
         String caRSACertPath = userDir + "/base_Rsa.cer";
