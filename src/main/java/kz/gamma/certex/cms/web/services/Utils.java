@@ -193,10 +193,10 @@ public class Utils {
         return new DERSet(asn1EncodableVector);
     }
 
-    public static byte[] signPKCS10WithDefProfile(PKCS10CertificationRequest req, String profile, String pass)
+    public static byte[] signPKCS10WithDefProfile(PKCS10CertificationRequest req, String profile, String pass, String alias)
             throws Exception {
         ClientKeyStoreProvider provider = new ClientKeyStoreProvider(profile, pass);
-        return CryptoProcessor.sign(req.getDEREncoded(), provider.getStore(), provider.getPassword());
+        return CryptoProcessor.sign(req.getDEREncoded(), provider.getStore(), provider.getPassword(), alias);
     }
 
     public static PKCS10CertificationRequest makeGOSTpkcs10Request(String dnName, KeyPair keyPair, String template)
