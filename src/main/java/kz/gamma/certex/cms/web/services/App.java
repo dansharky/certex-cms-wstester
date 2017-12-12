@@ -96,7 +96,7 @@ public class App {
         String result = XMLProcessor.marshal(out);
 
         FileWriter fw = new FileWriter(as.output, false);
-//        fw.write(new String(BOM));
+        fw.write(new String(BOM));
 
         Document xmlDoc;
         String formattedXML = "";
