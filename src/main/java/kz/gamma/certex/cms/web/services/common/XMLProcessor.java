@@ -74,8 +74,9 @@ public class XMLProcessor {
 
     private static InputSource byteToInputSource(byte[] xml, String encoding) throws UnsupportedEncodingException {
         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(xml);
-        if (encoding == null || "".equals(encoding))
+        if (encoding == null || "".equals(encoding)) {
             encoding = "UTF-8";
+        }
         Reader reader = new BufferedReader(new InputStreamReader(byteArrayInputStream, encoding));
         return new InputSource(reader);
     }

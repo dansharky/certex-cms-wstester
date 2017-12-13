@@ -18,6 +18,7 @@ import org.xml.sax.SAXException;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 import java.io.*;
+import java.util.Objects;
 
 public class App {
 
@@ -98,7 +99,9 @@ public class App {
 //        FileWriter fw = new FileWriter(as.output, false);
         Writer fw = new BufferedWriter(new OutputStreamWriter(
                 new FileOutputStream(as.output), "UTF-8"));
-//        fw.write(new String(BOM));
+        if (!Objects.equals(as.method, "requestCert") && !Objects.equals(as.method, "revokeCert")) {
+            fw.write(new String(BOM));
+        }
 
         Document xmlDoc;
         String formattedXML = "";
@@ -115,8 +118,7 @@ public class App {
 
         System.out.println("THE RESULT:");
         System.out.println(formattedXML);
-                System.out.println(result);
-
+        System.out.println(result);
     }
 
 

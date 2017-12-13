@@ -13,9 +13,9 @@ java -cp wstester.jar kz.gamma.certex.cms.web.services.PrepareCertRequestXml \
     -gen-pass 123456 \
     -sign-profile officer_gost \
     -sign-pass 1 \
-    -dn "C=KZ, O=GAMMA, CN=Прореллеров Карлсон" \
-    -template "C=KZ, O=Template, CN=GOST_USER_SIGN_1Y" \
-    -tariff-id 2 \
+    -dn-file dn-file.txt \
+    -template "C=KZ, O=Template, CN=GOST_USER_SIGN_14D" \
+    -tariff-id 39 \
     -detail-id 0 \
-    -type registration \
+    -type initialization \
     -output ./requests/requestCert.xml

@@ -33,8 +33,11 @@ public class PrepareCertRequestXml {
             "</docRequestCertIn>";
 
     private static class Args {
-        @Parameter(names = "-dn", description = "DN name", required = true)
+        @Parameter(names = "-dn", description = "DN name")
         String dn;
+
+        @Parameter(names = "-dn-file", description = "File with DN name")
+        String dnFile;
 
         @Parameter(names = "-template", description = "Template", required = true)
         String template;
@@ -84,8 +87,12 @@ public class PrepareCertRequestXml {
 
         String signProfile = as.signProfile != null ? as.signProfile : as.genProfile;
         String signPass = as.signPass != null ? as.signPass : as.genPass;
-        List<String> lines= Files.readAllLines(Paths.get("user-info.txt"), Charset.forName("UTF-8"));
-        as.dn = lines.get(0);
+
+        if (as.dnFile != null) {
+            List<String> lines = Files.readAllLines(Paths.get(as.dnFile), Charset.forName("UTF-8"));
+            as.dn = lines.get(0);
+        }
+
 
         KeyPair keyPair = Utils.generateGOSTKeyPair(as.genProfile, as.genPass);
         PKCS10CertificationRequest req = Utils.makeGOSTpkcs10Request(as.dn, keyPair, as.template);
