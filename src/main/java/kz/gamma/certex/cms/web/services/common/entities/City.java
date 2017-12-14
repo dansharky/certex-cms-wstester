@@ -1,3 +1,4 @@
+
 package kz.gamma.certex.cms.web.services.common.entities;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -7,12 +8,12 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Р“РѕСЂРѕРґ
- * <p>
+ * Город
+ * 
  * <p>Java class for City complex type.
- * <p>
+ * 
  * <p>The following schema fragment specifies the expected content contained within this class.
- * <p>
+ * 
  * <pre>
  * &lt;complexType name="City">
  *   &lt;complexContent>
@@ -25,11 +26,13 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "City", namespace = "http://www.gamma.kz/webra/xsd", propOrder = {
-        "name",
-        "region"
+    "name",
+    "region"
 })
 public class City {
 
@@ -40,9 +43,11 @@ public class City {
 
     /**
      * Gets the value of the name property.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getName() {
         return name;
@@ -50,9 +55,11 @@ public class City {
 
     /**
      * Sets the value of the name property.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setName(String value) {
         this.name = value;
@@ -60,9 +67,11 @@ public class City {
 
     /**
      * Gets the value of the region property.
-     *
-     * @return possible object is
-     * {@link Region }
+     * 
+     * @return
+     *     possible object is
+     *     {@link Region }
+     *     
      */
     public Region getRegion() {
         return region;
@@ -70,9 +79,11 @@ public class City {
 
     /**
      * Sets the value of the region property.
-     *
-     * @param value allowed object is
-     *              {@link Region }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Region }
+     *     
      */
     public void setRegion(Region value) {
         this.region = value;

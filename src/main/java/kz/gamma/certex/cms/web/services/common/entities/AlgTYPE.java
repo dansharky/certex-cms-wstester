@@ -1,3 +1,4 @@
+
 package kz.gamma.certex.cms.web.services.common.entities;
 
 import javax.xml.bind.annotation.XmlEnum;
@@ -6,7 +7,7 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for algTYPE.
- * <p>
+ * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * <p>
  * <pre>
@@ -17,6 +18,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/restriction>
  * &lt;/simpleType>
  * </pre>
+ * 
  */
 @XmlType(name = "algTYPE", namespace = "http://www.gamma.kz/webra/xsd")
 @XmlEnum
@@ -24,21 +26,23 @@ public enum AlgTYPE {
 
 
     /**
-     * РћС€РёР±РєР° РІР°Р»РёРґР°С†РёРё РїРѕ XSD. РџСЂРё РЅР°Р»РёС‡РёРё РЅРµРїСЂР°РІРёР»СЊРЅРѕ СЃС„РѕСЂРјРёСЂРѕРІР°РЅРЅС‹С… xml СЃРѕРѕР±С‰РµРЅРёР№.
+     * Ошибка валидации по XSD. При наличии неправильно сформированных xml сообщений.
+     * 
      */
     GOST,
 
     /**
-     * РћС€РёР±РєР° РїРѕРґРїРёСЃРё. РџСЂРё РѕС€РёР±РєР°С… РєСЂРёРїС‚РѕРіСЂР°С„РёРё Рё РїРѕРґРїРёСЃРё.
+     * Ошибка подписи. При ошибках криптографии и подписи.
+     * 
      */
     RSA;
 
-    public static AlgTYPE fromValue(String v) {
-        return valueOf(v);
-    }
-
     public String value() {
         return name();
+    }
+
+    public static AlgTYPE fromValue(String v) {
+        return valueOf(v);
     }
 
 }

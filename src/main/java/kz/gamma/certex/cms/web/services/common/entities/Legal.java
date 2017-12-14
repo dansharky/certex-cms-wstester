@@ -1,3 +1,4 @@
+
 package kz.gamma.certex.cms.web.services.common.entities;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -8,11 +9,11 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * Legal
- * <p>
+ * 
  * <p>Java class for Legal complex type.
- * <p>
+ * 
  * <p>The following schema fragment specifies the expected content contained within this class.
- * <p>
+ * 
  * <pre>
  * &lt;complexType name="Legal">
  *   &lt;complexContent>
@@ -23,7 +24,7 @@ import javax.xml.bind.annotation.XmlType;
  *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
  *               &lt;minLength value="1"/>
  *               &lt;maxLength value="64"/>
- *               &lt;pattern value="[ «»№!"#$%~&amp;'\(\)\*\+,\-\./:;&lt;=>\?@\[\]\^_`\{\|\}\\ӨөӘәҒғҚқҢңҰұҮүҺһІіa-zA-Zа-яА-Я0-9]{1,64}"/>
+ *               &lt;pattern value="[ ���!"#$%~&amp;'\(\)\*\+,\-\./:;&lt;=>\?@\[\]\^_`\{\|\}\\\u04e8\u04e9\u04d8\u04d9\u0492\u0493\u049a\u049b\u04a2\u04a3\u04b0\u04b1\u04ae\u04af\u04ba\u04bb��a-zA-Z�-��-�0-9]{1,64}"/>
  *             &lt;/restriction>
  *           &lt;/simpleType>
  *         &lt;/element>
@@ -32,7 +33,7 @@ import javax.xml.bind.annotation.XmlType;
  *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
  *               &lt;minLength value="0"/>
  *               &lt;maxLength value="30"/>
- *               &lt;pattern value="[/№\.\- \(\)\\а-яА-ЯЁёa-zA-Z0-9]{0,30}"/>
+ *               &lt;pattern value="[/�\.\- \(\)\\�-��-ߨ�a-zA-Z0-9]{0,30}"/>
  *             &lt;/restriction>
  *           &lt;/simpleType>
  *         &lt;/element>
@@ -56,7 +57,7 @@ import javax.xml.bind.annotation.XmlType;
  *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
  *               &lt;minLength value="1"/>
  *               &lt;maxLength value="50"/>
- *               &lt;pattern value="[\- \.ӨөӘәҒғҚқҢңҰұҮүҺһІіа-яА-ЯЁёa-zA-Z]{1,50}"/>
+ *               &lt;pattern value="[\- \.\u04e8\u04e9\u04d8\u04d9\u0492\u0493\u049a\u049b\u04a2\u04a3\u04b0\u04b1\u04ae\u04af\u04ba\u04bb���-��-ߨ�a-zA-Z]{1,50}"/>
  *             &lt;/restriction>
  *           &lt;/simpleType>
  *         &lt;/element>
@@ -139,23 +140,25 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Legal", namespace = "http://www.gamma.kz/webra/xsd", propOrder = {
-        "orgName",
-        "certificate",
-        "certificateIssuer",
-        "certificateIssueDate",
-        "directorSirname",
-        "directorPosition",
-        "noResident",
-        "country",
-        "bin",
-        "vatin",
-        "iin",
-        "phone",
-        "address",
-        "joinNumber"
+    "orgName",
+    "certificate",
+    "certificateIssuer",
+    "certificateIssueDate",
+    "directorSirname",
+    "directorPosition",
+    "noResident",
+    "country",
+    "bin",
+    "vatin",
+    "iin",
+    "phone",
+    "address",
+    "joinNumber"
 })
 public class Legal {
 
@@ -190,9 +193,11 @@ public class Legal {
 
     /**
      * Gets the value of the orgName property.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getOrgName() {
         return orgName;
@@ -200,9 +205,11 @@ public class Legal {
 
     /**
      * Sets the value of the orgName property.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setOrgName(String value) {
         this.orgName = value;
@@ -210,9 +217,11 @@ public class Legal {
 
     /**
      * Gets the value of the certificate property.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getCertificate() {
         return certificate;
@@ -220,9 +229,11 @@ public class Legal {
 
     /**
      * Sets the value of the certificate property.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setCertificate(String value) {
         this.certificate = value;
@@ -230,9 +241,11 @@ public class Legal {
 
     /**
      * Gets the value of the certificateIssuer property.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getCertificateIssuer() {
         return certificateIssuer;
@@ -240,9 +253,11 @@ public class Legal {
 
     /**
      * Sets the value of the certificateIssuer property.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setCertificateIssuer(String value) {
         this.certificateIssuer = value;
@@ -250,9 +265,11 @@ public class Legal {
 
     /**
      * Gets the value of the certificateIssueDate property.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getCertificateIssueDate() {
         return certificateIssueDate;
@@ -260,9 +277,11 @@ public class Legal {
 
     /**
      * Sets the value of the certificateIssueDate property.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setCertificateIssueDate(String value) {
         this.certificateIssueDate = value;
@@ -270,9 +289,11 @@ public class Legal {
 
     /**
      * Gets the value of the directorSirname property.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getDirectorSirname() {
         return directorSirname;
@@ -280,9 +301,11 @@ public class Legal {
 
     /**
      * Sets the value of the directorSirname property.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setDirectorSirname(String value) {
         this.directorSirname = value;
@@ -290,9 +313,11 @@ public class Legal {
 
     /**
      * Gets the value of the directorPosition property.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getDirectorPosition() {
         return directorPosition;
@@ -300,9 +325,11 @@ public class Legal {
 
     /**
      * Sets the value of the directorPosition property.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setDirectorPosition(String value) {
         this.directorPosition = value;
@@ -310,6 +337,7 @@ public class Legal {
 
     /**
      * Gets the value of the noResident property.
+     * 
      */
     public boolean isNoResident() {
         return noResident;
@@ -317,6 +345,7 @@ public class Legal {
 
     /**
      * Sets the value of the noResident property.
+     * 
      */
     public void setNoResident(boolean value) {
         this.noResident = value;
@@ -324,9 +353,11 @@ public class Legal {
 
     /**
      * Gets the value of the country property.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getCountry() {
         return country;
@@ -334,9 +365,11 @@ public class Legal {
 
     /**
      * Sets the value of the country property.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setCountry(String value) {
         this.country = value;
@@ -344,9 +377,11 @@ public class Legal {
 
     /**
      * Gets the value of the bin property.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getBin() {
         return bin;
@@ -354,9 +389,11 @@ public class Legal {
 
     /**
      * Sets the value of the bin property.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setBin(String value) {
         this.bin = value;
@@ -364,9 +401,11 @@ public class Legal {
 
     /**
      * Gets the value of the vatin property.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getVatin() {
         return vatin;
@@ -374,9 +413,11 @@ public class Legal {
 
     /**
      * Sets the value of the vatin property.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setVatin(String value) {
         this.vatin = value;
@@ -384,9 +425,11 @@ public class Legal {
 
     /**
      * Gets the value of the iin property.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getIin() {
         return iin;
@@ -394,9 +437,11 @@ public class Legal {
 
     /**
      * Sets the value of the iin property.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setIin(String value) {
         this.iin = value;
@@ -404,9 +449,11 @@ public class Legal {
 
     /**
      * Gets the value of the phone property.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getPhone() {
         return phone;
@@ -414,9 +461,11 @@ public class Legal {
 
     /**
      * Sets the value of the phone property.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setPhone(String value) {
         this.phone = value;
@@ -424,9 +473,11 @@ public class Legal {
 
     /**
      * Gets the value of the address property.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getAddress() {
         return address;
@@ -434,9 +485,11 @@ public class Legal {
 
     /**
      * Sets the value of the address property.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setAddress(String value) {
         this.address = value;
@@ -444,9 +497,11 @@ public class Legal {
 
     /**
      * Gets the value of the joinNumber property.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getJoinNumber() {
         return joinNumber;
@@ -454,9 +509,11 @@ public class Legal {
 
     /**
      * Sets the value of the joinNumber property.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setJoinNumber(String value) {
         this.joinNumber = value;

@@ -1,17 +1,23 @@
+
 package kz.gamma.certex.cms.web.services.common.entities;
 
-import javax.xml.bind.annotation.*;
-import javax.xml.datatype.XMLGregorianCalendar;
 import java.math.BigInteger;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlSchemaType;
+import javax.xml.bind.annotation.XmlSeeAlso;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.datatype.XMLGregorianCalendar;
 
 
 /**
  * Request
- * <p>
+ * 
  * <p>Java class for PkiMessageRequest complex type.
- * <p>
+ * 
  * <p>The following schema fragment specifies the expected content contained within this class.
- * <p>
+ * 
  * <pre>
  * &lt;complexType name="PkiMessageRequest">
  *   &lt;complexContent>
@@ -25,11 +31,13 @@ import java.math.BigInteger;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "PkiMessageRequest", namespace = "http://www.gamma.kz/webra/xsd")
 @XmlSeeAlso({
-        RequestPkiService.class
+    RequestPkiService.class
 })
 public class PkiMessageRequest {
 
@@ -48,9 +56,11 @@ public class PkiMessageRequest {
 
     /**
      * Gets the value of the service property.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getService() {
         return service;
@@ -58,9 +68,11 @@ public class PkiMessageRequest {
 
     /**
      * Sets the value of the service property.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setService(String value) {
         this.service = value;
@@ -68,9 +80,11 @@ public class PkiMessageRequest {
 
     /**
      * Gets the value of the requestDate property.
-     *
-     * @return possible object is
-     * {@link XMLGregorianCalendar }
+     * 
+     * @return
+     *     possible object is
+     *     {@link XMLGregorianCalendar }
+     *     
      */
     public XMLGregorianCalendar getRequestDate() {
         return requestDate;
@@ -78,9 +92,11 @@ public class PkiMessageRequest {
 
     /**
      * Sets the value of the requestDate property.
-     *
-     * @param value allowed object is
-     *              {@link XMLGregorianCalendar }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link XMLGregorianCalendar }
+     *     
      */
     public void setRequestDate(XMLGregorianCalendar value) {
         this.requestDate = value;
@@ -88,9 +104,11 @@ public class PkiMessageRequest {
 
     /**
      * Gets the value of the system property.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getSystem() {
         return system;
@@ -98,9 +116,11 @@ public class PkiMessageRequest {
 
     /**
      * Sets the value of the system property.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setSystem(String value) {
         this.system = value;
@@ -108,9 +128,11 @@ public class PkiMessageRequest {
 
     /**
      * Gets the value of the seance property.
-     *
-     * @return possible object is
-     * {@link BigInteger }
+     * 
+     * @return
+     *     possible object is
+     *     {@link BigInteger }
+     *     
      */
     public BigInteger getSeance() {
         return seance;
@@ -118,9 +140,11 @@ public class PkiMessageRequest {
 
     /**
      * Sets the value of the seance property.
-     *
-     * @param value allowed object is
-     *              {@link BigInteger }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link BigInteger }
+     *     
      */
     public void setSeance(BigInteger value) {
         this.seance = value;
@@ -128,9 +152,11 @@ public class PkiMessageRequest {
 
     /**
      * Gets the value of the encoding property.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getEncoding() {
         return encoding;
@@ -138,9 +164,11 @@ public class PkiMessageRequest {
 
     /**
      * Sets the value of the encoding property.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setEncoding(String value) {
         this.encoding = value;

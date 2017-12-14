@@ -1,16 +1,21 @@
+
 package kz.gamma.certex.cms.web.services.common.entities;
 
-import javax.xml.bind.annotation.*;
 import java.math.BigInteger;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlSchemaType;
+import javax.xml.bind.annotation.XmlType;
 
 
 /**
  * OrderDetail
- * <p>
+ * 
  * <p>Java class for OrderDetail complex type.
- * <p>
+ * 
  * <p>The following schema fragment specifies the expected content contained within this class.
- * <p>
+ * 
  * <pre>
  * &lt;complexType name="OrderDetail">
  *   &lt;complexContent>
@@ -31,13 +36,15 @@ import java.math.BigInteger;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "OrderDetail", namespace = "http://www.gamma.kz/webra/xsd", propOrder = {
-        "id",
-        "dn",
-        "tariffId",
-        "claimCount"
+    "id",
+    "dn",
+    "tariffId",
+    "claimCount"
 })
 public class OrderDetail {
 
@@ -54,9 +61,11 @@ public class OrderDetail {
 
     /**
      * Gets the value of the id property.
-     *
-     * @return possible object is
-     * {@link BigInteger }
+     * 
+     * @return
+     *     possible object is
+     *     {@link BigInteger }
+     *     
      */
     public BigInteger getId() {
         return id;
@@ -64,9 +73,11 @@ public class OrderDetail {
 
     /**
      * Sets the value of the id property.
-     *
-     * @param value allowed object is
-     *              {@link BigInteger }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link BigInteger }
+     *     
      */
     public void setId(BigInteger value) {
         this.id = value;
@@ -74,9 +85,11 @@ public class OrderDetail {
 
     /**
      * Gets the value of the dn property.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getDn() {
         return dn;
@@ -84,9 +97,11 @@ public class OrderDetail {
 
     /**
      * Sets the value of the dn property.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setDn(String value) {
         this.dn = value;
@@ -94,9 +109,11 @@ public class OrderDetail {
 
     /**
      * Gets the value of the tariffId property.
-     *
-     * @return possible object is
-     * {@link BigInteger }
+     * 
+     * @return
+     *     possible object is
+     *     {@link BigInteger }
+     *     
      */
     public BigInteger getTariffId() {
         return tariffId;
@@ -104,9 +121,11 @@ public class OrderDetail {
 
     /**
      * Sets the value of the tariffId property.
-     *
-     * @param value allowed object is
-     *              {@link BigInteger }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link BigInteger }
+     *     
      */
     public void setTariffId(BigInteger value) {
         this.tariffId = value;
@@ -114,9 +133,11 @@ public class OrderDetail {
 
     /**
      * Gets the value of the claimCount property.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getClaimCount() {
         return claimCount;
@@ -124,9 +145,11 @@ public class OrderDetail {
 
     /**
      * Sets the value of the claimCount property.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setClaimCount(String value) {
         this.claimCount = value;

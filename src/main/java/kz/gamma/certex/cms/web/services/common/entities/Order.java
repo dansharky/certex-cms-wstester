@@ -1,18 +1,23 @@
+
 package kz.gamma.certex.cms.web.services.common.entities;
 
-import javax.xml.bind.annotation.*;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlSchemaType;
+import javax.xml.bind.annotation.XmlType;
 
 
 /**
  * Order
- * <p>
+ * 
  * <p>Java class for Order complex type.
- * <p>
+ * 
  * <p>The following schema fragment specifies the expected content contained within this class.
- * <p>
+ * 
  * <pre>
  * &lt;complexType name="Order">
  *   &lt;complexContent>
@@ -53,20 +58,22 @@ import java.util.List;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Order", namespace = "http://www.gamma.kz/webra/xsd", propOrder = {
-        "id",
-        "clientId",
-        "invoiceNum",
-        "bankId",
-        "account",
-        "status",
-        "payerNumberType",
-        "payerNumber",
-        "payerName",
-        "payerAddress",
-        "fxOrderDetails"
+    "id",
+    "clientId",
+    "invoiceNum",
+    "bankId",
+    "account",
+    "status",
+    "payerNumberType",
+    "payerNumber",
+    "payerName",
+    "payerAddress",
+    "fxOrderDetails"
 })
 public class Order {
 
@@ -100,9 +107,11 @@ public class Order {
 
     /**
      * Gets the value of the id property.
-     *
-     * @return possible object is
-     * {@link BigInteger }
+     * 
+     * @return
+     *     possible object is
+     *     {@link BigInteger }
+     *     
      */
     public BigInteger getId() {
         return id;
@@ -110,9 +119,11 @@ public class Order {
 
     /**
      * Sets the value of the id property.
-     *
-     * @param value allowed object is
-     *              {@link BigInteger }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link BigInteger }
+     *     
      */
     public void setId(BigInteger value) {
         this.id = value;
@@ -120,9 +131,11 @@ public class Order {
 
     /**
      * Gets the value of the clientId property.
-     *
-     * @return possible object is
-     * {@link BigInteger }
+     * 
+     * @return
+     *     possible object is
+     *     {@link BigInteger }
+     *     
      */
     public BigInteger getClientId() {
         return clientId;
@@ -130,9 +143,11 @@ public class Order {
 
     /**
      * Sets the value of the clientId property.
-     *
-     * @param value allowed object is
-     *              {@link BigInteger }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link BigInteger }
+     *     
      */
     public void setClientId(BigInteger value) {
         this.clientId = value;
@@ -140,9 +155,11 @@ public class Order {
 
     /**
      * Gets the value of the invoiceNum property.
-     *
-     * @return possible object is
-     * {@link BigInteger }
+     * 
+     * @return
+     *     possible object is
+     *     {@link BigInteger }
+     *     
      */
     public BigInteger getInvoiceNum() {
         return invoiceNum;
@@ -150,9 +167,11 @@ public class Order {
 
     /**
      * Sets the value of the invoiceNum property.
-     *
-     * @param value allowed object is
-     *              {@link BigInteger }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link BigInteger }
+     *     
      */
     public void setInvoiceNum(BigInteger value) {
         this.invoiceNum = value;
@@ -160,9 +179,11 @@ public class Order {
 
     /**
      * Gets the value of the bankId property.
-     *
-     * @return possible object is
-     * {@link BigInteger }
+     * 
+     * @return
+     *     possible object is
+     *     {@link BigInteger }
+     *     
      */
     public BigInteger getBankId() {
         return bankId;
@@ -170,9 +191,11 @@ public class Order {
 
     /**
      * Sets the value of the bankId property.
-     *
-     * @param value allowed object is
-     *              {@link BigInteger }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link BigInteger }
+     *     
      */
     public void setBankId(BigInteger value) {
         this.bankId = value;
@@ -180,9 +203,11 @@ public class Order {
 
     /**
      * Gets the value of the account property.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getAccount() {
         return account;
@@ -190,9 +215,11 @@ public class Order {
 
     /**
      * Sets the value of the account property.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setAccount(String value) {
         this.account = value;
@@ -200,9 +227,11 @@ public class Order {
 
     /**
      * Gets the value of the status property.
-     *
-     * @return possible object is
-     * {@link OrderTYPE }
+     * 
+     * @return
+     *     possible object is
+     *     {@link OrderTYPE }
+     *     
      */
     public OrderTYPE getStatus() {
         return status;
@@ -210,9 +239,11 @@ public class Order {
 
     /**
      * Sets the value of the status property.
-     *
-     * @param value allowed object is
-     *              {@link OrderTYPE }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link OrderTYPE }
+     *     
      */
     public void setStatus(OrderTYPE value) {
         this.status = value;
@@ -220,9 +251,11 @@ public class Order {
 
     /**
      * Gets the value of the payerNumberType property.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getPayerNumberType() {
         return payerNumberType;
@@ -230,9 +263,11 @@ public class Order {
 
     /**
      * Sets the value of the payerNumberType property.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setPayerNumberType(String value) {
         this.payerNumberType = value;
@@ -240,9 +275,11 @@ public class Order {
 
     /**
      * Gets the value of the payerNumber property.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getPayerNumber() {
         return payerNumber;
@@ -250,9 +287,11 @@ public class Order {
 
     /**
      * Sets the value of the payerNumber property.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setPayerNumber(String value) {
         this.payerNumber = value;
@@ -260,9 +299,11 @@ public class Order {
 
     /**
      * Gets the value of the payerName property.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getPayerName() {
         return payerName;
@@ -270,9 +311,11 @@ public class Order {
 
     /**
      * Sets the value of the payerName property.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setPayerName(String value) {
         this.payerName = value;
@@ -280,9 +323,11 @@ public class Order {
 
     /**
      * Gets the value of the payerAddress property.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getPayerAddress() {
         return payerAddress;
@@ -290,9 +335,11 @@ public class Order {
 
     /**
      * Sets the value of the payerAddress property.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setPayerAddress(String value) {
         this.payerAddress = value;
@@ -300,23 +347,25 @@ public class Order {
 
     /**
      * Gets the value of the fxOrderDetails property.
-     * <p>
+     * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the fxOrderDetails property.
-     * <p>
+     * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getFxOrderDetails().add(newItem);
      * </pre>
-     * <p>
-     * <p>
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link OrderDetail }
+     * 
+     * 
      */
     public List<OrderDetail> getFxOrderDetails() {
         if (fxOrderDetails == null) {

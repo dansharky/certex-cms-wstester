@@ -1,16 +1,21 @@
+
 package kz.gamma.certex.cms.web.services.common.entities;
 
-import javax.xml.bind.annotation.*;
 import java.math.BigInteger;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlSchemaType;
+import javax.xml.bind.annotation.XmlType;
 
 
 /**
  * RequestDetail
- * <p>
+ * 
  * <p>Java class for RequestDetail complex type.
- * <p>
+ * 
  * <p>The following schema fragment specifies the expected content contained within this class.
- * <p>
+ * 
  * <pre>
  * &lt;complexType name="RequestDetail">
  *   &lt;complexContent>
@@ -26,14 +31,16 @@ import java.math.BigInteger;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "RequestDetail", namespace = "http://www.gamma.kz/webra/xsd", propOrder = {
-        "id",
-        "tariffDetailId",
-        "profile",
-        "bodySigned",
-        "certBody"
+    "id",
+    "tariffDetailId",
+    "profile",
+    "bodySigned",
+    "certBody"
 })
 public class RequestDetail {
 
@@ -52,9 +59,11 @@ public class RequestDetail {
 
     /**
      * Gets the value of the id property.
-     *
-     * @return possible object is
-     * {@link BigInteger }
+     * 
+     * @return
+     *     possible object is
+     *     {@link BigInteger }
+     *     
      */
     public BigInteger getId() {
         return id;
@@ -62,9 +71,11 @@ public class RequestDetail {
 
     /**
      * Sets the value of the id property.
-     *
-     * @param value allowed object is
-     *              {@link BigInteger }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link BigInteger }
+     *     
      */
     public void setId(BigInteger value) {
         this.id = value;
@@ -72,9 +83,11 @@ public class RequestDetail {
 
     /**
      * Gets the value of the tariffDetailId property.
-     *
-     * @return possible object is
-     * {@link BigInteger }
+     * 
+     * @return
+     *     possible object is
+     *     {@link BigInteger }
+     *     
      */
     public BigInteger getTariffDetailId() {
         return tariffDetailId;
@@ -82,9 +95,11 @@ public class RequestDetail {
 
     /**
      * Sets the value of the tariffDetailId property.
-     *
-     * @param value allowed object is
-     *              {@link BigInteger }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link BigInteger }
+     *     
      */
     public void setTariffDetailId(BigInteger value) {
         this.tariffDetailId = value;
@@ -92,9 +107,11 @@ public class RequestDetail {
 
     /**
      * Gets the value of the profile property.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getProfile() {
         return profile;
@@ -102,9 +119,11 @@ public class RequestDetail {
 
     /**
      * Sets the value of the profile property.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setProfile(String value) {
         this.profile = value;
@@ -112,9 +131,10 @@ public class RequestDetail {
 
     /**
      * Gets the value of the bodySigned property.
-     *
-     * @return possible object is
-     * byte[]
+     * 
+     * @return
+     *     possible object is
+     *     byte[]
      */
     public byte[] getBodySigned() {
         return bodySigned;
@@ -122,9 +142,10 @@ public class RequestDetail {
 
     /**
      * Sets the value of the bodySigned property.
-     *
-     * @param value allowed object is
-     *              byte[]
+     * 
+     * @param value
+     *     allowed object is
+     *     byte[]
      */
     public void setBodySigned(byte[] value) {
         this.bodySigned = value;
@@ -132,9 +153,10 @@ public class RequestDetail {
 
     /**
      * Gets the value of the certBody property.
-     *
-     * @return possible object is
-     * byte[]
+     * 
+     * @return
+     *     possible object is
+     *     byte[]
      */
     public byte[] getCertBody() {
         return certBody;
@@ -142,9 +164,10 @@ public class RequestDetail {
 
     /**
      * Sets the value of the certBody property.
-     *
-     * @param value allowed object is
-     *              byte[]
+     * 
+     * @param value
+     *     allowed object is
+     *     byte[]
      */
     public void setCertBody(byte[] value) {
         this.certBody = value;

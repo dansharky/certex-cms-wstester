@@ -1,3 +1,4 @@
+
 package kz.gamma.certex.cms.web.services.common.entities;
 
 import javax.xml.bind.annotation.XmlEnum;
@@ -6,7 +7,7 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for statusTYPE.
- * <p>
+ * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * <p>
  * <pre>
@@ -17,6 +18,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/restriction>
  * &lt;/simpleType>
  * </pre>
+ * 
  */
 @XmlType(name = "statusTYPE", namespace = "http://www.gamma.kz/webra/xsd")
 @XmlEnum
@@ -24,21 +26,23 @@ public enum StatusTYPE {
 
 
     /**
-     * РЈСЃРїРµС€РЅС‹Р№ СЂРµР·СѓР»СЊС‚Р°С‚ РІС‹РїРѕР»РЅРµРЅРёСЏ
+     * Успешный результат выполнения
+     * 
      */
     OK,
 
     /**
-     * РћС€РёР±РєР° РІС‹РїРѕР»РЅРµРЅРёСЏ
+     * Ошибка выполнения
+     * 
      */
     ERROR;
 
-    public static StatusTYPE fromValue(String v) {
-        return valueOf(v);
-    }
-
     public String value() {
         return name();
+    }
+
+    public static StatusTYPE fromValue(String v) {
+        return valueOf(v);
     }
 
 }

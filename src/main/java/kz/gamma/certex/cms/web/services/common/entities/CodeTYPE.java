@@ -1,3 +1,4 @@
+
 package kz.gamma.certex.cms.web.services.common.entities;
 
 import javax.xml.bind.annotation.XmlEnum;
@@ -7,7 +8,7 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for codeTYPE.
- * <p>
+ * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * <p>
  * <pre>
@@ -24,6 +25,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/restriction>
  * &lt;/simpleType>
  * </pre>
+ * 
  */
 @XmlType(name = "codeTYPE", namespace = "http://www.gamma.kz/webra/xsd")
 @XmlEnum
@@ -31,49 +33,57 @@ public enum CodeTYPE {
 
 
     /**
-     * РћС€РёР±РєР° РІР°Р»РёРґР°С†РёРё РїРѕ XSD. РџСЂРё РЅР°Р»РёС‡РёРё РЅРµРїСЂР°РІРёР»СЊРЅРѕ СЃС„РѕСЂРјРёСЂРѕРІР°РЅРЅС‹С… xml СЃРѕРѕР±С‰РµРЅРёР№.
+     * Ошибка валидации по XSD. При наличии неправильно сформированных xml сообщений.
+     * 
      */
     @XmlEnumValue("xsdValidationError")
     XSD_VALIDATION_ERROR("xsdValidationError"),
 
     /**
-     * РћС€РёР±РєР° РїРѕРґРїРёСЃРё. РџСЂРё РѕС€РёР±РєР°С… РєСЂРёРїС‚РѕРіСЂР°С„РёРё Рё РїРѕРґРїРёСЃРё.
+     * Ошибка подписи. При ошибках криптографии и подписи.
+     * 
      */
     @XmlEnumValue("signError")
     SIGN_ERROR("signError"),
 
     /**
-     * РћС€РёР±РєР° СЃРµСЂРІРµСЂР°. РџСЂРё РІРѕР·РЅРёРєРЅРѕРІРµРЅРёРё РЅРµ РїСЂРµРґРІРёРґРµРЅРЅС‹С… РѕС€РёР±РѕРє РЅР° СЃРµСЂРІРµСЂРµ.
+     * Ошибка сервера. При возникновении не предвиденных ошибок на сервере.
+     * 
      */
     @XmlEnumValue("serverError")
     SERVER_ERROR("serverError"),
 
     /**
-     * РћС€РёР±РєР° СѓРЅРёРєР°Р»СЊРЅРѕСЃС‚Рё. Р’РѕР·РЅРёРєР°РµС‚ РїСЂРё РЅР°СЂСѓС€РµРЅРё СѓРЅРёРєР°Р»СЊРЅРѕСЃС‚Рё СЃСѓС‰РЅРѕСЃС‚Рё РІ СЃРёСЃС‚РµРјРµ.
+     * Ошибка уникальности. Возникает при нарушени уникальности сущности в системе.
+     * 
      */
     @XmlEnumValue("uniqueError")
     UNIQUE_ERROR("uniqueError"),
 
     /**
-     * РћС‚СЃСѓС‚СЃС‚РІРёРµ С‚СЂРµР±СѓРµРјРѕР№ СЃСѓС‰РЅРѕСЃС‚Рё. РџСЂРё РѕС‚СЃСѓС‚РІРёРё СЃСѓС‰РЅРѕСЃС‚Рё РІ СЃРёСЃС‚РµРјРµ.
+     * Отсутствие требуемой сущности. При отсутвии сущности в системе.
+     * 
      */
     @XmlEnumValue("entityNotFound")
     ENTITY_NOT_FOUND("entityNotFound"),
 
     /**
-     * РћС€РёР±РєР°, СЃРІСЏР·Р°РЅРЅР°СЏ СЃ РѕРїР»Р°С‚РѕР№.
+     * Ошибка, связанная с оплатой.
+     * 
      */
     @XmlEnumValue("payError")
     PAY_ERROR("payError"),
 
     /**
-     * РќРµРєРѕСЂСЂРµРєС‚РЅС‹Рµ РґР°РЅРЅС‹Рµ.
+     * Некорректные данные.
+     * 
      */
     @XmlEnumValue("incorrectDataError")
     INCORRECT_DATA_ERROR("incorrectDataError"),
 
     /**
-     * РћР±С‰РёРµ РѕС€РёР±РєРё. РћС€РёР±РєРё РЅРµ РїРѕРґС…РѕРґСЏС‰РёРµ РЅРё РїРѕРґ РѕРґРЅСѓ РєР°С‚РµРіРѕСЂРёСЋ.
+     * Общие ошибки. Ошибки не подходящие ни под одну категорию.
+     * 
      */
     @XmlEnumValue("commonError")
     COMMON_ERROR("commonError");
@@ -83,17 +93,17 @@ public enum CodeTYPE {
         value = v;
     }
 
+    public String value() {
+        return value;
+    }
+
     public static CodeTYPE fromValue(String v) {
-        for (CodeTYPE c : CodeTYPE.values()) {
+        for (CodeTYPE c: CodeTYPE.values()) {
             if (c.value.equals(v)) {
                 return c;
             }
         }
         throw new IllegalArgumentException(v);
-    }
-
-    public String value() {
-        return value;
     }
 
 }

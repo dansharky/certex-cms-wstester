@@ -1,16 +1,22 @@
+
 package kz.gamma.certex.cms.web.services.common.entities;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlSchemaType;
+import javax.xml.bind.annotation.XmlSeeAlso;
+import javax.xml.bind.annotation.XmlType;
 import javax.xml.datatype.XMLGregorianCalendar;
 
 
 /**
  * Abstract Document
- * <p>
+ * 
  * <p>Java class for PkiDocument complex type.
- * <p>
+ * 
  * <p>The following schema fragment specifies the expected content contained within this class.
- * <p>
+ * 
  * <pre>
  * &lt;complexType name="PkiDocument">
  *   &lt;complexContent>
@@ -20,64 +26,66 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "PkiDocument", namespace = "http://www.gamma.kz/webra/xsd")
 @XmlSeeAlso({
-        DocCityListIn.class,
-        DocLoadPersonIn.class,
-        DocFindPersonOut.class,
-        DocGetRolesOut.class,
-        DocGenerateSANListOut.class,
-        DocChangePasswordIn.class,
-        DocRevokeCertOut.class,
-        DocRegionListOut.class,
-        DocGenerateSANListIn.class,
-        DocFindPersonIn.class,
-        DocCreatePersonIn.class,
-        DocIssuerListIn.class,
-        DocCreateOrderIn.class,
-        DocRequestListOut.class,
-        DocRemovePersonOut.class,
-        DocLoadPersonOut.class,
-        DocRequestListIn.class,
-        DocConfirmOrderOut.class,
-        DocCreatePersonOut.class,
-        DocCreateOrderOut.class,
-        DocGetTumarOut.class,
-        DocRevokeCertIn.class,
-        DocCountryListIn.class,
-        DocIssuerListOut.class,
-        DocRemovePersonIn.class,
-        DocUpdatePersonOut.class,
-        DocGetOrganizationIn.class,
-        DocOrderListIn.class,
-        DocSetDNOut.class,
-        DocRegionListIn.class,
-        DocUpdateCUserIn.class,
-        DocOrderListOut.class,
-        DocUpdateCUserOut.class,
-        DocGetPersonListOut.class,
-        DocBankListIn.class,
-        DocGetOrganizationOut.class,
-        DocCountryListOut.class,
-        DocGetRolesIn.class,
-        DocPositionListOut.class,
-        DocCityListOut.class,
-        DocSetDNIn.class,
-        DocGetCertListIn.class,
-        DocRequestCertOut.class,
-        DocGetCertListOut.class,
-        DocTariffListIn.class,
-        DocBankListOut.class,
-        DocUpdatePersonIn.class,
-        DocGetTumarIn.class,
-        DocConfirmOrderIn.class,
-        DocRequestCertIn.class,
-        DocChangePasswordOut.class,
-        DocGetPersonListIn.class,
-        DocPositionListIn.class,
-        DocTariffListOut.class
+    DocCityListIn.class,
+    DocLoadPersonIn.class,
+    DocFindPersonOut.class,
+    DocGetRolesOut.class,
+    DocGenerateSANListOut.class,
+    DocChangePasswordIn.class,
+    DocRevokeCertOut.class,
+    DocRegionListOut.class,
+    DocGenerateSANListIn.class,
+    DocFindPersonIn.class,
+    DocCreatePersonIn.class,
+    DocIssuerListIn.class,
+    DocCreateOrderIn.class,
+    DocRequestListOut.class,
+    DocRemovePersonOut.class,
+    DocLoadPersonOut.class,
+    DocRequestListIn.class,
+    DocConfirmOrderOut.class,
+    DocCreatePersonOut.class,
+    DocCreateOrderOut.class,
+    DocGetTumarOut.class,
+    DocRevokeCertIn.class,
+    DocCountryListIn.class,
+    DocIssuerListOut.class,
+    DocRemovePersonIn.class,
+    DocUpdatePersonOut.class,
+    DocGetOrganizationIn.class,
+    DocOrderListIn.class,
+    DocSetDNOut.class,
+    DocRegionListIn.class,
+    DocUpdateCUserIn.class,
+    DocOrderListOut.class,
+    DocUpdateCUserOut.class,
+    DocGetPersonListOut.class,
+    DocBankListIn.class,
+    DocGetOrganizationOut.class,
+    DocCountryListOut.class,
+    DocGetRolesIn.class,
+    DocPositionListOut.class,
+    DocCityListOut.class,
+    DocSetDNIn.class,
+    DocGetCertListIn.class,
+    DocRequestCertOut.class,
+    DocGetCertListOut.class,
+    DocTariffListIn.class,
+    DocBankListOut.class,
+    DocUpdatePersonIn.class,
+    DocGetTumarIn.class,
+    DocConfirmOrderIn.class,
+    DocRequestCertIn.class,
+    DocChangePasswordOut.class,
+    DocGetPersonListIn.class,
+    DocPositionListIn.class,
+    DocTariffListOut.class
 })
 public class PkiDocument {
 
@@ -87,9 +95,11 @@ public class PkiDocument {
 
     /**
      * Gets the value of the dateTime property.
-     *
-     * @return possible object is
-     * {@link XMLGregorianCalendar }
+     * 
+     * @return
+     *     possible object is
+     *     {@link XMLGregorianCalendar }
+     *     
      */
     public XMLGregorianCalendar getDateTime() {
         return dateTime;
@@ -97,9 +107,11 @@ public class PkiDocument {
 
     /**
      * Sets the value of the dateTime property.
-     *
-     * @param value allowed object is
-     *              {@link XMLGregorianCalendar }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link XMLGregorianCalendar }
+     *     
      */
     public void setDateTime(XMLGregorianCalendar value) {
         this.dateTime = value;

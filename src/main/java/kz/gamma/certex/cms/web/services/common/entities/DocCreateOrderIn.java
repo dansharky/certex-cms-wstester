@@ -1,16 +1,22 @@
+
 package kz.gamma.certex.cms.web.services.common.entities;
 
-import javax.xml.bind.annotation.*;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlSchemaType;
+import javax.xml.bind.annotation.XmlType;
 
 
 /**
  * <p>Java class for anonymous complex type.
- * <p>
+ * 
  * <p>The following schema fragment specifies the expected content contained within this class.
- * <p>
+ * 
  * <pre>
  * &lt;complexType>
  *   &lt;complexContent>
@@ -23,15 +29,18 @@ import java.util.List;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-        "clientId",
-        "fxOrderDetails"
+    "clientId",
+    "fxOrderDetails"
 })
 @XmlRootElement(name = "docCreateOrderIn", namespace = "http://www.gamma.kz/webra/xsd")
 public class DocCreateOrderIn
-        extends PkiDocument {
+    extends PkiDocument
+{
 
     @XmlElement(namespace = "http://www.gamma.kz/webra/xsd", required = true)
     @XmlSchemaType(name = "unsignedLong")
@@ -41,9 +50,11 @@ public class DocCreateOrderIn
 
     /**
      * Gets the value of the clientId property.
-     *
-     * @return possible object is
-     * {@link BigInteger }
+     * 
+     * @return
+     *     possible object is
+     *     {@link BigInteger }
+     *     
      */
     public BigInteger getClientId() {
         return clientId;
@@ -51,9 +62,11 @@ public class DocCreateOrderIn
 
     /**
      * Sets the value of the clientId property.
-     *
-     * @param value allowed object is
-     *              {@link BigInteger }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link BigInteger }
+     *     
      */
     public void setClientId(BigInteger value) {
         this.clientId = value;
@@ -61,23 +74,25 @@ public class DocCreateOrderIn
 
     /**
      * Gets the value of the fxOrderDetails property.
-     * <p>
+     * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the fxOrderDetails property.
-     * <p>
+     * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getFxOrderDetails().add(newItem);
      * </pre>
-     * <p>
-     * <p>
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link OrderDetail }
+     * 
+     * 
      */
     public List<OrderDetail> getFxOrderDetails() {
         if (fxOrderDetails == null) {

@@ -1,3 +1,4 @@
+
 package kz.gamma.certex.cms.web.services.common.entities;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -7,12 +8,12 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * РЎС‚СЂР°РЅР°
- * <p>
+ * Страна
+ * 
  * <p>Java class for Country complex type.
- * <p>
+ * 
  * <p>The following schema fragment specifies the expected content contained within this class.
- * <p>
+ * 
  * <pre>
  * &lt;complexType name="Country">
  *   &lt;complexContent>
@@ -31,11 +32,13 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Country", namespace = "http://www.gamma.kz/webra/xsd", propOrder = {
-        "code",
-        "name"
+    "code",
+    "name"
 })
 public class Country {
 
@@ -46,9 +49,11 @@ public class Country {
 
     /**
      * Gets the value of the code property.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getCode() {
         return code;
@@ -56,9 +61,11 @@ public class Country {
 
     /**
      * Sets the value of the code property.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setCode(String value) {
         this.code = value;
@@ -66,9 +73,11 @@ public class Country {
 
     /**
      * Gets the value of the name property.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getName() {
         return name;
@@ -76,9 +85,11 @@ public class Country {
 
     /**
      * Sets the value of the name property.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setName(String value) {
         this.name = value;

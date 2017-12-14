@@ -1,17 +1,24 @@
+
 package kz.gamma.certex.cms.web.services.common.entities;
 
-import javax.xml.bind.annotation.*;
-import javax.xml.datatype.XMLGregorianCalendar;
 import java.math.BigInteger;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlSchemaType;
+import javax.xml.bind.annotation.XmlSeeAlso;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.datatype.XMLGregorianCalendar;
 
 
 /**
  * Response
- * <p>
+ * 
  * <p>Java class for PkiMessageResponse complex type.
- * <p>
+ * 
  * <p>The following schema fragment specifies the expected content contained within this class.
- * <p>
+ * 
  * <pre>
  * &lt;complexType name="PkiMessageResponse">
  *   &lt;complexContent>
@@ -41,19 +48,21 @@ import java.math.BigInteger;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "PkiMessageResponse", namespace = "http://www.gamma.kz/webra/xsd", propOrder = {
-        "error",
-        "status"
+    "error",
+    "status"
 })
 @XmlSeeAlso({
-        ResponsePkiService.class
+    ResponsePkiService.class
 })
 public class PkiMessageResponse {
 
     @XmlElement(namespace = "http://www.gamma.kz/webra/xsd")
-    protected Error error;
+    protected PkiMessageResponse.Error error;
     @XmlElement(namespace = "http://www.gamma.kz/webra/xsd", required = true)
     @XmlSchemaType(name = "string")
     protected StatusTYPE status;
@@ -72,29 +81,35 @@ public class PkiMessageResponse {
 
     /**
      * Gets the value of the error property.
-     *
-     * @return possible object is
-     * {@link Error }
+     * 
+     * @return
+     *     possible object is
+     *     {@link PkiMessageResponse.Error }
+     *     
      */
-    public Error getError() {
+    public PkiMessageResponse.Error getError() {
         return error;
     }
 
     /**
      * Sets the value of the error property.
-     *
-     * @param value allowed object is
-     *              {@link Error }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link PkiMessageResponse.Error }
+     *     
      */
-    public void setError(Error value) {
+    public void setError(PkiMessageResponse.Error value) {
         this.error = value;
     }
 
     /**
      * Gets the value of the status property.
-     *
-     * @return possible object is
-     * {@link StatusTYPE }
+     * 
+     * @return
+     *     possible object is
+     *     {@link StatusTYPE }
+     *     
      */
     public StatusTYPE getStatus() {
         return status;
@@ -102,9 +117,11 @@ public class PkiMessageResponse {
 
     /**
      * Sets the value of the status property.
-     *
-     * @param value allowed object is
-     *              {@link StatusTYPE }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link StatusTYPE }
+     *     
      */
     public void setStatus(StatusTYPE value) {
         this.status = value;
@@ -112,9 +129,11 @@ public class PkiMessageResponse {
 
     /**
      * Gets the value of the service property.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getService() {
         return service;
@@ -122,9 +141,11 @@ public class PkiMessageResponse {
 
     /**
      * Sets the value of the service property.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setService(String value) {
         this.service = value;
@@ -132,9 +153,11 @@ public class PkiMessageResponse {
 
     /**
      * Gets the value of the responseDate property.
-     *
-     * @return possible object is
-     * {@link XMLGregorianCalendar }
+     * 
+     * @return
+     *     possible object is
+     *     {@link XMLGregorianCalendar }
+     *     
      */
     public XMLGregorianCalendar getResponseDate() {
         return responseDate;
@@ -142,9 +165,11 @@ public class PkiMessageResponse {
 
     /**
      * Sets the value of the responseDate property.
-     *
-     * @param value allowed object is
-     *              {@link XMLGregorianCalendar }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link XMLGregorianCalendar }
+     *     
      */
     public void setResponseDate(XMLGregorianCalendar value) {
         this.responseDate = value;
@@ -152,9 +177,11 @@ public class PkiMessageResponse {
 
     /**
      * Gets the value of the system property.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getSystem() {
         return system;
@@ -162,9 +189,11 @@ public class PkiMessageResponse {
 
     /**
      * Sets the value of the system property.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setSystem(String value) {
         this.system = value;
@@ -172,9 +201,11 @@ public class PkiMessageResponse {
 
     /**
      * Gets the value of the seance property.
-     *
-     * @return possible object is
-     * {@link BigInteger }
+     * 
+     * @return
+     *     possible object is
+     *     {@link BigInteger }
+     *     
      */
     public BigInteger getSeance() {
         return seance;
@@ -182,9 +213,11 @@ public class PkiMessageResponse {
 
     /**
      * Sets the value of the seance property.
-     *
-     * @param value allowed object is
-     *              {@link BigInteger }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link BigInteger }
+     *     
      */
     public void setSeance(BigInteger value) {
         this.seance = value;
@@ -192,9 +225,11 @@ public class PkiMessageResponse {
 
     /**
      * Gets the value of the encoding property.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getEncoding() {
         return encoding;
@@ -202,9 +237,11 @@ public class PkiMessageResponse {
 
     /**
      * Sets the value of the encoding property.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setEncoding(String value) {
         this.encoding = value;
@@ -213,9 +250,9 @@ public class PkiMessageResponse {
 
     /**
      * <p>Java class for anonymous complex type.
-     * <p>
+     * 
      * <p>The following schema fragment specifies the expected content contained within this class.
-     * <p>
+     * 
      * <pre>
      * &lt;complexType>
      *   &lt;complexContent>
@@ -229,12 +266,14 @@ public class PkiMessageResponse {
      *   &lt;/complexContent>
      * &lt;/complexType>
      * </pre>
+     * 
+     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-            "code",
-            "message",
-            "details"
+        "code",
+        "message",
+        "details"
     })
     public static class Error {
 
@@ -248,9 +287,11 @@ public class PkiMessageResponse {
 
         /**
          * Gets the value of the code property.
-         *
-         * @return possible object is
-         * {@link CodeTYPE }
+         * 
+         * @return
+         *     possible object is
+         *     {@link CodeTYPE }
+         *     
          */
         public CodeTYPE getCode() {
             return code;
@@ -258,9 +299,11 @@ public class PkiMessageResponse {
 
         /**
          * Sets the value of the code property.
-         *
-         * @param value allowed object is
-         *              {@link CodeTYPE }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link CodeTYPE }
+         *     
          */
         public void setCode(CodeTYPE value) {
             this.code = value;
@@ -268,9 +311,11 @@ public class PkiMessageResponse {
 
         /**
          * Gets the value of the message property.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getMessage() {
             return message;
@@ -278,9 +323,11 @@ public class PkiMessageResponse {
 
         /**
          * Sets the value of the message property.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setMessage(String value) {
             this.message = value;
@@ -288,9 +335,11 @@ public class PkiMessageResponse {
 
         /**
          * Gets the value of the details property.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getDetails() {
             return details;
@@ -298,9 +347,11 @@ public class PkiMessageResponse {
 
         /**
          * Sets the value of the details property.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setDetails(String value) {
             this.details = value;

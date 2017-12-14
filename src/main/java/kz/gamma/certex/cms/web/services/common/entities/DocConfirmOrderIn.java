@@ -1,14 +1,20 @@
+
 package kz.gamma.certex.cms.web.services.common.entities;
 
-import javax.xml.bind.annotation.*;
 import java.math.BigInteger;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlSchemaType;
+import javax.xml.bind.annotation.XmlType;
 
 
 /**
  * <p>Java class for anonymous complex type.
- * <p>
+ * 
  * <p>The following schema fragment specifies the expected content contained within this class.
- * <p>
+ * 
  * <pre>
  * &lt;complexType>
  *   &lt;complexContent>
@@ -20,14 +26,17 @@ import java.math.BigInteger;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-        "orderId"
+    "orderId"
 })
 @XmlRootElement(name = "docConfirmOrderIn", namespace = "http://www.gamma.kz/webra/xsd")
 public class DocConfirmOrderIn
-        extends PkiDocument {
+    extends PkiDocument
+{
 
     @XmlElement(namespace = "http://www.gamma.kz/webra/xsd", required = true)
     @XmlSchemaType(name = "unsignedLong")
@@ -35,9 +44,11 @@ public class DocConfirmOrderIn
 
     /**
      * Gets the value of the orderId property.
-     *
-     * @return possible object is
-     * {@link BigInteger }
+     * 
+     * @return
+     *     possible object is
+     *     {@link BigInteger }
+     *     
      */
     public BigInteger getOrderId() {
         return orderId;
@@ -45,9 +56,11 @@ public class DocConfirmOrderIn
 
     /**
      * Sets the value of the orderId property.
-     *
-     * @param value allowed object is
-     *              {@link BigInteger }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link BigInteger }
+     *     
      */
     public void setOrderId(BigInteger value) {
         this.orderId = value;

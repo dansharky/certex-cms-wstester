@@ -1,19 +1,24 @@
+
 package kz.gamma.certex.cms.web.services.common.entities;
 
-import javax.xml.bind.annotation.*;
-import javax.xml.datatype.XMLGregorianCalendar;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlSchemaType;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.datatype.XMLGregorianCalendar;
 
 
 /**
  * Request
- * <p>
+ * 
  * <p>Java class for Request complex type.
- * <p>
+ * 
  * <p>The following schema fragment specifies the expected content contained within this class.
- * <p>
+ * 
  * <pre>
  * &lt;complexType name="Request">
  *   &lt;complexContent>
@@ -35,20 +40,22 @@ import java.util.List;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Request", namespace = "http://www.gamma.kz/webra/xsd", propOrder = {
-        "id",
-        "dn",
-        "tariffId",
-        "status",
-        "orderDetailId",
-        "type",
-        "startDate",
-        "endDate",
-        "cause",
-        "comment",
-        "fxRequestDetails"
+    "id",
+    "dn",
+    "tariffId",
+    "status",
+    "orderDetailId",
+    "type",
+    "startDate",
+    "endDate",
+    "cause",
+    "comment",
+    "fxRequestDetails"
 })
 public class Request {
 
@@ -84,9 +91,11 @@ public class Request {
 
     /**
      * Gets the value of the id property.
-     *
-     * @return possible object is
-     * {@link BigInteger }
+     * 
+     * @return
+     *     possible object is
+     *     {@link BigInteger }
+     *     
      */
     public BigInteger getId() {
         return id;
@@ -94,9 +103,11 @@ public class Request {
 
     /**
      * Sets the value of the id property.
-     *
-     * @param value allowed object is
-     *              {@link BigInteger }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link BigInteger }
+     *     
      */
     public void setId(BigInteger value) {
         this.id = value;
@@ -104,9 +115,11 @@ public class Request {
 
     /**
      * Gets the value of the dn property.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getDN() {
         return dn;
@@ -114,9 +127,11 @@ public class Request {
 
     /**
      * Sets the value of the dn property.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setDN(String value) {
         this.dn = value;
@@ -124,9 +139,11 @@ public class Request {
 
     /**
      * Gets the value of the tariffId property.
-     *
-     * @return possible object is
-     * {@link BigInteger }
+     * 
+     * @return
+     *     possible object is
+     *     {@link BigInteger }
+     *     
      */
     public BigInteger getTariffId() {
         return tariffId;
@@ -134,9 +151,11 @@ public class Request {
 
     /**
      * Sets the value of the tariffId property.
-     *
-     * @param value allowed object is
-     *              {@link BigInteger }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link BigInteger }
+     *     
      */
     public void setTariffId(BigInteger value) {
         this.tariffId = value;
@@ -144,9 +163,11 @@ public class Request {
 
     /**
      * Gets the value of the status property.
-     *
-     * @return possible object is
-     * {@link RequestStatusTYPE }
+     * 
+     * @return
+     *     possible object is
+     *     {@link RequestStatusTYPE }
+     *     
      */
     public RequestStatusTYPE getStatus() {
         return status;
@@ -154,9 +175,11 @@ public class Request {
 
     /**
      * Sets the value of the status property.
-     *
-     * @param value allowed object is
-     *              {@link RequestStatusTYPE }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link RequestStatusTYPE }
+     *     
      */
     public void setStatus(RequestStatusTYPE value) {
         this.status = value;
@@ -164,9 +187,11 @@ public class Request {
 
     /**
      * Gets the value of the orderDetailId property.
-     *
-     * @return possible object is
-     * {@link BigInteger }
+     * 
+     * @return
+     *     possible object is
+     *     {@link BigInteger }
+     *     
      */
     public BigInteger getOrderDetailId() {
         return orderDetailId;
@@ -174,9 +199,11 @@ public class Request {
 
     /**
      * Sets the value of the orderDetailId property.
-     *
-     * @param value allowed object is
-     *              {@link BigInteger }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link BigInteger }
+     *     
      */
     public void setOrderDetailId(BigInteger value) {
         this.orderDetailId = value;
@@ -184,9 +211,11 @@ public class Request {
 
     /**
      * Gets the value of the type property.
-     *
-     * @return possible object is
-     * {@link RequestTYPE }
+     * 
+     * @return
+     *     possible object is
+     *     {@link RequestTYPE }
+     *     
      */
     public RequestTYPE getType() {
         return type;
@@ -194,9 +223,11 @@ public class Request {
 
     /**
      * Sets the value of the type property.
-     *
-     * @param value allowed object is
-     *              {@link RequestTYPE }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link RequestTYPE }
+     *     
      */
     public void setType(RequestTYPE value) {
         this.type = value;
@@ -204,9 +235,11 @@ public class Request {
 
     /**
      * Gets the value of the startDate property.
-     *
-     * @return possible object is
-     * {@link XMLGregorianCalendar }
+     * 
+     * @return
+     *     possible object is
+     *     {@link XMLGregorianCalendar }
+     *     
      */
     public XMLGregorianCalendar getStartDate() {
         return startDate;
@@ -214,9 +247,11 @@ public class Request {
 
     /**
      * Sets the value of the startDate property.
-     *
-     * @param value allowed object is
-     *              {@link XMLGregorianCalendar }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link XMLGregorianCalendar }
+     *     
      */
     public void setStartDate(XMLGregorianCalendar value) {
         this.startDate = value;
@@ -224,9 +259,11 @@ public class Request {
 
     /**
      * Gets the value of the endDate property.
-     *
-     * @return possible object is
-     * {@link XMLGregorianCalendar }
+     * 
+     * @return
+     *     possible object is
+     *     {@link XMLGregorianCalendar }
+     *     
      */
     public XMLGregorianCalendar getEndDate() {
         return endDate;
@@ -234,9 +271,11 @@ public class Request {
 
     /**
      * Sets the value of the endDate property.
-     *
-     * @param value allowed object is
-     *              {@link XMLGregorianCalendar }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link XMLGregorianCalendar }
+     *     
      */
     public void setEndDate(XMLGregorianCalendar value) {
         this.endDate = value;
@@ -244,9 +283,11 @@ public class Request {
 
     /**
      * Gets the value of the cause property.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getCause() {
         return cause;
@@ -254,9 +295,11 @@ public class Request {
 
     /**
      * Sets the value of the cause property.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setCause(String value) {
         this.cause = value;
@@ -264,9 +307,11 @@ public class Request {
 
     /**
      * Gets the value of the comment property.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getComment() {
         return comment;
@@ -274,9 +319,11 @@ public class Request {
 
     /**
      * Sets the value of the comment property.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setComment(String value) {
         this.comment = value;
@@ -284,23 +331,25 @@ public class Request {
 
     /**
      * Gets the value of the fxRequestDetails property.
-     * <p>
+     * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the fxRequestDetails property.
-     * <p>
+     * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getFxRequestDetails().add(newItem);
      * </pre>
-     * <p>
-     * <p>
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link RequestDetail }
+     * 
+     * 
      */
     public List<RequestDetail> getFxRequestDetails() {
         if (fxRequestDetails == null) {

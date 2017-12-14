@@ -1,3 +1,4 @@
+
 package kz.gamma.certex.cms.web.services.common.entities;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -8,11 +9,11 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * Person
- * <p>
+ * 
  * <p>Java class for Person complex type.
- * <p>
+ * 
  * <p>The following schema fragment specifies the expected content contained within this class.
- * <p>
+ * 
  * <pre>
  * &lt;complexType name="Person">
  *   &lt;complexContent>
@@ -23,7 +24,7 @@ import javax.xml.bind.annotation.XmlType;
  *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
  *               &lt;minLength value="1"/>
  *               &lt;maxLength value="50"/>
- *               &lt;pattern value="[\- ӨөӘәҒғҚқҢңҰұҮүҺһІіа-яА-ЯЁёa-zA-Z]{1,50}"/>
+ *               &lt;pattern value="[\- \u04e8\u04e9\u04d8\u04d9\u0492\u0493\u049a\u049b\u04a2\u04a3\u04b0\u04b1\u04ae\u04af\u04ba\u04bb���-��-ߨ�a-zA-Z]{1,50}"/>
  *             &lt;/restriction>
  *           &lt;/simpleType>
  *         &lt;/element>
@@ -32,7 +33,7 @@ import javax.xml.bind.annotation.XmlType;
  *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
  *               &lt;minLength value="1"/>
  *               &lt;maxLength value="50"/>
- *               &lt;pattern value="[\- ӨөӘәҒғҚқҢңҰұҮүҺһІіа-яА-ЯЁёa-zA-Z]{1,50}"/>
+ *               &lt;pattern value="[\- \u04e8\u04e9\u04d8\u04d9\u0492\u0493\u049a\u049b\u04a2\u04a3\u04b0\u04b1\u04ae\u04af\u04ba\u04bb���-��-ߨ�a-zA-Z]{1,50}"/>
  *             &lt;/restriction>
  *           &lt;/simpleType>
  *         &lt;/element>
@@ -41,7 +42,7 @@ import javax.xml.bind.annotation.XmlType;
  *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
  *               &lt;minLength value="0"/>
  *               &lt;maxLength value="50"/>
- *               &lt;pattern value="[\- ӨөӘәҒғҚқҢңҰұҮүҺһІіа-яА-ЯЁёa-zA-Z]{0,50}|"/>
+ *               &lt;pattern value="[\- \u04e8\u04e9\u04d8\u04d9\u0492\u0493\u049a\u049b\u04a2\u04a3\u04b0\u04b1\u04ae\u04af\u04ba\u04bb���-��-ߨ�a-zA-Z]{0,50}|"/>
  *             &lt;/restriction>
  *           &lt;/simpleType>
  *         &lt;/element>
@@ -72,7 +73,7 @@ import javax.xml.bind.annotation.XmlType;
  *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
  *               &lt;minLength value="0"/>
  *               &lt;maxLength value="61"/>
- *               &lt;pattern value="[A-Z0-9 «»!$&amp;\(\)\*\-\.:&lt;=>\?@\[\]\^_\{\|\}~ ]{0,61}"/>
+ *               &lt;pattern value="[A-Z0-9 ��!$&amp;\(\)\*\-\.:&lt;=>\?@\[\]\^_\{\|\}~ ]{0,61}"/>
  *             &lt;/restriction>
  *           &lt;/simpleType>
  *         &lt;/element>
@@ -156,7 +157,7 @@ import javax.xml.bind.annotation.XmlType;
  *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
  *               &lt;minLength value="1"/>
  *               &lt;maxLength value="61"/>
- *               &lt;pattern value="[A-Z0-9 «»!$&amp;\(\)\*\-\.:&lt;=>\?@\[\]\^_\{\|\}~ ]{1,61}|"/>
+ *               &lt;pattern value="[A-Z0-9 ��!$&amp;\(\)\*\-\.:&lt;=>\?@\[\]\^_\{\|\}~ ]{1,61}|"/>
  *             &lt;/restriction>
  *           &lt;/simpleType>
  *         &lt;/element>
@@ -164,40 +165,44 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="isCUser" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
  *         &lt;element name="generatePass" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
  *         &lt;element name="requestCertEmail" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
+ *         &lt;element name="pinId" type="{http://www.gamma.kz/webra/xsd}string255TYPE" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Person", namespace = "http://www.gamma.kz/webra/xsd", propOrder = {
-        "lastName",
-        "firstName",
-        "middleName",
-        "roleId",
-        "birthDate",
-        "idNumber",
-        "idIssuer",
-        "idIssueDate",
-        "iin",
-        "st",
-        "l",
-        "phone",
-        "mobile",
-        "email",
-        "address",
-        "legalData",
-        "noResident",
-        "citizenship",
-        "ip",
-        "bik",
-        "account",
-        "uid",
-        "password",
-        "isCUser",
-        "generatePass",
-        "requestCertEmail"
+    "lastName",
+    "firstName",
+    "middleName",
+    "roleId",
+    "birthDate",
+    "idNumber",
+    "idIssuer",
+    "idIssueDate",
+    "iin",
+    "st",
+    "l",
+    "phone",
+    "mobile",
+    "email",
+    "address",
+    "legalData",
+    "noResident",
+    "citizenship",
+    "ip",
+    "bik",
+    "account",
+    "uid",
+    "password",
+    "isCUser",
+    "generatePass",
+    "requestCertEmail",
+    "pinId"
 })
 public class Person {
 
@@ -253,12 +258,16 @@ public class Person {
     protected boolean generatePass;
     @XmlElement(namespace = "http://www.gamma.kz/webra/xsd")
     protected boolean requestCertEmail;
+    @XmlElement(namespace = "http://www.gamma.kz/webra/xsd")
+    protected String pinId;
 
     /**
      * Gets the value of the lastName property.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getLastName() {
         return lastName;
@@ -266,9 +275,11 @@ public class Person {
 
     /**
      * Sets the value of the lastName property.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setLastName(String value) {
         this.lastName = value;
@@ -276,9 +287,11 @@ public class Person {
 
     /**
      * Gets the value of the firstName property.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getFirstName() {
         return firstName;
@@ -286,9 +299,11 @@ public class Person {
 
     /**
      * Sets the value of the firstName property.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setFirstName(String value) {
         this.firstName = value;
@@ -296,9 +311,11 @@ public class Person {
 
     /**
      * Gets the value of the middleName property.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getMiddleName() {
         return middleName;
@@ -306,9 +323,11 @@ public class Person {
 
     /**
      * Sets the value of the middleName property.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setMiddleName(String value) {
         this.middleName = value;
@@ -316,9 +335,11 @@ public class Person {
 
     /**
      * Gets the value of the roleId property.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getRoleId() {
         return roleId;
@@ -326,9 +347,11 @@ public class Person {
 
     /**
      * Sets the value of the roleId property.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setRoleId(String value) {
         this.roleId = value;
@@ -336,9 +359,11 @@ public class Person {
 
     /**
      * Gets the value of the birthDate property.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getBirthDate() {
         return birthDate;
@@ -346,9 +371,11 @@ public class Person {
 
     /**
      * Sets the value of the birthDate property.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setBirthDate(String value) {
         this.birthDate = value;
@@ -356,9 +383,11 @@ public class Person {
 
     /**
      * Gets the value of the idNumber property.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getIdNumber() {
         return idNumber;
@@ -366,9 +395,11 @@ public class Person {
 
     /**
      * Sets the value of the idNumber property.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setIdNumber(String value) {
         this.idNumber = value;
@@ -376,9 +407,11 @@ public class Person {
 
     /**
      * Gets the value of the idIssuer property.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getIdIssuer() {
         return idIssuer;
@@ -386,9 +419,11 @@ public class Person {
 
     /**
      * Sets the value of the idIssuer property.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setIdIssuer(String value) {
         this.idIssuer = value;
@@ -396,9 +431,11 @@ public class Person {
 
     /**
      * Gets the value of the idIssueDate property.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getIdIssueDate() {
         return idIssueDate;
@@ -406,9 +443,11 @@ public class Person {
 
     /**
      * Sets the value of the idIssueDate property.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setIdIssueDate(String value) {
         this.idIssueDate = value;
@@ -416,9 +455,11 @@ public class Person {
 
     /**
      * Gets the value of the iin property.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getIin() {
         return iin;
@@ -426,9 +467,11 @@ public class Person {
 
     /**
      * Sets the value of the iin property.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setIin(String value) {
         this.iin = value;
@@ -436,9 +479,11 @@ public class Person {
 
     /**
      * Gets the value of the st property.
-     *
-     * @return possible object is
-     * {@link Object }
+     * 
+     * @return
+     *     possible object is
+     *     {@link Object }
+     *     
      */
     public Object getSt() {
         return st;
@@ -446,9 +491,11 @@ public class Person {
 
     /**
      * Sets the value of the st property.
-     *
-     * @param value allowed object is
-     *              {@link Object }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Object }
+     *     
      */
     public void setSt(Object value) {
         this.st = value;
@@ -456,9 +503,11 @@ public class Person {
 
     /**
      * Gets the value of the l property.
-     *
-     * @return possible object is
-     * {@link Object }
+     * 
+     * @return
+     *     possible object is
+     *     {@link Object }
+     *     
      */
     public Object getL() {
         return l;
@@ -466,9 +515,11 @@ public class Person {
 
     /**
      * Sets the value of the l property.
-     *
-     * @param value allowed object is
-     *              {@link Object }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Object }
+     *     
      */
     public void setL(Object value) {
         this.l = value;
@@ -476,9 +527,11 @@ public class Person {
 
     /**
      * Gets the value of the phone property.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getPhone() {
         return phone;
@@ -486,9 +539,11 @@ public class Person {
 
     /**
      * Sets the value of the phone property.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setPhone(String value) {
         this.phone = value;
@@ -496,9 +551,11 @@ public class Person {
 
     /**
      * Gets the value of the mobile property.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getMobile() {
         return mobile;
@@ -506,9 +563,11 @@ public class Person {
 
     /**
      * Sets the value of the mobile property.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setMobile(String value) {
         this.mobile = value;
@@ -516,9 +575,11 @@ public class Person {
 
     /**
      * Gets the value of the email property.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getEmail() {
         return email;
@@ -526,9 +587,11 @@ public class Person {
 
     /**
      * Sets the value of the email property.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setEmail(String value) {
         this.email = value;
@@ -536,9 +599,11 @@ public class Person {
 
     /**
      * Gets the value of the address property.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getAddress() {
         return address;
@@ -546,9 +611,11 @@ public class Person {
 
     /**
      * Sets the value of the address property.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setAddress(String value) {
         this.address = value;
@@ -556,9 +623,11 @@ public class Person {
 
     /**
      * Gets the value of the legalData property.
-     *
-     * @return possible object is
-     * {@link Legal }
+     * 
+     * @return
+     *     possible object is
+     *     {@link Legal }
+     *     
      */
     public Legal getLegalData() {
         return legalData;
@@ -566,9 +635,11 @@ public class Person {
 
     /**
      * Sets the value of the legalData property.
-     *
-     * @param value allowed object is
-     *              {@link Legal }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Legal }
+     *     
      */
     public void setLegalData(Legal value) {
         this.legalData = value;
@@ -576,6 +647,7 @@ public class Person {
 
     /**
      * Gets the value of the noResident property.
+     * 
      */
     public boolean isNoResident() {
         return noResident;
@@ -583,6 +655,7 @@ public class Person {
 
     /**
      * Sets the value of the noResident property.
+     * 
      */
     public void setNoResident(boolean value) {
         this.noResident = value;
@@ -590,9 +663,11 @@ public class Person {
 
     /**
      * Gets the value of the citizenship property.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getCitizenship() {
         return citizenship;
@@ -600,9 +675,11 @@ public class Person {
 
     /**
      * Sets the value of the citizenship property.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setCitizenship(String value) {
         this.citizenship = value;
@@ -610,6 +687,7 @@ public class Person {
 
     /**
      * Gets the value of the ip property.
+     * 
      */
     public boolean isIp() {
         return ip;
@@ -617,6 +695,7 @@ public class Person {
 
     /**
      * Sets the value of the ip property.
+     * 
      */
     public void setIp(boolean value) {
         this.ip = value;
@@ -624,9 +703,11 @@ public class Person {
 
     /**
      * Gets the value of the bik property.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getBik() {
         return bik;
@@ -634,9 +715,11 @@ public class Person {
 
     /**
      * Sets the value of the bik property.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setBik(String value) {
         this.bik = value;
@@ -644,9 +727,11 @@ public class Person {
 
     /**
      * Gets the value of the account property.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getAccount() {
         return account;
@@ -654,9 +739,11 @@ public class Person {
 
     /**
      * Sets the value of the account property.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setAccount(String value) {
         this.account = value;
@@ -664,9 +751,11 @@ public class Person {
 
     /**
      * Gets the value of the uid property.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getUid() {
         return uid;
@@ -674,9 +763,11 @@ public class Person {
 
     /**
      * Sets the value of the uid property.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setUid(String value) {
         this.uid = value;
@@ -684,9 +775,11 @@ public class Person {
 
     /**
      * Gets the value of the password property.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getPassword() {
         return password;
@@ -694,9 +787,11 @@ public class Person {
 
     /**
      * Sets the value of the password property.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setPassword(String value) {
         this.password = value;
@@ -704,6 +799,7 @@ public class Person {
 
     /**
      * Gets the value of the isCUser property.
+     * 
      */
     public boolean isIsCUser() {
         return isCUser;
@@ -711,6 +807,7 @@ public class Person {
 
     /**
      * Sets the value of the isCUser property.
+     * 
      */
     public void setIsCUser(boolean value) {
         this.isCUser = value;
@@ -718,6 +815,7 @@ public class Person {
 
     /**
      * Gets the value of the generatePass property.
+     * 
      */
     public boolean isGeneratePass() {
         return generatePass;
@@ -725,6 +823,7 @@ public class Person {
 
     /**
      * Sets the value of the generatePass property.
+     * 
      */
     public void setGeneratePass(boolean value) {
         this.generatePass = value;
@@ -732,6 +831,7 @@ public class Person {
 
     /**
      * Gets the value of the requestCertEmail property.
+     * 
      */
     public boolean isRequestCertEmail() {
         return requestCertEmail;
@@ -739,9 +839,34 @@ public class Person {
 
     /**
      * Sets the value of the requestCertEmail property.
+     * 
      */
     public void setRequestCertEmail(boolean value) {
         this.requestCertEmail = value;
+    }
+
+    /**
+     * Gets the value of the pinId property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getPinId() {
+        return pinId;
+    }
+
+    /**
+     * Sets the value of the pinId property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setPinId(String value) {
+        this.pinId = value;
     }
 
 }

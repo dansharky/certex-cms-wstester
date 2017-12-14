@@ -1,3 +1,4 @@
+
 package kz.gamma.certex.cms.web.services.common.entities;
 
 import javax.xml.bind.annotation.XmlEnum;
@@ -7,7 +8,7 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for requestTYPE.
- * <p>
+ * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * <p>
  * <pre>
@@ -19,6 +20,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/restriction>
  * &lt;/simpleType>
  * </pre>
+ * 
  */
 @XmlType(name = "requestTYPE", namespace = "http://www.gamma.kz/webra/xsd")
 @XmlEnum
@@ -26,7 +28,8 @@ public enum RequestTYPE {
 
 
     /**
-     * Р РµРіРёСЃС‚СЂР°С†РёСЏ СЃРµСЂС‚РёС„РёРєР°С‚Р°
+     * Регистрация сертификата
+     * 
      */
     @XmlEnumValue("registration")
     REGISTRATION("registration"),
@@ -34,7 +37,8 @@ public enum RequestTYPE {
     INITIALIZATION("initialization"),
 
     /**
-     * РћС‚Р·С‹РІ СЃРµСЂС‚РёС„РёРєР°С‚Р°
+     * Отзыв сертификата
+     * 
      */
     @XmlEnumValue("revocation")
     REVOCATION("revocation");
@@ -44,17 +48,17 @@ public enum RequestTYPE {
         value = v;
     }
 
+    public String value() {
+        return value;
+    }
+
     public static RequestTYPE fromValue(String v) {
-        for (RequestTYPE c : RequestTYPE.values()) {
+        for (RequestTYPE c: RequestTYPE.values()) {
             if (c.value.equals(v)) {
                 return c;
             }
         }
         throw new IllegalArgumentException(v);
-    }
-
-    public String value() {
-        return value;
     }
 
 }

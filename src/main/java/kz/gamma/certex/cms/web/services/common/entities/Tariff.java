@@ -1,19 +1,24 @@
+
 package kz.gamma.certex.cms.web.services.common.entities;
 
-import javax.xml.bind.annotation.*;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlSchemaType;
+import javax.xml.bind.annotation.XmlType;
 
 
 /**
  * Tariff
- * <p>
+ * 
  * <p>Java class for Tariff complex type.
- * <p>
+ * 
  * <p>The following schema fragment specifies the expected content contained within this class.
- * <p>
+ * 
  * <pre>
  * &lt;complexType name="Tariff">
  *   &lt;complexContent>
@@ -28,13 +33,15 @@ import java.util.List;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Tariff", namespace = "http://www.gamma.kz/webra/xsd", propOrder = {
-        "id",
-        "name",
-        "price",
-        "fxTariffDetails"
+    "id",
+    "name",
+    "price",
+    "fxTariffDetails"
 })
 public class Tariff {
 
@@ -50,9 +57,11 @@ public class Tariff {
 
     /**
      * Gets the value of the id property.
-     *
-     * @return possible object is
-     * {@link BigInteger }
+     * 
+     * @return
+     *     possible object is
+     *     {@link BigInteger }
+     *     
      */
     public BigInteger getId() {
         return id;
@@ -60,9 +69,11 @@ public class Tariff {
 
     /**
      * Sets the value of the id property.
-     *
-     * @param value allowed object is
-     *              {@link BigInteger }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link BigInteger }
+     *     
      */
     public void setId(BigInteger value) {
         this.id = value;
@@ -70,9 +81,11 @@ public class Tariff {
 
     /**
      * Gets the value of the name property.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getName() {
         return name;
@@ -80,9 +93,11 @@ public class Tariff {
 
     /**
      * Sets the value of the name property.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setName(String value) {
         this.name = value;
@@ -90,9 +105,11 @@ public class Tariff {
 
     /**
      * Gets the value of the price property.
-     *
-     * @return possible object is
-     * {@link BigDecimal }
+     * 
+     * @return
+     *     possible object is
+     *     {@link BigDecimal }
+     *     
      */
     public BigDecimal getPrice() {
         return price;
@@ -100,9 +117,11 @@ public class Tariff {
 
     /**
      * Sets the value of the price property.
-     *
-     * @param value allowed object is
-     *              {@link BigDecimal }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link BigDecimal }
+     *     
      */
     public void setPrice(BigDecimal value) {
         this.price = value;
@@ -110,23 +129,25 @@ public class Tariff {
 
     /**
      * Gets the value of the fxTariffDetails property.
-     * <p>
+     * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the fxTariffDetails property.
-     * <p>
+     * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getFxTariffDetails().add(newItem);
      * </pre>
-     * <p>
-     * <p>
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link TariffDetail }
+     * 
+     * 
      */
     public List<TariffDetail> getFxTariffDetails() {
         if (fxTariffDetails == null) {

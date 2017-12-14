@@ -1,3 +1,4 @@
+
 package kz.gamma.certex.cms.web.services.common.entities;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -7,12 +8,12 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * –û–±–ª–∞—Å—Ç—å
- * <p>
+ * Œ·Î‡ÒÚ¸
+ * 
  * <p>Java class for Region complex type.
- * <p>
+ * 
  * <p>The following schema fragment specifies the expected content contained within this class.
- * <p>
+ * 
  * <pre>
  * &lt;complexType name="Region">
  *   &lt;complexContent>
@@ -24,10 +25,12 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Region", namespace = "http://www.gamma.kz/webra/xsd", propOrder = {
-        "name"
+    "name"
 })
 public class Region {
 
@@ -36,9 +39,11 @@ public class Region {
 
     /**
      * Gets the value of the name property.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getName() {
         return name;
@@ -46,9 +51,11 @@ public class Region {
 
     /**
      * Sets the value of the name property.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setName(String value) {
         this.name = value;

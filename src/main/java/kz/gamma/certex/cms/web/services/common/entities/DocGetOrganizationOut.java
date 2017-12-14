@@ -1,13 +1,18 @@
+
 package kz.gamma.certex.cms.web.services.common.entities;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
 
 /**
  * <p>Java class for anonymous complex type.
- * <p>
+ * 
  * <p>The following schema fragment specifies the expected content contained within this class.
- * <p>
+ * 
  * <pre>
  * &lt;complexType>
  *   &lt;complexContent>
@@ -19,23 +24,28 @@ import javax.xml.bind.annotation.*;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-        "organization"
+    "organization"
 })
 @XmlRootElement(name = "docGetOrganizationOut", namespace = "http://www.gamma.kz/webra/xsd")
 public class DocGetOrganizationOut
-        extends PkiDocument {
+    extends PkiDocument
+{
 
     @XmlElement(namespace = "http://www.gamma.kz/webra/xsd", required = true)
     protected Organization organization;
 
     /**
      * Gets the value of the organization property.
-     *
-     * @return possible object is
-     * {@link Organization }
+     * 
+     * @return
+     *     possible object is
+     *     {@link Organization }
+     *     
      */
     public Organization getOrganization() {
         return organization;
@@ -43,9 +53,11 @@ public class DocGetOrganizationOut
 
     /**
      * Sets the value of the organization property.
-     *
-     * @param value allowed object is
-     *              {@link Organization }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Organization }
+     *     
      */
     public void setOrganization(Organization value) {
         this.organization = value;

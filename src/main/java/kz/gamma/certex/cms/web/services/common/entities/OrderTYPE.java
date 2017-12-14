@@ -1,3 +1,4 @@
+
 package kz.gamma.certex.cms.web.services.common.entities;
 
 import javax.xml.bind.annotation.XmlEnum;
@@ -7,7 +8,7 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for orderTYPE.
- * <p>
+ * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * <p>
  * <pre>
@@ -23,6 +24,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/restriction>
  * &lt;/simpleType>
  * </pre>
+ * 
  */
 @XmlType(name = "orderTYPE", namespace = "http://www.gamma.kz/webra/xsd")
 @XmlEnum
@@ -30,43 +32,50 @@ public enum OrderTYPE {
 
 
     /**
-     * РћС„РѕСЂРјР»РµРЅ Р·Р°РєР°Р·
+     * Оформлен заказ
+     * 
      */
     @XmlEnumValue("novel")
     NOVEL("novel"),
 
     /**
-     * РЎС„РѕСЂРјРёСЂРѕРІР°РЅ СЃС‡РµС‚
+     * Сформирован счет
+     * 
      */
     @XmlEnumValue("invoiced")
     INVOICED("invoiced"),
 
     /**
-     * РџРѕРґС‚РІРµСЂР¶РґРµРЅ
+     * Подтвержден
+     * 
      */
     @XmlEnumValue("confirmed")
     CONFIRMED("confirmed"),
 
     /**
-     * РћРїР»Р°С‡РµРЅ РїРѕ СЃС‡РµС‚Сѓ
+     * Оплачен по счету
+     * 
      */
     @XmlEnumValue("paymented")
     PAYMENTED("paymented"),
 
     /**
-     * РћС‚РјРµРЅРµРЅ
+     * Отменен
+     * 
      */
     @XmlEnumValue("rejected")
     REJECTED("rejected"),
 
     /**
-     * Р—Р°РІРµСЂС€РµРЅ
+     * Завершен
+     * 
      */
     @XmlEnumValue("finished")
     FINISHED("finished"),
 
     /**
-     * РЎС„РѕСЂРјРёСЂРѕРІР°РЅ СЃС‡РµС‚-С„Р°РєС‚СѓСЂР°
+     * Сформирован счет-фактура
+     * 
      */
     @XmlEnumValue("accounted")
     ACCOUNTED("accounted");
@@ -76,17 +85,17 @@ public enum OrderTYPE {
         value = v;
     }
 
+    public String value() {
+        return value;
+    }
+
     public static OrderTYPE fromValue(String v) {
-        for (OrderTYPE c : OrderTYPE.values()) {
+        for (OrderTYPE c: OrderTYPE.values()) {
             if (c.value.equals(v)) {
                 return c;
             }
         }
         throw new IllegalArgumentException(v);
-    }
-
-    public String value() {
-        return value;
     }
 
 }

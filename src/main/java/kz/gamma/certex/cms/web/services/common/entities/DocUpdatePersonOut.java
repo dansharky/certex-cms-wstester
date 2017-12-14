@@ -1,13 +1,18 @@
+
 package kz.gamma.certex.cms.web.services.common.entities;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
 
 /**
  * <p>Java class for anonymous complex type.
- * <p>
+ * 
  * <p>The following schema fragment specifies the expected content contained within this class.
- * <p>
+ * 
  * <pre>
  * &lt;complexType>
  *   &lt;complexContent>
@@ -19,23 +24,28 @@ import javax.xml.bind.annotation.*;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-        "person"
+    "person"
 })
 @XmlRootElement(name = "docUpdatePersonOut", namespace = "http://www.gamma.kz/webra/xsd")
 public class DocUpdatePersonOut
-        extends PkiDocument {
+    extends PkiDocument
+{
 
     @XmlElement(namespace = "http://www.gamma.kz/webra/xsd", required = true)
     protected Person person;
 
     /**
      * Gets the value of the person property.
-     *
-     * @return possible object is
-     * {@link Person }
+     * 
+     * @return
+     *     possible object is
+     *     {@link Person }
+     *     
      */
     public Person getPerson() {
         return person;
@@ -43,9 +53,11 @@ public class DocUpdatePersonOut
 
     /**
      * Sets the value of the person property.
-     *
-     * @param value allowed object is
-     *              {@link Person }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Person }
+     *     
      */
     public void setPerson(Person value) {
         this.person = value;

@@ -1,14 +1,20 @@
+
 package kz.gamma.certex.cms.web.services.common.entities;
 
-import javax.xml.bind.annotation.*;
 import java.math.BigInteger;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlSchemaType;
+import javax.xml.bind.annotation.XmlType;
 
 
 /**
  * <p>Java class for anonymous complex type.
- * <p>
+ * 
  * <p>The following schema fragment specifies the expected content contained within this class.
- * <p>
+ * 
  * <pre>
  * &lt;complexType>
  *   &lt;complexContent>
@@ -21,15 +27,18 @@ import java.math.BigInteger;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-        "personId",
-        "dn"
+    "personId",
+    "dn"
 })
 @XmlRootElement(name = "docCreatePersonOut", namespace = "http://www.gamma.kz/webra/xsd")
 public class DocCreatePersonOut
-        extends PkiDocument {
+    extends PkiDocument
+{
 
     @XmlElement(namespace = "http://www.gamma.kz/webra/xsd", required = true)
     @XmlSchemaType(name = "unsignedLong")
@@ -39,9 +48,11 @@ public class DocCreatePersonOut
 
     /**
      * Gets the value of the personId property.
-     *
-     * @return possible object is
-     * {@link BigInteger }
+     * 
+     * @return
+     *     possible object is
+     *     {@link BigInteger }
+     *     
      */
     public BigInteger getPersonId() {
         return personId;
@@ -49,9 +60,11 @@ public class DocCreatePersonOut
 
     /**
      * Sets the value of the personId property.
-     *
-     * @param value allowed object is
-     *              {@link BigInteger }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link BigInteger }
+     *     
      */
     public void setPersonId(BigInteger value) {
         this.personId = value;
@@ -59,9 +72,11 @@ public class DocCreatePersonOut
 
     /**
      * Gets the value of the dn property.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getDN() {
         return dn;
@@ -69,9 +84,11 @@ public class DocCreatePersonOut
 
     /**
      * Sets the value of the dn property.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setDN(String value) {
         this.dn = value;

@@ -1,3 +1,4 @@
+
 package kz.gamma.certex.cms.web.services.common.entities;
 
 import javax.xml.bind.annotation.XmlEnum;
@@ -7,7 +8,7 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for requestStatusTYPE.
- * <p>
+ * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * <p>
  * <pre>
@@ -22,6 +23,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/restriction>
  * &lt;/simpleType>
  * </pre>
+ * 
  */
 @XmlType(name = "requestStatusTYPE", namespace = "http://www.gamma.kz/webra/xsd")
 @XmlEnum
@@ -29,37 +31,43 @@ public enum RequestStatusTYPE {
 
 
     /**
-     * РЅРѕРІС‹Р№
+     * новый
+     * 
      */
     @XmlEnumValue("novel")
     NOVEL("novel"),
 
     /**
-     * РџРѕРґС‚РІРµСЂР¶РґРµРЅ РјРµРЅРµРґР¶РµСЂРѕРј
+     * Подтвержден менеджером
+     * 
      */
     @XmlEnumValue("approved1")
     APPROVED_1("approved1"),
 
     /**
-     * РџРѕРґС‚РІРµСЂР¶РґРµРЅ РѕС„РёС†РµСЂРѕРј Р±РµР·РѕРїР°СЃРЅРѕСЃС‚Рё
+     * Подтвержден офицером безопасности
+     * 
      */
     @XmlEnumValue("approved2")
     APPROVED_2("approved2"),
 
     /**
-     * РѕС‚РјРµРЅРµРЅ
+     * отменен
+     * 
      */
     @XmlEnumValue("rejected")
     REJECTED("rejected"),
 
     /**
-     * РѕР±СЂР°Р±РѕС‚Р°РЅ
+     * обработан
+     * 
      */
     @XmlEnumValue("processed")
     PROCESSED("processed"),
 
     /**
-     * СЃРѕРґРµСЂР¶РёС‚ РѕС€РёР±РєРё
+     * содержит ошибки
+     * 
      */
     @XmlEnumValue("error")
     ERROR("error");
@@ -69,17 +77,17 @@ public enum RequestStatusTYPE {
         value = v;
     }
 
+    public String value() {
+        return value;
+    }
+
     public static RequestStatusTYPE fromValue(String v) {
-        for (RequestStatusTYPE c : RequestStatusTYPE.values()) {
+        for (RequestStatusTYPE c: RequestStatusTYPE.values()) {
             if (c.value.equals(v)) {
                 return c;
             }
         }
         throw new IllegalArgumentException(v);
-    }
-
-    public String value() {
-        return value;
     }
 
 }

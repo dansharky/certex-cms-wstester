@@ -1,13 +1,18 @@
+
 package kz.gamma.certex.cms.web.services.common.entities;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
 
 /**
  * <p>Java class for anonymous complex type.
- * <p>
+ * 
  * <p>The following schema fragment specifies the expected content contained within this class.
- * <p>
+ * 
  * <pre>
  * &lt;complexType>
  *   &lt;complexContent>
@@ -20,15 +25,18 @@ import javax.xml.bind.annotation.*;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-        "dn",
-        "login"
+    "dn",
+    "login"
 })
 @XmlRootElement(name = "docFindPersonIn", namespace = "http://www.gamma.kz/webra/xsd")
 public class DocFindPersonIn
-        extends PkiDocument {
+    extends PkiDocument
+{
 
     @XmlElement(name = "DN", namespace = "http://www.gamma.kz/webra/xsd")
     protected String dn;
@@ -37,9 +45,11 @@ public class DocFindPersonIn
 
     /**
      * Gets the value of the dn property.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getDN() {
         return dn;
@@ -47,9 +57,11 @@ public class DocFindPersonIn
 
     /**
      * Sets the value of the dn property.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setDN(String value) {
         this.dn = value;
@@ -57,9 +69,11 @@ public class DocFindPersonIn
 
     /**
      * Gets the value of the login property.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getLogin() {
         return login;
@@ -67,9 +81,11 @@ public class DocFindPersonIn
 
     /**
      * Sets the value of the login property.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setLogin(String value) {
         this.login = value;

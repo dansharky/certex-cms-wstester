@@ -1,13 +1,18 @@
+
 package kz.gamma.certex.cms.web.services.common.entities;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
 
 /**
  * <p>Java class for anonymous complex type.
- * <p>
+ * 
  * <p>The following schema fragment specifies the expected content contained within this class.
- * <p>
+ * 
  * <pre>
  * &lt;complexType>
  *   &lt;complexContent>
@@ -21,16 +26,19 @@ import javax.xml.bind.annotation.*;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-        "person",
-        "login",
-        "password"
+    "person",
+    "login",
+    "password"
 })
 @XmlRootElement(name = "docCreatePersonIn", namespace = "http://www.gamma.kz/webra/xsd")
 public class DocCreatePersonIn
-        extends PkiDocument {
+    extends PkiDocument
+{
 
     @XmlElement(namespace = "http://www.gamma.kz/webra/xsd", required = true)
     protected Person person;
@@ -41,9 +49,11 @@ public class DocCreatePersonIn
 
     /**
      * Gets the value of the person property.
-     *
-     * @return possible object is
-     * {@link Person }
+     * 
+     * @return
+     *     possible object is
+     *     {@link Person }
+     *     
      */
     public Person getPerson() {
         return person;
@@ -51,9 +61,11 @@ public class DocCreatePersonIn
 
     /**
      * Sets the value of the person property.
-     *
-     * @param value allowed object is
-     *              {@link Person }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Person }
+     *     
      */
     public void setPerson(Person value) {
         this.person = value;
@@ -61,9 +73,11 @@ public class DocCreatePersonIn
 
     /**
      * Gets the value of the login property.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getLogin() {
         return login;
@@ -71,9 +85,11 @@ public class DocCreatePersonIn
 
     /**
      * Sets the value of the login property.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setLogin(String value) {
         this.login = value;
@@ -81,9 +97,11 @@ public class DocCreatePersonIn
 
     /**
      * Gets the value of the password property.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getPassword() {
         return password;
@@ -91,9 +109,11 @@ public class DocCreatePersonIn
 
     /**
      * Sets the value of the password property.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setPassword(String value) {
         this.password = value;

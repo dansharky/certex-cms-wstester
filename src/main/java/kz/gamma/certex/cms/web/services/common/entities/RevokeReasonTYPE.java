@@ -1,3 +1,4 @@
+
 package kz.gamma.certex.cms.web.services.common.entities;
 
 import javax.xml.bind.annotation.XmlEnum;
@@ -7,7 +8,7 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for revokeReasonTYPE.
- * <p>
+ * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * <p>
  * <pre>
@@ -24,6 +25,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/restriction>
  * &lt;/simpleType>
  * </pre>
+ * 
  */
 @XmlType(name = "revokeReasonTYPE", namespace = "http://www.gamma.kz/webra/xsd")
 @XmlEnum
@@ -31,49 +33,57 @@ public enum RevokeReasonTYPE {
 
 
     /**
-     * РќРµРёР·РІРµСЃС‚РЅР°СЏ РїСЂРёС‡РёРЅР°
+     * Неизвестная причина
+     * 
      */
     @XmlEnumValue("revRUnknown")
     REV_R_UNKNOWN("revRUnknown"),
 
     /**
-     * РљРѕРјРїСЂРѕРјРµС‚Р°С†РёСЏ РєР»СЋС‡Р°
+     * Компрометация ключа
+     * 
      */
     @XmlEnumValue("revRKey")
     REV_R_KEY("revRKey"),
 
     /**
-     * РљРѕРјРїСЂРѕРјРµС‚Р°С†РёСЏ Р¦РµРЅС‚СЂР° РЎРµСЂС‚РёС„РёРєР°С†РёРё
+     * Компрометация Центра Сертификации
+     * 
      */
     @XmlEnumValue("revRCA")
     REV_RCA("revRCA"),
 
     /**
-     * РР·РјРµРЅРµРЅР° РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ РІР»Р°РґРµР»СЊС†Рµ СЃРµСЂС‚РёС„РёРєР°С‚Р°
+     * Изменена информация о владельце сертификата
+     * 
      */
     @XmlEnumValue("revRChangedInfo")
     REV_R_CHANGED_INFO("revRChangedInfo"),
 
     /**
-     * Р—Р°РјРµРЅР° РєР»СЋС‡Р°
+     * Замена ключа
+     * 
      */
     @XmlEnumValue("revRChanged")
     REV_R_CHANGED("revRChanged"),
 
     /**
-     * Р”РµР№СЃС‚РІРёРµ СЃРµСЂС‚РёС„РёРєР°С‚Р° РїСЂРёРѕСЃС‚Р°РЅРѕРІР»РµРЅРѕ
+     * Действие сертификата приостановлено
+     * 
      */
     @XmlEnumValue("revRStoped")
     REV_R_STOPED("revRStoped"),
 
     /**
-     * Р’РѕР·РѕР±РЅРѕРІР»РµРЅРёРµ РґРµР№СЃС‚РІРёСЏ СЃРµСЂС‚РёС„РёРєР°С‚Р°
+     * Возобновление действия сертификата
+     * 
      */
     @XmlEnumValue("revRHold")
     REV_R_HOLD("revRHold"),
 
     /**
-     * РЈРґР°Р»РµРЅ РёР· СЃРїРёСЃРєР° РѕС‚РѕР·РІР°РЅРЅС‹С…
+     * Удален из списка отозванных
+     * 
      */
     @XmlEnumValue("revRRemoveFromCRL")
     REV_R_REMOVE_FROM_CRL("revRRemoveFromCRL");
@@ -83,17 +93,17 @@ public enum RevokeReasonTYPE {
         value = v;
     }
 
+    public String value() {
+        return value;
+    }
+
     public static RevokeReasonTYPE fromValue(String v) {
-        for (RevokeReasonTYPE c : RevokeReasonTYPE.values()) {
+        for (RevokeReasonTYPE c: RevokeReasonTYPE.values()) {
             if (c.value.equals(v)) {
                 return c;
             }
         }
         throw new IllegalArgumentException(v);
-    }
-
-    public String value() {
-        return value;
     }
 
 }

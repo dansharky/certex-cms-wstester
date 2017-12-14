@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2011 rel. 2 (http://www.altova.com) by y_makulbek (gamma) -->
-<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.gamma.kz/webra/xsd"
-            targetNamespace="http://www.gamma.kz/webra/xsd" elementFormDefault="qualified"
-            attributeFormDefault="unqualified" version="1.0">
+<xsd:schema xmlns="http://www.gamma.kz/webra/xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.gamma.kz/webra/xsd" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
     <xsd:annotation>
         <xsd:documentation>Модель данных для взаимодействия с Удостоверяющим центром</xsd:documentation>
     </xsd:annotation>
@@ -30,8 +28,7 @@
         <xsd:restriction base="xsd:string">
             <xsd:enumeration value="xsdValidationError">
                 <xsd:annotation>
-                    <xsd:documentation>Ошибка валидации по XSD. При наличии неправильно сформированных xml сообщений.
-                    </xsd:documentation>
+                    <xsd:documentation>Ошибка валидации по XSD. При наличии неправильно сформированных xml сообщений.</xsd:documentation>
                 </xsd:annotation>
             </xsd:enumeration>
             <xsd:enumeration value="signError">
@@ -41,20 +38,17 @@
             </xsd:enumeration>
             <xsd:enumeration value="serverError">
                 <xsd:annotation>
-                    <xsd:documentation>Ошибка сервера. При возникновении не предвиденных ошибок на сервере.
-                    </xsd:documentation>
+                    <xsd:documentation>Ошибка сервера. При возникновении не предвиденных ошибок на сервере.</xsd:documentation>
                 </xsd:annotation>
             </xsd:enumeration>
             <xsd:enumeration value="uniqueError">
                 <xsd:annotation>
-                    <xsd:documentation>Ошибка уникальности. Возникает при нарушени уникальности сущности в системе.
-                    </xsd:documentation>
+                    <xsd:documentation>Ошибка уникальности. Возникает при нарушени уникальности сущности в системе.</xsd:documentation>
                 </xsd:annotation>
             </xsd:enumeration>
             <xsd:enumeration value="entityNotFound">
                 <xsd:annotation>
-                    <xsd:documentation>Отсутствие требуемой сущности. При отсутвии сущности в системе.
-                    </xsd:documentation>
+                    <xsd:documentation>Отсутствие требуемой сущности. При отсутвии сущности в системе.</xsd:documentation>
                 </xsd:annotation>
             </xsd:enumeration>
             <xsd:enumeration value="payError">
@@ -81,8 +75,7 @@
         <xsd:restriction base="xsd:string">
             <xsd:enumeration value="GOST">
                 <xsd:annotation>
-                    <xsd:documentation>Ошибка валидации по XSD. При наличии неправильно сформированных xml сообщений.
-                    </xsd:documentation>
+                    <xsd:documentation>Ошибка валидации по XSD. При наличии неправильно сформированных xml сообщений.</xsd:documentation>
                 </xsd:annotation>
             </xsd:enumeration>
             <xsd:enumeration value="RSA">
@@ -282,8 +275,7 @@
         <xsd:union>
             <xsd:simpleType>
                 <xsd:restriction base="xsd:string">
-                    <xsd:pattern
-                            value="[ «»№!&quot;#$%~&amp;&apos;\(\)\*\+,\-\./:;&lt;=&gt;\?@\[\]\^_`\{\|\}\\a-zA-Z0-9]{6,30}">
+                    <xsd:pattern value="[ «»№!&quot;#$%~&amp;&apos;\(\)\*\+,\-\./:;&lt;=&gt;\?@\[\]\^_`\{\|\}\\a-zA-Z0-9]{6,30}">
                         <xsd:annotation>
                             <xsd:documentation/>
                         </xsd:annotation>
@@ -306,8 +298,7 @@
                 <xsd:restriction base="xsd:string">
                     <xsd:minLength value="6"/>
                     <xsd:maxLength value="30"/>
-                    <xsd:pattern
-                            value="[ «»№!&quot;#$%~&amp;&apos;\(\)\*\+,\-\./:;&lt;=&gt;\?@\[\]\^_`\{\|\}\\a-zа-яA-ZА-Я0-9]{6,30}"/>
+                    <xsd:pattern value="[ «»№!&quot;#$%~&amp;&apos;\(\)\*\+,\-\./:;&lt;=&gt;\?@\[\]\^_`\{\|\}\\a-zа-яA-ZА-Я0-9]{6,30}"/>
                 </xsd:restriction>
             </xsd:simpleType>
             <xsd:simpleType>
@@ -357,15 +348,12 @@
         <xsd:sequence>
             <xsd:element name="legalData" type="Legal">
                 <xsd:annotation>
-                    <xsd:documentation>Данные юридического лица. Заполняется только в случае юридического лица
-                    </xsd:documentation>
+                    <xsd:documentation>Данные юридического лица. Заполняется только в случае юридического лица</xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
             <xsd:element name="isBlocked" type="xsd:boolean">
                 <xsd:annotation>
-                    <xsd:documentation>Признак блокирования (deprecated, не используется в логике, всегда возвращается
-                        false)
-                    </xsd:documentation>
+                    <xsd:documentation>Признак блокирования (deprecated, не используется в логике, всегда возвращается false)</xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
             <xsd:element name="isCertLogin" type="xsd:boolean">
@@ -486,8 +474,7 @@
                     <xsd:restriction base="xsd:string">
                         <xsd:minLength value="1"/>
                         <xsd:maxLength value="64"/>
-                        <xsd:pattern
-                                value="[ «»№!&quot;#$%~&amp;&apos;\(\)\*\+,\-\./:;&lt;=&gt;\?@\[\]\^_`\{\|\}\\ӨөӘәҒғҚқҢңҰұҮүҺһІіa-zA-Zа-яА-Я0-9]{1,64}"/>
+                        <xsd:pattern value="[ «»№!&quot;#$%~&amp;&apos;\(\)\*\+,\-\./:;&lt;=&gt;\?@\[\]\^_`\{\|\}\\ӨөӘәҒғҚқҢңҰұҮүҺһІіa-zA-Zа-яА-Я0-9]{1,64}"/>
                     </xsd:restriction>
                 </xsd:simpleType>
             </xsd:element>
@@ -522,8 +509,7 @@
                 </xsd:annotation>
                 <xsd:simpleType>
                     <xsd:restriction base="xsd:string">
-                        <xsd:pattern
-                                value="|(((0[1-9]|[12]\d|3[01])\.(0[13578]|1[02])\.((19|[2-9]\d)\d{2}))|((0[1-9]|[12]\d|30)\.(0[13456789]|1[012])\.((19|[2-9]\d)\d{2}))|((0[1-9]|1\d|2[0-8])\.02\.((19|[2-9]\d)\d{2}))|(29\.02\.((1[6-9]|[2-9]\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))))"/>
+                        <xsd:pattern value="|(((0[1-9]|[12]\d|3[01])\.(0[13578]|1[02])\.((19|[2-9]\d)\d{2}))|((0[1-9]|[12]\d|30)\.(0[13456789]|1[012])\.((19|[2-9]\d)\d{2}))|((0[1-9]|1\d|2[0-8])\.02\.((19|[2-9]\d)\d{2}))|(29\.02\.((1[6-9]|[2-9]\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))))"/>
                     </xsd:restriction>
 
                 </xsd:simpleType>
@@ -556,7 +542,7 @@
                     <xsd:documentation>Признак нерезидента</xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
-            <xsd:element name="сountry" minOccurs="0">
+            <xsd:element name="country" minOccurs="0">
                 <xsd:annotation>
                     <xsd:documentation>Страна Ю.Л.</xsd:documentation>
                 </xsd:annotation>
@@ -712,8 +698,7 @@
                 </xsd:annotation>
                 <xsd:simpleType>
                     <xsd:restriction base="xsd:string">
-                        <xsd:pattern
-                                value="|(((0[1-9]|[12]\d|3[01])\.(0[13578]|1[02])\.((19|[2-9]\d)\d{2}))|((0[1-9]|[12]\d|30)\.(0[13456789]|1[012])\.((19|[2-9]\d)\d{2}))|((0[1-9]|1\d|2[0-8])\.02\.((19|[2-9]\d)\d{2}))|(29\.02\.((1[6-9]|[2-9]\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))))"/>
+                        <xsd:pattern value="|(((0[1-9]|[12]\d|3[01])\.(0[13578]|1[02])\.((19|[2-9]\d)\d{2}))|((0[1-9]|[12]\d|30)\.(0[13456789]|1[012])\.((19|[2-9]\d)\d{2}))|((0[1-9]|1\d|2[0-8])\.02\.((19|[2-9]\d)\d{2}))|(29\.02\.((1[6-9]|[2-9]\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))))"/>
                     </xsd:restriction>
 
                 </xsd:simpleType>
@@ -747,8 +732,7 @@
                 </xsd:annotation>
                 <xsd:simpleType>
                     <xsd:restriction base="xsd:string">
-                        <xsd:pattern
-                                value="|(((0[1-9]|[12]\d|3[01])\.(0[13578]|1[02])\.((19|[2-9]\d)\d{2}))|((0[1-9]|[12]\d|30)\.(0[13456789]|1[012])\.((19|[2-9]\d)\d{2}))|((0[1-9]|1\d|2[0-8])\.02\.((19|[2-9]\d)\d{2}))|(29\.02\.((1[6-9]|[2-9]\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))))"/>
+                        <xsd:pattern value="|(((0[1-9]|[12]\d|3[01])\.(0[13578]|1[02])\.((19|[2-9]\d)\d{2}))|((0[1-9]|[12]\d|30)\.(0[13456789]|1[012])\.((19|[2-9]\d)\d{2}))|((0[1-9]|1\d|2[0-8])\.02\.((19|[2-9]\d)\d{2}))|(29\.02\.((1[6-9]|[2-9]\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))))"/>
                     </xsd:restriction>
 
                 </xsd:simpleType>
@@ -802,7 +786,7 @@
                     <xsd:restriction base="xsd:string">
                         <xsd:minLength value="0"/>
                         <xsd:maxLength value="255"/>
-                        <!--<xsd:pattern value="|[a-z0-9!$'*+\-_]+(\.[a-z0-9!$'*+\-_]+)*@([a-z0-9]+(-+[a-z0-9]+)*\.)+([a-z]{2}|aero|arpa|biz|cat|com|coop|edu|gov|infoId|int|jobs|mil|mobi|museum|name|net|org|pro|travel)"/>-->
+                        <!--<xsd:pattern value="|[a-z0-9!$'*+\-_]+(\.[a-z0-9!$'*+\-_]+)*@([a-z0-9]+(-+[a-z0-9]+)*\.)+([a-z]{2}|aero|arpa|biz|cat|com|coop|edu|gov|info|int|jobs|mil|mobi|museum|name|net|org|pro|travel)"/>-->
                     </xsd:restriction>
                 </xsd:simpleType>
 
@@ -814,8 +798,7 @@
             </xsd:element>
             <xsd:element name="legalData" type="Legal" minOccurs="0">
                 <xsd:annotation>
-                    <xsd:documentation>Данные юридического лица. Заполняются только для юридического лица
-                    </xsd:documentation>
+                    <xsd:documentation>Данные юридического лица. Заполняются только для юридического лица</xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
             <xsd:element name="noResident" type="xsd:boolean">
@@ -823,7 +806,7 @@
                     <xsd:documentation>Признак нерезидента</xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
-            <xsd:element name="resCountryCode" minOccurs="0">
+            <xsd:element name="citizenship" minOccurs="0">
                 <xsd:annotation>
                     <xsd:documentation>Гражданство</xsd:documentation>
                 </xsd:annotation>
@@ -852,7 +835,7 @@
                     <xsd:documentation>БИК</xsd:documentation>
                 </xsd:annotation>
                 <xsd:simpleType>
-                    <xsd:restriction base="xsd:string"/>
+                    <xsd:restriction base="xsd:string" />
                 </xsd:simpleType>
             </xsd:element>
             <xsd:element name="account" minOccurs="0">
@@ -860,7 +843,7 @@
                     <xsd:documentation>Расчетный счет</xsd:documentation>
                 </xsd:annotation>
                 <xsd:simpleType>
-                    <xsd:restriction base="xsd:string"/>
+                    <xsd:restriction base="xsd:string" />
                 </xsd:simpleType>
             </xsd:element>
             <xsd:element name="uid" minOccurs="0">
@@ -893,6 +876,11 @@
             <xsd:element name="requestCertEmail" type="xsd:boolean">
                 <xsd:annotation>
                     <xsd:documentation>Отправлять уведомления о необходимости выпуска сертификата.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="pinId" type="string255TYPE" minOccurs="0">
+                <xsd:annotation>
+                    <xsd:documentation>Идентификатор пин-конверта</xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
         </xsd:sequence>
@@ -931,8 +919,7 @@
             </xsd:element>
             <xsd:element name="clientId" type="uLong20TYPE" minOccurs="0">
                 <xsd:annotation>
-                    <xsd:documentation>Идентификатор записи пользователя в таблице, необязательное поле
-                    </xsd:documentation>
+                    <xsd:documentation>Идентификатор записи пользователя в таблице, необязательное поле</xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
             <xsd:element name="invoiceNum" type="uLong20TYPE" minOccurs="0">
@@ -1057,8 +1044,7 @@
             </xsd:element>
             <xsd:element name="orderDetailId" type="uLong20TYPE" minOccurs="0">
                 <xsd:annotation>
-                    <xsd:documentation>Идентификатор записи детализации заказа в таблице, необязательное поле
-                    </xsd:documentation>
+                    <xsd:documentation>Идентификатор записи детализации заказа в таблице, необязательное поле</xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
             <xsd:element name="type" type="requestTYPE" minOccurs="0">
@@ -1105,8 +1091,7 @@
             </xsd:element>
             <xsd:element name="tariffDetailId" type="uLong20TYPE" minOccurs="0">
                 <xsd:annotation>
-                    <xsd:documentation>Идентификатор записи детализации тарифа в таблице, необязательное поле
-                    </xsd:documentation>
+                    <xsd:documentation>Идентификатор записи детализации тарифа в таблице, необязательное поле</xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
             <xsd:element name="profile" type="string255TYPE" minOccurs="0">
@@ -1211,7 +1196,7 @@
                     <xsd:documentation>Идентификатор записи детализации тарифа в таблице</xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
-            <xsd:element name="certificateId" type="string255TYPE" minOccurs="0">
+            <xsd:element name="certificate" type="string255TYPE" minOccurs="0">
                 <xsd:annotation>
                     <xsd:documentation>Шаблон</xsd:documentation>
                 </xsd:annotation>

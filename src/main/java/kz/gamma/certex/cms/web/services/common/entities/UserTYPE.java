@@ -1,3 +1,4 @@
+
 package kz.gamma.certex.cms.web.services.common.entities;
 
 import javax.xml.bind.annotation.XmlEnum;
@@ -7,7 +8,7 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for userTYPE.
- * <p>
+ * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * <p>
  * <pre>
@@ -19,6 +20,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/restriction>
  * &lt;/simpleType>
  * </pre>
+ * 
  */
 @XmlType(name = "userTYPE", namespace = "http://www.gamma.kz/webra/xsd")
 @XmlEnum
@@ -26,7 +28,8 @@ public enum UserTYPE {
 
 
     /**
-     * Р РµРіРёСЃС‚СЂР°С†РёСЏ СЃРµСЂС‚РёС„РёРєР°С‚Р°
+     * Регистрация сертификата
+     * 
      */
     @XmlEnumValue("adminType")
     ADMIN_TYPE("adminType"),
@@ -34,7 +37,8 @@ public enum UserTYPE {
     MANAGER_TYPE("managerType"),
 
     /**
-     * РћС‚Р·С‹РІ СЃРµСЂС‚РёС„РёРєР°С‚Р°
+     * Отзыв сертификата
+     * 
      */
     @XmlEnumValue("clientType")
     CLIENT_TYPE("clientType");
@@ -44,17 +48,17 @@ public enum UserTYPE {
         value = v;
     }
 
+    public String value() {
+        return value;
+    }
+
     public static UserTYPE fromValue(String v) {
-        for (UserTYPE c : UserTYPE.values()) {
+        for (UserTYPE c: UserTYPE.values()) {
             if (c.value.equals(v)) {
                 return c;
             }
         }
         throw new IllegalArgumentException(v);
-    }
-
-    public String value() {
-        return value;
     }
 
 }

@@ -1,16 +1,21 @@
+
 package kz.gamma.certex.cms.web.services.common.entities;
 
-import javax.xml.bind.annotation.*;
 import java.math.BigInteger;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlSchemaType;
+import javax.xml.bind.annotation.XmlType;
 
 
 /**
  * TariffDetail
- * <p>
+ * 
  * <p>Java class for TariffDetail complex type.
- * <p>
+ * 
  * <p>The following schema fragment specifies the expected content contained within this class.
- * <p>
+ * 
  * <pre>
  * &lt;complexType name="TariffDetail">
  *   &lt;complexContent>
@@ -27,15 +32,17 @@ import java.math.BigInteger;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "TariffDetail", namespace = "http://www.gamma.kz/webra/xsd", propOrder = {
-        "id",
-        "certificate",
-        "certificateInit",
-        "keySize",
-        "isSaveKey",
-        "algType"
+    "id",
+    "certificate",
+    "certificateInit",
+    "keySize",
+    "isSaveKey",
+    "algType"
 })
 public class TariffDetail {
 
@@ -56,9 +63,11 @@ public class TariffDetail {
 
     /**
      * Gets the value of the id property.
-     *
-     * @return possible object is
-     * {@link BigInteger }
+     * 
+     * @return
+     *     possible object is
+     *     {@link BigInteger }
+     *     
      */
     public BigInteger getId() {
         return id;
@@ -66,9 +75,11 @@ public class TariffDetail {
 
     /**
      * Sets the value of the id property.
-     *
-     * @param value allowed object is
-     *              {@link BigInteger }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link BigInteger }
+     *     
      */
     public void setId(BigInteger value) {
         this.id = value;
@@ -76,9 +87,11 @@ public class TariffDetail {
 
     /**
      * Gets the value of the certificate property.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getCertificate() {
         return certificate;
@@ -86,9 +99,11 @@ public class TariffDetail {
 
     /**
      * Sets the value of the certificate property.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setCertificate(String value) {
         this.certificate = value;
@@ -96,9 +111,11 @@ public class TariffDetail {
 
     /**
      * Gets the value of the certificateInit property.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getCertificateInit() {
         return certificateInit;
@@ -106,9 +123,11 @@ public class TariffDetail {
 
     /**
      * Sets the value of the certificateInit property.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setCertificateInit(String value) {
         this.certificateInit = value;
@@ -116,9 +135,11 @@ public class TariffDetail {
 
     /**
      * Gets the value of the keySize property.
-     *
-     * @return possible object is
-     * {@link BigInteger }
+     * 
+     * @return
+     *     possible object is
+     *     {@link BigInteger }
+     *     
      */
     public BigInteger getKeySize() {
         return keySize;
@@ -126,9 +147,11 @@ public class TariffDetail {
 
     /**
      * Sets the value of the keySize property.
-     *
-     * @param value allowed object is
-     *              {@link BigInteger }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link BigInteger }
+     *     
      */
     public void setKeySize(BigInteger value) {
         this.keySize = value;
@@ -136,6 +159,7 @@ public class TariffDetail {
 
     /**
      * Gets the value of the isSaveKey property.
+     * 
      */
     public boolean isIsSaveKey() {
         return isSaveKey;
@@ -143,6 +167,7 @@ public class TariffDetail {
 
     /**
      * Sets the value of the isSaveKey property.
+     * 
      */
     public void setIsSaveKey(boolean value) {
         this.isSaveKey = value;
@@ -150,9 +175,11 @@ public class TariffDetail {
 
     /**
      * Gets the value of the algType property.
-     *
-     * @return possible object is
-     * {@link AlgTYPE }
+     * 
+     * @return
+     *     possible object is
+     *     {@link AlgTYPE }
+     *     
      */
     public AlgTYPE getAlgType() {
         return algType;
@@ -160,9 +187,11 @@ public class TariffDetail {
 
     /**
      * Sets the value of the algType property.
-     *
-     * @param value allowed object is
-     *              {@link AlgTYPE }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link AlgTYPE }
+     *     
      */
     public void setAlgType(AlgTYPE value) {
         this.algType = value;

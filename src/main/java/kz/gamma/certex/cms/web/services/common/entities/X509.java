@@ -1,3 +1,4 @@
+
 package kz.gamma.certex.cms.web.services.common.entities;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -8,11 +9,11 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * X.509
- * <p>
+ * 
  * <p>Java class for X.509 complex type.
- * <p>
+ * 
  * <p>The following schema fragment specifies the expected content contained within this class.
- * <p>
+ * 
  * <pre>
  * &lt;complexType name="X.509">
  *   &lt;complexContent>
@@ -25,11 +26,13 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "X.509", namespace = "http://www.gamma.kz/webra/xsd", propOrder = {
-        "serialNumber",
-        "body"
+    "serialNumber",
+    "body"
 })
 public class X509 {
 
@@ -40,9 +43,10 @@ public class X509 {
 
     /**
      * Gets the value of the serialNumber property.
-     *
-     * @return possible object is
-     * byte[]
+     * 
+     * @return
+     *     possible object is
+     *     byte[]
      */
     public byte[] getSerialNumber() {
         return serialNumber;
@@ -50,9 +54,10 @@ public class X509 {
 
     /**
      * Sets the value of the serialNumber property.
-     *
-     * @param value allowed object is
-     *              byte[]
+     * 
+     * @param value
+     *     allowed object is
+     *     byte[]
      */
     public void setSerialNumber(byte[] value) {
         this.serialNumber = value;
@@ -60,9 +65,10 @@ public class X509 {
 
     /**
      * Gets the value of the body property.
-     *
-     * @return possible object is
-     * byte[]
+     * 
+     * @return
+     *     possible object is
+     *     byte[]
      */
     public byte[] getBody() {
         return body;
@@ -70,9 +76,10 @@ public class X509 {
 
     /**
      * Sets the value of the body property.
-     *
-     * @param value allowed object is
-     *              byte[]
+     * 
+     * @param value
+     *     allowed object is
+     *     byte[]
      */
     public void setBody(byte[] value) {
         this.body = value;

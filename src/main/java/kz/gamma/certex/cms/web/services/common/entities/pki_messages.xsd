@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2011 rel. 2 (http://www.altova.com) by noname (noname) -->
-<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.gamma.kz/webra/xsd"
-            targetNamespace="http://www.gamma.kz/webra/xsd" elementFormDefault="qualified"
-            attributeFormDefault="unqualified">
+<xsd:schema xmlns="http://www.gamma.kz/webra/xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.gamma.kz/webra/xsd" elementFormDefault="qualified" attributeFormDefault="unqualified">
     <xsd:include schemaLocation="pki_type.xsd"/>
     <xsd:annotation>
-        <xsd:documentation>Описание внутренных документов-сообщений для взаимодействия с Удостоверяющим центром
-        </xsd:documentation>
+        <xsd:documentation>Описание внутренных документов-сообщений для взаимодействия с Удостоверяющим центром</xsd:documentation>
     </xsd:annotation>
     <xsd:complexType name="PkiDocument">
         <xsd:annotation>
@@ -36,7 +33,7 @@
             <xsd:complexContent>
                 <xsd:extension base="PkiDocument">
                     <xsd:sequence>
-                        <xsd:element name="organizationId" type="Organization">
+                        <xsd:element name="organization" type="Organization">
                             <xsd:annotation>
                                 <xsd:documentation>Организация</xsd:documentation>
                             </xsd:annotation>
@@ -185,6 +182,11 @@
                                 <xsd:documentation>Признак CMP пользователя</xsd:documentation>
                             </xsd:annotation>
                         </xsd:element>
+                        <xsd:element name="pinId" type="string255TYPE">
+                            <xsd:annotation>
+                                <xsd:documentation>Идентификатор пин-конверта</xsd:documentation>
+                            </xsd:annotation>
+                        </xsd:element>
                     </xsd:sequence>
                 </xsd:extension>
             </xsd:complexContent>
@@ -227,8 +229,7 @@
                             </xsd:annotation>
                             <xsd:simpleType>
                                 <xsd:restriction base="string255TYPE">
-                                    <xsd:pattern
-                                            value="[ ,«»!$&amp;\(\)\*\-\.:&lt;=&gt;\?@\[\]\^_\{\|\}~ӨөӘәҒғҚқҢңҰұҮүҺһІіa-zA-Zа-яА-Я0-9]{1,255}"/>
+                                    <xsd:pattern value="[ ,«»!$&amp;\(\)\*\-\.:&lt;=&gt;\?@\[\]\^_\{\|\}~ӨөӘәҒғҚқҢңҰұҮүҺһІіa-zA-Zа-яА-Я0-9]{1,255}"/>
                                 </xsd:restriction>
                             </xsd:simpleType>
                         </xsd:element>
@@ -449,14 +450,12 @@
                     <xsd:sequence>
                         <xsd:element name="name" type="string255TYPE" minOccurs="0">
                             <xsd:annotation>
-                                <xsd:documentation>Фильтр для названия банка, поик выполняется по like name
-                                </xsd:documentation>
+                                <xsd:documentation>Фильтр для названия банка, поик выполняется по like name</xsd:documentation>
                             </xsd:annotation>
                         </xsd:element>
                         <xsd:element name="bik" type="string255TYPE" minOccurs="0">
                             <xsd:annotation>
-                                <xsd:documentation>Фильтр для БИК банка, поик выполняется по like bik
-                                </xsd:documentation>
+                                <xsd:documentation>Фильтр для БИК банка, поик выполняется по like bik</xsd:documentation>
                             </xsd:annotation>
                         </xsd:element>
                     </xsd:sequence>

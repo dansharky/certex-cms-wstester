@@ -1,16 +1,21 @@
+
 package kz.gamma.certex.cms.web.services.common.entities;
 
-import javax.xml.bind.annotation.*;
 import java.math.BigInteger;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlSchemaType;
+import javax.xml.bind.annotation.XmlType;
 
 
 /**
  * Organization
- * <p>
+ * 
  * <p>Java class for ApproveUserTypes complex type.
- * <p>
+ * 
  * <p>The following schema fragment specifies the expected content contained within this class.
- * <p>
+ * 
  * <pre>
  * &lt;complexType name="ApproveUserTypes">
  *   &lt;complexContent>
@@ -35,15 +40,17 @@ import java.math.BigInteger;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ApproveUserTypes", namespace = "http://www.gamma.kz/webra/xsd", propOrder = {
-        "id",
-        "name",
-        "approveLevel",
-        "requestUserType",
-        "confirmUserType",
-        "requestType"
+    "id",
+    "name",
+    "approveLevel",
+    "requestUserType",
+    "confirmUserType",
+    "requestType"
 })
 public class ApproveUserTypes {
 
@@ -66,9 +73,11 @@ public class ApproveUserTypes {
 
     /**
      * Gets the value of the id property.
-     *
-     * @return possible object is
-     * {@link BigInteger }
+     * 
+     * @return
+     *     possible object is
+     *     {@link BigInteger }
+     *     
      */
     public BigInteger getId() {
         return id;
@@ -76,9 +85,11 @@ public class ApproveUserTypes {
 
     /**
      * Sets the value of the id property.
-     *
-     * @param value allowed object is
-     *              {@link BigInteger }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link BigInteger }
+     *     
      */
     public void setId(BigInteger value) {
         this.id = value;
@@ -86,9 +97,11 @@ public class ApproveUserTypes {
 
     /**
      * Gets the value of the name property.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getName() {
         return name;
@@ -96,9 +109,11 @@ public class ApproveUserTypes {
 
     /**
      * Sets the value of the name property.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setName(String value) {
         this.name = value;
@@ -106,6 +121,7 @@ public class ApproveUserTypes {
 
     /**
      * Gets the value of the approveLevel property.
+     * 
      */
     public short getApproveLevel() {
         return approveLevel;
@@ -113,6 +129,7 @@ public class ApproveUserTypes {
 
     /**
      * Sets the value of the approveLevel property.
+     * 
      */
     public void setApproveLevel(short value) {
         this.approveLevel = value;
@@ -120,9 +137,11 @@ public class ApproveUserTypes {
 
     /**
      * Gets the value of the requestUserType property.
-     *
-     * @return possible object is
-     * {@link UserTYPE }
+     * 
+     * @return
+     *     possible object is
+     *     {@link UserTYPE }
+     *     
      */
     public UserTYPE getRequestUserType() {
         return requestUserType;
@@ -130,9 +149,11 @@ public class ApproveUserTypes {
 
     /**
      * Sets the value of the requestUserType property.
-     *
-     * @param value allowed object is
-     *              {@link UserTYPE }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link UserTYPE }
+     *     
      */
     public void setRequestUserType(UserTYPE value) {
         this.requestUserType = value;
@@ -140,9 +161,11 @@ public class ApproveUserTypes {
 
     /**
      * Gets the value of the confirmUserType property.
-     *
-     * @return possible object is
-     * {@link UserTYPE }
+     * 
+     * @return
+     *     possible object is
+     *     {@link UserTYPE }
+     *     
      */
     public UserTYPE getConfirmUserType() {
         return confirmUserType;
@@ -150,9 +173,11 @@ public class ApproveUserTypes {
 
     /**
      * Sets the value of the confirmUserType property.
-     *
-     * @param value allowed object is
-     *              {@link UserTYPE }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link UserTYPE }
+     *     
      */
     public void setConfirmUserType(UserTYPE value) {
         this.confirmUserType = value;
@@ -160,9 +185,11 @@ public class ApproveUserTypes {
 
     /**
      * Gets the value of the requestType property.
-     *
-     * @return possible object is
-     * {@link RequestTYPE }
+     * 
+     * @return
+     *     possible object is
+     *     {@link RequestTYPE }
+     *     
      */
     public RequestTYPE getRequestType() {
         return requestType;
@@ -170,9 +197,11 @@ public class ApproveUserTypes {
 
     /**
      * Sets the value of the requestType property.
-     *
-     * @param value allowed object is
-     *              {@link RequestTYPE }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link RequestTYPE }
+     *     
      */
     public void setRequestType(RequestTYPE value) {
         this.requestType = value;

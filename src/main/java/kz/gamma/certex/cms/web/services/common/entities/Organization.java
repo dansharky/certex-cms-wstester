@@ -1,18 +1,23 @@
+
 package kz.gamma.certex.cms.web.services.common.entities;
 
-import javax.xml.bind.annotation.*;
-import javax.xml.datatype.XMLGregorianCalendar;
 import java.util.ArrayList;
 import java.util.List;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlSchemaType;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.datatype.XMLGregorianCalendar;
 
 
 /**
  * Organization
- * <p>
+ * 
  * <p>Java class for Organization complex type.
- * <p>
+ * 
  * <p>The following schema fragment specifies the expected content contained within this class.
- * <p>
+ * 
  * <pre>
  * &lt;complexType name="Organization">
  *   &lt;complexContent>
@@ -40,26 +45,28 @@ import java.util.List;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Organization", namespace = "http://www.gamma.kz/webra/xsd", propOrder = {
-        "legalData",
-        "isBlocked",
-        "isCertLogin",
-        "isSimpleOrder",
-        "isPreOrder",
-        "isDefaultOrder",
-        "isApproveInit",
-        "isApproveOneReg",
-        "isApproveTwoReg",
-        "isApproveOneRev",
-        "isApproveTwoRev",
-        "isGetTumar",
-        "isGetTumarJce",
-        "defaultOrder",
-        "createDate",
-        "defaultUser",
-        "fxOrganizationsApproves"
+    "legalData",
+    "isBlocked",
+    "isCertLogin",
+    "isSimpleOrder",
+    "isPreOrder",
+    "isDefaultOrder",
+    "isApproveInit",
+    "isApproveOneReg",
+    "isApproveTwoReg",
+    "isApproveOneRev",
+    "isApproveTwoRev",
+    "isGetTumar",
+    "isGetTumarJce",
+    "defaultOrder",
+    "createDate",
+    "defaultUser",
+    "fxOrganizationsApproves"
 })
 public class Organization {
 
@@ -101,9 +108,11 @@ public class Organization {
 
     /**
      * Gets the value of the legalData property.
-     *
-     * @return possible object is
-     * {@link Legal }
+     * 
+     * @return
+     *     possible object is
+     *     {@link Legal }
+     *     
      */
     public Legal getLegalData() {
         return legalData;
@@ -111,9 +120,11 @@ public class Organization {
 
     /**
      * Sets the value of the legalData property.
-     *
-     * @param value allowed object is
-     *              {@link Legal }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Legal }
+     *     
      */
     public void setLegalData(Legal value) {
         this.legalData = value;
@@ -121,6 +132,7 @@ public class Organization {
 
     /**
      * Gets the value of the isBlocked property.
+     * 
      */
     public boolean isIsBlocked() {
         return isBlocked;
@@ -128,6 +140,7 @@ public class Organization {
 
     /**
      * Sets the value of the isBlocked property.
+     * 
      */
     public void setIsBlocked(boolean value) {
         this.isBlocked = value;
@@ -135,6 +148,7 @@ public class Organization {
 
     /**
      * Gets the value of the isCertLogin property.
+     * 
      */
     public boolean isIsCertLogin() {
         return isCertLogin;
@@ -142,6 +156,7 @@ public class Organization {
 
     /**
      * Sets the value of the isCertLogin property.
+     * 
      */
     public void setIsCertLogin(boolean value) {
         this.isCertLogin = value;
@@ -149,6 +164,7 @@ public class Organization {
 
     /**
      * Gets the value of the isSimpleOrder property.
+     * 
      */
     public boolean isIsSimpleOrder() {
         return isSimpleOrder;
@@ -156,6 +172,7 @@ public class Organization {
 
     /**
      * Sets the value of the isSimpleOrder property.
+     * 
      */
     public void setIsSimpleOrder(boolean value) {
         this.isSimpleOrder = value;
@@ -163,6 +180,7 @@ public class Organization {
 
     /**
      * Gets the value of the isPreOrder property.
+     * 
      */
     public boolean isIsPreOrder() {
         return isPreOrder;
@@ -170,6 +188,7 @@ public class Organization {
 
     /**
      * Sets the value of the isPreOrder property.
+     * 
      */
     public void setIsPreOrder(boolean value) {
         this.isPreOrder = value;
@@ -177,6 +196,7 @@ public class Organization {
 
     /**
      * Gets the value of the isDefaultOrder property.
+     * 
      */
     public boolean isIsDefaultOrder() {
         return isDefaultOrder;
@@ -184,6 +204,7 @@ public class Organization {
 
     /**
      * Sets the value of the isDefaultOrder property.
+     * 
      */
     public void setIsDefaultOrder(boolean value) {
         this.isDefaultOrder = value;
@@ -191,6 +212,7 @@ public class Organization {
 
     /**
      * Gets the value of the isApproveInit property.
+     * 
      */
     public boolean isIsApproveInit() {
         return isApproveInit;
@@ -198,6 +220,7 @@ public class Organization {
 
     /**
      * Sets the value of the isApproveInit property.
+     * 
      */
     public void setIsApproveInit(boolean value) {
         this.isApproveInit = value;
@@ -205,6 +228,7 @@ public class Organization {
 
     /**
      * Gets the value of the isApproveOneReg property.
+     * 
      */
     public boolean isIsApproveOneReg() {
         return isApproveOneReg;
@@ -212,6 +236,7 @@ public class Organization {
 
     /**
      * Sets the value of the isApproveOneReg property.
+     * 
      */
     public void setIsApproveOneReg(boolean value) {
         this.isApproveOneReg = value;
@@ -219,6 +244,7 @@ public class Organization {
 
     /**
      * Gets the value of the isApproveTwoReg property.
+     * 
      */
     public boolean isIsApproveTwoReg() {
         return isApproveTwoReg;
@@ -226,6 +252,7 @@ public class Organization {
 
     /**
      * Sets the value of the isApproveTwoReg property.
+     * 
      */
     public void setIsApproveTwoReg(boolean value) {
         this.isApproveTwoReg = value;
@@ -233,6 +260,7 @@ public class Organization {
 
     /**
      * Gets the value of the isApproveOneRev property.
+     * 
      */
     public boolean isIsApproveOneRev() {
         return isApproveOneRev;
@@ -240,6 +268,7 @@ public class Organization {
 
     /**
      * Sets the value of the isApproveOneRev property.
+     * 
      */
     public void setIsApproveOneRev(boolean value) {
         this.isApproveOneRev = value;
@@ -247,6 +276,7 @@ public class Organization {
 
     /**
      * Gets the value of the isApproveTwoRev property.
+     * 
      */
     public boolean isIsApproveTwoRev() {
         return isApproveTwoRev;
@@ -254,6 +284,7 @@ public class Organization {
 
     /**
      * Sets the value of the isApproveTwoRev property.
+     * 
      */
     public void setIsApproveTwoRev(boolean value) {
         this.isApproveTwoRev = value;
@@ -261,6 +292,7 @@ public class Organization {
 
     /**
      * Gets the value of the isGetTumar property.
+     * 
      */
     public boolean isIsGetTumar() {
         return isGetTumar;
@@ -268,6 +300,7 @@ public class Organization {
 
     /**
      * Sets the value of the isGetTumar property.
+     * 
      */
     public void setIsGetTumar(boolean value) {
         this.isGetTumar = value;
@@ -275,6 +308,7 @@ public class Organization {
 
     /**
      * Gets the value of the isGetTumarJce property.
+     * 
      */
     public boolean isIsGetTumarJce() {
         return isGetTumarJce;
@@ -282,6 +316,7 @@ public class Organization {
 
     /**
      * Sets the value of the isGetTumarJce property.
+     * 
      */
     public void setIsGetTumarJce(boolean value) {
         this.isGetTumarJce = value;
@@ -289,9 +324,11 @@ public class Organization {
 
     /**
      * Gets the value of the defaultOrder property.
-     *
-     * @return possible object is
-     * {@link Order }
+     * 
+     * @return
+     *     possible object is
+     *     {@link Order }
+     *     
      */
     public Order getDefaultOrder() {
         return defaultOrder;
@@ -299,9 +336,11 @@ public class Organization {
 
     /**
      * Sets the value of the defaultOrder property.
-     *
-     * @param value allowed object is
-     *              {@link Order }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Order }
+     *     
      */
     public void setDefaultOrder(Order value) {
         this.defaultOrder = value;
@@ -309,9 +348,11 @@ public class Organization {
 
     /**
      * Gets the value of the createDate property.
-     *
-     * @return possible object is
-     * {@link XMLGregorianCalendar }
+     * 
+     * @return
+     *     possible object is
+     *     {@link XMLGregorianCalendar }
+     *     
      */
     public XMLGregorianCalendar getCreateDate() {
         return createDate;
@@ -319,9 +360,11 @@ public class Organization {
 
     /**
      * Sets the value of the createDate property.
-     *
-     * @param value allowed object is
-     *              {@link XMLGregorianCalendar }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link XMLGregorianCalendar }
+     *     
      */
     public void setCreateDate(XMLGregorianCalendar value) {
         this.createDate = value;
@@ -329,9 +372,11 @@ public class Organization {
 
     /**
      * Gets the value of the defaultUser property.
-     *
-     * @return possible object is
-     * {@link Person }
+     * 
+     * @return
+     *     possible object is
+     *     {@link Person }
+     *     
      */
     public Person getDefaultUser() {
         return defaultUser;
@@ -339,9 +384,11 @@ public class Organization {
 
     /**
      * Sets the value of the defaultUser property.
-     *
-     * @param value allowed object is
-     *              {@link Person }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Person }
+     *     
      */
     public void setDefaultUser(Person value) {
         this.defaultUser = value;
@@ -349,23 +396,25 @@ public class Organization {
 
     /**
      * Gets the value of the fxOrganizationsApproves property.
-     * <p>
+     * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the fxOrganizationsApproves property.
-     * <p>
+     * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getFxOrganizationsApproves().add(newItem);
      * </pre>
-     * <p>
-     * <p>
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link ApproveUserTypes }
+     * 
+     * 
      */
     public List<ApproveUserTypes> getFxOrganizationsApproves() {
         if (fxOrganizationsApproves == null) {
