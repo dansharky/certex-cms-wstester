@@ -3,9 +3,10 @@ package kz.gamma.certex.cms.web.services.common;
 import kz.gamma.cms.*;
 import kz.gamma.tumarcsp.params.StoreObjectParam;
 
-import java.security.KeyStore;
-import java.security.PrivateKey;
+import java.io.IOException;
+import java.security.*;
 import java.security.cert.CertStore;
+import java.security.cert.CertStoreException;
 import java.security.cert.CollectionCertStoreParameters;
 import java.security.cert.X509Certificate;
 import java.util.ArrayList;
@@ -38,11 +39,17 @@ public class CryptoProcessor {
         return pkcs7Data;
     }
 
-    public static byte[] sign(byte[] data, KeyStore store, String password) throws Exception {
+    public static byte[] sign(byte[] data, KeyStore store, String password)
+            throws KeyStoreException, UnrecoverableKeyException, NoSuchAlgorithmException,
+            NoSuchProviderException, InvalidAlgorithmParameterException,
+            CertStoreException, CMSException, IOException   {
         return sign(data, store, password, null);
     }
 
-    public static byte[] sign(byte[] data, KeyStore store, String password, String alias) throws Exception {
+    public static byte[] sign(byte[] data, KeyStore store, String password, String alias)
+            throws KeyStoreException, UnrecoverableKeyException, NoSuchAlgorithmException,
+            NoSuchProviderException, InvalidAlgorithmParameterException,
+            CertStoreException, CMSException, IOException {
 
         Enumeration en = store.aliases();
         if (alias == null) {

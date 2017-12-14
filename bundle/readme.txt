@@ -3,7 +3,7 @@
 Пример запуска:
 java -jar wstester.jar -method getCityList -input /home/user/docIn.xml -wsdl http://localhost:8080/webra/Service?wsdl -xsd /home/user/pki_messages.xsd -profile officer_gost -pass 1
 
--method 
+-method
 метод веб-сервиса который надо вызвать 
 один из 
 		createPerson, getCertList, revokeCert, requestCert,
@@ -35,3 +35,6 @@ xsd файл для валидации сообщений (в нашем слу�
 Пример аргументов:
 
 -method createPerson -input /home/dansharky/docIn.xml -wsdl http://localhost:8080/webra/Service?wsdl -xsd /home/dansharky/pki_document.xsd -profile officer_gost -pass 1
+
+
+ 

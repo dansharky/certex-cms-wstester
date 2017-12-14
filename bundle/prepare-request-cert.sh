@@ -14,7 +14,7 @@ java -cp wstester.jar kz.gamma.certex.cms.web.services.PrepareCertRequestXml \
     -sign-profile officer_gost \
     -sign-pass 1 \
     -dn-file dn-file.txt \
-    -template "C=KZ, O=Template, CN=GOST_USER_SIGN_14D" \
+    -template "C=KZ, O=Template, CN=GOST_USER_SIGN_14D|C=KZ, O=Template, CN=RSA_USER_SIGN_14D" \
     -tariff-id 39 \
     -detail-id 0 \
     -type initialization \

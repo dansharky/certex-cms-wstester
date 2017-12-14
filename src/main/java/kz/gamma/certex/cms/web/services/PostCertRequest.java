@@ -5,6 +5,7 @@ import com.beust.jcommander.Parameter;
 import com.beust.jcommander.ParameterException;
 import kz.gamma.certex.cms.web.services.common.XMLProcessor;
 import kz.gamma.certex.cms.web.services.common.entities.DocRequestCertOut;
+import kz.gamma.certex.cms.web.services.common.entities.RequestDetail;
 import kz.gamma.jce.provider.GammaTechProvider;
 import org.apache.commons.io.IOUtils;
 
@@ -36,7 +37,7 @@ public class PostCertRequest {
         Security.addProvider(new GammaTechProvider());
 
         final String userDir = System.getProperty("user.dir");
-        final String xsdFilePath =  userDir + "/pki_document.xsd";
+        final String xsdFilePath = userDir + "/pki_document.xsd";
         String caGostCertPath = userDir + "/base_Gost.cer";
         String headCaGostCertPath = userDir + "/base_Gost_Head.cer";
         String caRSACertPath = userDir + "/base_Rsa.cer";
@@ -59,9 +60,14 @@ public class PostCertRequest {
         DocRequestCertOut docOut = (DocRequestCertOut) XMLProcessor.unmarshal(bytes, true, ENCODING, new File(xsdFilePath));
         System.out.println(docOut);
 
-        Utils.addCertInProfile(docOut,
-                as.profile, as.pass, alg,
-                caGostCertPath, headCaGostCertPath, caRSACertPath, headRSACertPath);
+        System.out.println("Got : " + docOut.getRequest().getFxRequestDetails().size() + " certs, installing");
+
+        for (RequestDetail rd : docOut.getRequest().getFxRequestDetails()) {
+            Utils.addCertInProfile(rd,
+                    as.profile, as.pass, alg,
+                    caGostCertPath, headCaGostCertPath,
+                    caRSACertPath, headRSACertPath);
+        }
 
         System.out.println("Certificate is installed!");
     }

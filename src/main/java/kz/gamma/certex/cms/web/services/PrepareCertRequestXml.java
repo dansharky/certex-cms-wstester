@@ -8,6 +8,7 @@ import kz.gamma.jce.provider.GammaTechProvider;
 import kz.gamma.util.encoders.Base64;
 import org.junit.Assert;
 
+import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -15,6 +16,12 @@ import java.security.*;
 import java.util.List;
 
 public class PrepareCertRequestXml {
+
+    private static final String DETAIL_XML =
+            "\t<fxRequestDetails>\n" +
+                    "\t\t<bodySigned>%body%\n" +
+                    "\t\t</bodySigned>\n" +
+                    "\t</fxRequestDetails>";
 
     private static final String XML = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n" +
             "<docRequestCertIn xmlns=\"http://www.gamma.kz/webra/xsd\"><request>\n" +
@@ -25,10 +32,7 @@ public class PrepareCertRequestXml {
             "\t<type>%type%</type>\n" +
             "\t<cause>cert request test</cause>\n" +
             "\t<comment>cert request test</comment>\n" +
-            "\t<fxRequestDetails>\n" +
-            "\t\t<bodySigned>%body%\n" +
-            "\t\t</bodySigned>\n" +
-            "\t</fxRequestDetails>\n" +
+            "%details%" +
             "</request>\n" +
             "</docRequestCertIn>";
 
@@ -93,20 +97,34 @@ public class PrepareCertRequestXml {
             as.dn = lines.get(0);
         }
 
-
-        KeyPair keyPair = Utils.generateGOSTKeyPair(as.genProfile, as.genPass);
-        PKCS10CertificationRequest req = Utils.makeGOSTpkcs10Request(as.dn, keyPair, as.template);
-        Assert.assertTrue(req.verify());
-
-        byte[] pkcs7Signed = Utils.signPKCS10WithDefProfile(req, signProfile, signPass, as.signAlias);
-        String sign = new String(Base64.encode(pkcs7Signed));
+        String details;
+        if (as.template.contains("|")) {
+            String[] templates = as.template.split("\\|");
+            StringBuilder sb = new StringBuilder();
+            for (String template : templates) {
+                template = template.trim();
+                boolean gostAlg = isGost(template);
+                String detail = generateDetail(as.genProfile, as.genPass,
+                        signProfile, signPass, as.signAlias,
+                        as.dn, template, gostAlg);
+                sb.append(detail).append("\n");
+            }
+            details = sb.toString();
+        } else {
+            boolean gostAlg = isGost(as.template);
+            details = generateDetail(as.genProfile, as.genPass,
+                    signProfile, signPass, as.signAlias,
+                    as.dn, as.template, gostAlg);
+        }
 
         String xml = XML
                 .replace("%dn%", as.dn)
                 .replace("%tariffId%", Long.toString(as.tariffId))
                 .replace("%detailId%", Long.toString(as.detailId))
                 .replace("%type%", as.type)
-                .replace("%body%", sign);
+                .replace("%details%", details)
+                .replace("%detail%", details);
+
         System.out.println(xml);
         if (as.output != null) {
             System.out.println("Writing result to output: " + as.output);
@@ -116,6 +134,31 @@ public class PrepareCertRequestXml {
     }
 
 
+    private static boolean isGost(String template) {
+        return template.matches(".*CN=GOST.*");
+    }
+
+    private static String generateDetail(String genProfile, String genPass,
+                                         String signProfile, String signPass, String signAlias,
+                                         String dn, String template, boolean gost) throws Exception {
+
+        KeyPair keyPair;
+        PKCS10CertificationRequest req;
+        if (gost) {
+            keyPair = Utils.generateGOSTKeyPair(genProfile, genPass);
+            req = Utils.makeGOSTpkcs10Request(dn, keyPair, template);
+        } else {
+            keyPair = Utils.generateRSAKeyPair(genProfile, genPass);
+            req = Utils.makeRSApkcs10Request(dn, keyPair, template);
+        }
+
+        Assert.assertTrue(req.verify());
+
+        byte[] pkcs7Signed = Utils.signPKCS10WithDefProfile(req, signProfile, signPass, signAlias);
+        String sign = new String(Base64.encode(pkcs7Signed));
+
+        return DETAIL_XML.replace("%body%", sign);
+    }
 
 
 }

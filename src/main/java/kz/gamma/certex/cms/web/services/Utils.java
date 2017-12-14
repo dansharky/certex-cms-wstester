@@ -45,15 +45,22 @@ import java.security.cert.*;
 import java.util.*;
 
 public class Utils {
+
     private static final String X_509 = "X.509";
     private static final String GKS = "GKS";
+    private static final String RSA = "RSA";
     private static final String ENCODING = "UTF-8";
 
     private static final String SHA_256_WITH_RSA = "SHA256withRSA";
     private static final String GAMMA = "GAMMA";
     private static final String GOST_ALG = "1.3.6.1.4.1.6801.1.5.8";
-    private static final EndiannessUtils endiannessUtils = new EndiannessUtils();
+    private static final String RSA_ALG = "1.3.6.1.4.1.6801.1.5.22";
+
     private static final String ECGOST34310 = "ECGOST34310";
+    private static final String SHA1_WITHRSA = "SHA1WITHRSA";
+
+    private static final EndiannessUtils endiannessUtils = new EndiannessUtils();
+
 
     public static X509Certificate getX509CertificateFromFile(String path) {
         byte[] certDecode = new byte[0];
@@ -79,18 +86,21 @@ public class Utils {
         return CAcert;
     }
 
-    public static void addCertInProfile(DocRequestCertOut docOut,
+
+    public static void addCertInProfile(RequestDetail requestDetail,
                                         String profile, String pass,
                                         String alg,
                                         String caGostCertPath, String headCaGostCertPath,
                                         String caRSACertPath, String headRSACertPath) throws Exception {
 
+
         CertificateFactory certFact = CertificateFactory.getInstance(X_509);
-        InputStream in = new ByteArrayInputStream(docOut.getRequest().getFxRequestDetails().get(0).getBodySigned());
+        InputStream in = new ByteArrayInputStream(requestDetail.getBodySigned());
         X509Certificate cert = (X509Certificate) certFact.generateCertificate(in);
+
         KeyStore keyStore = KeyStore.getInstance(GKS, GAMMA);
         keyStore.load(new ByteArrayInputStream(profile.getBytes()), pass.toCharArray());
-        X509Certificate x509 = Utils.getX509FromBytes(docOut.getRequest().getFxRequestDetails().get(0).getCertBody());
+        X509Certificate x509 = Utils.getX509FromBytes(requestDetail.getCertBody());
         CertificateFieldsResolver cr = new CertificateFieldsResolver();
         String serial = (String) cr.getSerialNumber(x509, CertificateFieldsResolver.HEX_STRING);
         keyStore.setCertificateEntry(serial, cert);
@@ -128,13 +138,26 @@ public class Utils {
         TumarCspFunctions.cpReleaseContext(handleProv, LibraryWrapper.ZERO);
     }
 
-    public static KeyPair generateGOSTKeyPair(String profile, String pass) throws Exception {
+
+    public static KeyPair generateGOSTKeyPair(String profile, String pass)
+            throws NoSuchProviderException, NoSuchAlgorithmException {
         KeyPairGenerator kpg = KeyPairGenerator.getInstance(ECGOST34310, GAMMA);
         if (GammaTechProvider.algUtil.algKey.containsKey(GOST_ALG)) {
             kpg.initialize(GammaTechProvider.algUtil.algKey.get(GOST_ALG));
         }
         ((JDKKeyPairGenerator.ECGOST34310) kpg).setProfName(profile, pass);
         return kpg.generateKeyPair();
+    }
+
+    public static KeyPair generateRSAKeyPair(String profile, String pass)
+            throws NoSuchProviderException, NoSuchAlgorithmException {
+        KeyPairGenerator kpg = KeyPairGenerator.getInstance(RSA, GAMMA);
+        if (GammaTechProvider.algUtil.algKey.containsKey(RSA_ALG)) {
+            kpg.initialize(GammaTechProvider.algUtil.algKey.get(RSA_ALG));
+        }
+        ((JDKKeyPairGenerator.RSA) kpg).setProfName(profile, pass);
+        return kpg.generateKeyPair();
+
     }
 
     public static Attribute getAttribute() {
@@ -193,8 +216,8 @@ public class Utils {
         return new DERSet(asn1EncodableVector);
     }
 
-    public static byte[] signPKCS10WithDefProfile(PKCS10CertificationRequest req, String profile, String pass, String alias)
-            throws Exception {
+    public static byte[] signPKCS10WithDefProfile(PKCS10CertificationRequest req,
+                                                  String profile, String pass, String alias) throws Exception {
         ClientKeyStoreProvider provider = new ClientKeyStoreProvider(profile, pass);
         return CryptoProcessor.sign(req.getDEREncoded(), provider.getStore(), provider.getPassword(), alias);
     }
@@ -206,6 +229,15 @@ public class Utils {
         return new PKCS10CertificationRequest(ECGOST34310,
                 new X509Name(dnName), keyPair.getPublic(),
                 getASN1Template(template, attribute), keyPair.getPrivate());
+    }
+
+    public static PKCS10CertificationRequest makeRSApkcs10Request(String dnName, KeyPair keyPair, String template)
+            throws NoSuchAlgorithmException, NoSuchProviderException,
+            InvalidKeyException, SignatureException, IOException {
+        Attribute attribute = getAttribute();
+
+        return new PKCS10CertificationRequest(SHA1_WITHRSA,
+                new X509Name(dnName), keyPair.getPublic(), getASN1Template(template, attribute), keyPair.getPrivate());
     }
 
     public static byte[] getSignedRevokeRequest(RevokeRequest req, PrivateKey key, X509Certificate cert)
