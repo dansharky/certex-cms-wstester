@@ -5,3 +5,5 @@ java -jar wstester.jar^
     -profile officer_gost^
     -pass 1^
     -output ./responces/revokeCertResp.xml
+
+PAUSE

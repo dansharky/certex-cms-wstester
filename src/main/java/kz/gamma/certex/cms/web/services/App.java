@@ -23,7 +23,7 @@ import java.util.Objects;
 public class App {
 
     private static final String ENCODING = "UTF-8";
-    private static final String WS_SYSTEM = "WebraWS test case";
+    public static final String WS_SYSTEM = "WebraWS test case";
     public static final byte[] BOM = new byte[]{(byte) 0xEF, (byte) 0xBB, (byte) 0xBF};
     ;
 

@@ -49,7 +49,7 @@ public class Utils {
     private static final String X_509 = "X.509";
     private static final String GKS = "GKS";
     private static final String RSA = "RSA";
-    private static final String ENCODING = "UTF-8";
+    public static final String ENCODING = "UTF-8";
 
     private static final String SHA_256_WITH_RSA = "SHA256withRSA";
     private static final String GAMMA = "GAMMA";

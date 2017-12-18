@@ -17,3 +17,5 @@ java -cp wstester.jar kz.gamma.certex.cms.web.services.PrepareCertRequestXml^
     -detail-id 0^
     -type registration^
     -output ./requests/requestCert.xml
+
+PAUSE

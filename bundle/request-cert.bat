@@ -6,3 +6,4 @@ java -jar wstester.jar^
     -profile officer_gost^
     -pass ""
 
+PAUSE
