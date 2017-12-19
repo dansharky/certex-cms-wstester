@@ -155,6 +155,8 @@ public class MassUserCreateUtil {
                     Integer index = columnIndex.get(param);
                     if (index != null && index < row.length) {
                         String paramValue = row[index].trim();
+                        if (paramValue.equals("TRUE")) paramValue = "true";
+                        if (paramValue.equals("FALSE")) paramValue = "false";
                         xml = xml.replace("%" + param + "%", paramValue);
                     } else {
                         xml = xml.replaceAll("$.*%" + param + "%.*^", "");
@@ -173,11 +175,11 @@ public class MassUserCreateUtil {
                 if (response.getPkcs7() == null) {
                     System.out.println("Error: " + response.getError().getCode() + " " +
                             response.getError().getMessage());
-                    return;
+                    continue;
                 }
 
                 Pkcs7Data respPkcs7 = CryptoProcessor.getPkcs7Object(response.getPkcs7());
-                FileOutputStream fos = new FileOutputStream(as.output);
+                FileOutputStream fos = new FileOutputStream(as.output + "/mass-create-resp-" + i + ".xml" );
 //            fos.write(BOM);
                 fos.write(respPkcs7.getData());
                 fos.close();

@@ -57,7 +57,8 @@ public class PostCertRequest {
         String alg = as.algorithm != null ? as.algorithm : DEFAULT_ALGORITHM;
 
         byte[] bytes = IOUtils.toByteArray(new FileInputStream(as.request));
-        DocRequestCertOut docOut = (DocRequestCertOut) XMLProcessor.unmarshal(bytes, true, ENCODING, new File(xsdFilePath));
+        DocRequestCertOut docOut = (DocRequestCertOut) XMLProcessor.unmarshal(bytes, true, ENCODING,
+                new File(xsdFilePath));
         System.out.println(docOut);
 
         System.out.println("Got : " + docOut.getRequest().getFxRequestDetails().size() + " certs, installing");
