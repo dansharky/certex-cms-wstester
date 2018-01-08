@@ -1,7 +1,7 @@
 Утилита предназначена для тестирования веб-сервисов Certex.cms
  
 Пример запуска:
-java -jar wstester.jar -method getCityList -input /home/user/docIn.xml -wsdl http://localhost:8080/webra/Service?wsdl -xsd /home/user/pki_messages.xsd -profile officer_gost -pass 1
+java -jar wstester.jar -method createPerson -input /home/dansharky/docIn.xml -output result.xml -wsdl http://localhost:8080/webra/Service?wsdl -profile officer_gost -pass 1
 
 -method
 метод веб-сервиса который надо вызвать 
@@ -17,24 +17,21 @@ java -jar wstester.jar -method getCityList -input /home/user/docIn.xml -wsdl htt
 -input
 входной файл - пример приложен
 
+-output
+название под которым будет сохранен файл ответа
+
 -wsdl
 адрес wsdl сервиса (необходимо соблюдать формат!) не забыть в конце ?wsdl
 
--xsd
-xsd файл для валидации сообщений (в нашем случае тут два файла: сами сообщения и типы)
-файл pki_type.xsd должен находиться в той же директории что и pki_messages.xsd
-Оба файла приложены
-
 -profile
 название профайла, ключом которым будет подписан запрос
-
 
 -pass
 пароль к ключу
 
 Пример аргументов:
 
--method createPerson -input /home/dansharky/docIn.xml -wsdl http://localhost:8080/webra/Service?wsdl -xsd /home/dansharky/pki_document.xsd -profile officer_gost -pass 1
+-method createPerson -input /home/dansharky/docIn.xml -output result.xml -wsdl http://localhost:8080/webra/Service?wsdl -profile officer_gost -pass 1
 
-
- 
+директория, из которой запускается jar должна содержать xsd файлы pki_document.xsd и pki_type.xsd
+(название файлов должно быть таким же!)
